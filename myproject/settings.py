@@ -171,3 +171,4 @@ SIMPLE_JWT = {
 REST_AUTH_REGISTER_SERIALIZERS = {
     "REGISTER_SERIALIZER": "users.serializers.CustomRegisterSerializer",
 }
+SESSION_COOKIE_SECURE = True
