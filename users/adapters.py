@@ -37,6 +37,6 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
 
     def get_email_confirmation_url(self, request, emailconfirmation):
-        custom_domain = "http://54.221.153.85:8000/"
+        custom_domain = "http://18.118.254.193:8000/"
         url = reverse("account_confirm_email", args=[emailconfirmation.key])
         return f"{custom_domain}{url}"   
