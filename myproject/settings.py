@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback_key")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*", "54.82.253.10", "172.31.88.122","54.221.153.85"]
  
