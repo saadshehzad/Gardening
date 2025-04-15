@@ -21,8 +21,13 @@ from plant.serializers import ProductSerializer
 from .models import *
 from .models import Region, User, UserRegion
 from .serializers import *
-from .serializers import CustomRegisterSerializer, UserRegionProductSerialzier
+from .serializers import CustomRegisterSerializer, UserRegionProductSerialzier, MyTokenObtainPairSerializer
 
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 
 class RegionCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]

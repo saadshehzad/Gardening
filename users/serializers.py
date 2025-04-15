@@ -35,3 +35,13 @@ class CustomRegisterSerializer(RegisterSerializer):
 #         # You can add extra fields to the response here
 #         data['username'] = self.user.username  # Example: include username in the response
 #         return data  
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['username'] = self.user.username
+        data['uid'] = self.user.id
+        data['email'] = self.user.email
+        data['first_name'] = self.user.first_name
+        data['last_name'] = self.user.last_name
+        return data
