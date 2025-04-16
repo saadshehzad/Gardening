@@ -14,6 +14,7 @@ class UserPostSerializer(serializers.ModelSerializer):
 
 class ArticleSerilizer(serializers.ModelSerializer):
     image = serializers.ImageField(required=False)
+    created_at=serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S",read_only=True)
 
     class Meta:
         model = Articles

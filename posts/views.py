@@ -18,10 +18,12 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-
         if serializer.is_valid():
             req_user = request.user
             description = serializer.validated_data.get("description")
+            image=request.FILES.get('image')
+            if not image:
+                return Response({"error"})
 
             try:
                 user = User.objects.get(username=req_user)
@@ -29,16 +31,14 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
                 return Response(
                     {"error": "User not found"}, status=status.HTTP_404_NOT_FOUND
                 )
-
             try:
-                UserPost.objects.create(description=description, user=user)
+                UserPost.objects.create(description=description, user=user, image=image)
                 return Response(
                     {"message": "Post created successfully"},
                     status=status.HTTP_201_CREATED,
                 )
             except:
                 return Response({"message": "Error while creating Post."})
-
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
