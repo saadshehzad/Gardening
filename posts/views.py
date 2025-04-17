@@ -50,13 +50,14 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        image=request.FILES.get("image")
 
         if serializer.is_valid():
             req_user = request.user
             url = serializer.validated_data.get("url")
 
             try:
-                user = User.objects.get(username=req_user)
+                user = User.objects.get(username=req_user,image=image)
             except User.DoesNotExist:
                 return Response(
                     {"error": "User not found"}, status=status.HTTP_404_NOT_FOUND
