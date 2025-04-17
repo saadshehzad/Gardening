@@ -22,7 +22,6 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
             req_user = request.user
             description = serializer.validated_data.get("description")
             image=request.FILES.get('image')
-            print("============================")
             if not image:
                 return Response({"error"})
 
