@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(User)
 admin.site.register(Region)
 admin.site.register(UserRegion)
+admin.site.register(UserProfile)

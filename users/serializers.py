@@ -28,7 +28,14 @@ class CustomRegisterSerializer(RegisterSerializer):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("Email is already in use.")
         return value  
-    
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ("id", "user", "full_name", "region", "image", "bio")
+        read_only_fields = ("id", "user")
+
 # class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 #     def validate(self, attrs):
 #         data = super().validate(attrs)

@@ -24,3 +24,17 @@ class UserRegion(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    full_name = models.CharField(max_length=100, blank=True)
+    region = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+    bio = models.TextField(max_length=500, blank=True)
+    latitude = models.FloatField(max_length=100, blank=True, null=True)
+    longitude = models.FloatField(max_length=100, blank=True, null=True)
+    
+
+    def __str__(self):
+        return self.user.username

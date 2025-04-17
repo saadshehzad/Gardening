@@ -45,7 +45,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
 
 class ArticlesListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
-    serializer_class = ArticleSerilizer
+    serializer_class = ArticleSerializer
     queryset = Articles.objects.all()
 
     def post(self, request, *args, **kwargs):
@@ -74,3 +74,27 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
 
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+"""
+class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
+     permission_classes = [IsAuthenticated, IsAdminUser]
+     serializer_class = ReportProblemSerializer
+
+
+     def post(self,request,*args, **kwargs):   
+          serializers=self.get_serializer(data=request.data)
+          image=request.FILES.get("image")
+          if serializers.is_valid:
+            serializer.save()
+            ReportProblem.objects.create(image=image,description=description)
+            return Response({"message":"Report Problem successfully"},status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+          """
+          
+          
+          
+
+
+             
+             
+             

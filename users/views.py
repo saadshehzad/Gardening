@@ -84,7 +84,41 @@ from allauth.account.views import ConfirmEmailView
 
 class CustomConfirmEmailView(ConfirmEmailView):
     template_name = "account/email/email_confirm.html"  
-    
+
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        try:
+            profile, created = UserProfile.objects.get_or_create(user=request.user)
+            serializer = UserProfileSerializer(profile)
+            return Response(serializer.data)
+        except UserProfile.DoesNotExist:
+            return Response({}, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs):
+        if UserProfile.objects.filter(user=request.user).exists():
+            return Response(
+                {"error": "Profile already exists. Use PUT to update."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        serializer = UserProfileSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, *args, **kwargs):
+        try:
+            profile, created = UserProfile.objects.get_or_create(user=request.user)
+            serializer = UserProfileSerializer(profile, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except UserProfile.DoesNotExist:
+            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
     
     
 
