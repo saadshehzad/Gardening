@@ -4,7 +4,9 @@ from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+import json
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 from users.models import User
 
 from .models import UserPost
@@ -75,27 +77,36 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
-     permission_classes = [IsAuthenticated, IsAdminUser]
-     serializer_class = ReportProblemSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+    serializer_class = ReportProblemSerializer
+    queryset = ReportProblem.objects.all()
 
+    def post(self, request, *args, **kwargs):
+        data = request.data.copy()
 
-     def post(self,request,*args, **kwargs):   
-          serializers=self.get_serializer(data=request.data)
-          image=request.FILES.get("image")
-          description=request.data.get("description")
-          if serializers.is_valid():
-            serializers.save()
-            ReportProblem.objects.create(image=image, description= description,user=request.user)
-            return Response({"message":"Report Problem successfully"},status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-          
-          
-          
+        images = request.FILES.getlist("image")
+        image_urls = []
+        for image in images:
+            try:
+                path = default_storage.save(f"images/{image.name}", ContentFile(image.read()))
+                relative_url = default_storage.url(path)
+                full_url = request.build_absolute_uri(relative_url)
+                image_urls.append(full_url)
+            except Exception as e:
+                return Response({"error": f"Failed to save image: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        data["image"] = json.dumps(image_urls) if image_urls else None
 
-
-             
-             
-             
+        serializer = self.get_serializer(data=data)
+        if serializer.is_valid():
+            serializer.save(user=self.request.user)
+            
+            return Response(
+                {
+                    "message": "Report Problem created successfully",
+                    "image_urls": image_urls,
+                    "data": serializer.data
+                },
+                status=status.HTTP_201_CREATED
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -28,10 +28,9 @@ class Articles(models.Model):
 
 
 class ReportProblem(models.Model):
-    image=models.ImageField(upload_to='images/')
+    image=models.TextField(null=True,blank=True)
     description=models.CharField(max_length=100,null=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    
 
 
 

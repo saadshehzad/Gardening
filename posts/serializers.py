@@ -1,7 +1,7 @@
 from rest_framework import serializers
-
+import ast
 from .models import *
-
+import json
 
 class UserPostSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=False)
@@ -23,8 +23,18 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 class ReportProblemSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(required=False)
+    image = serializers.CharField(required=False, allow_null=True, allow_blank=True)
 
     class Meta:
         model = ReportProblem
         fields = "__all__"
+   
+    def validate_image(self, value):
+        if value:
+            try:
+                json.loads(value)
+            except json.JSONDecodeError:
+                raise serializers.ValidationError("Invalid JSON format for image field")
+        return value
+
+
