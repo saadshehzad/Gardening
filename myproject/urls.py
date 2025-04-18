@@ -10,6 +10,9 @@ from users.views import CustomRegisterView , CustomConfirmEmailView
 from django.views.generic import TemplateView
 from django.urls import path, re_path
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
  
 schema_view = get_schema_view(
@@ -49,4 +52,7 @@ urlpatterns = [
     path("plant/", include("plant.urls")), 
     path("users/", include("users.urls")),  
     path("posts/", include("posts.urls")),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
