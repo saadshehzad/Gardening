@@ -104,8 +104,7 @@ class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
             return Response(
                 {
                     "message": "Report Problem created successfully",
-                    "image_urls": image_urls,
-                    "data": serializer.data
+                    
                 },
                 status=status.HTTP_201_CREATED
             )

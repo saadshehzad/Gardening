@@ -1,10 +1,7 @@
 import uuid
-
 from django.db import models
-
 from plant.models import Product
 from users.models import User
-
 from .models import *
 
 
@@ -15,14 +12,8 @@ class Lawn(models.Model):
 
 
 class UserLawn(models.Model):
-    lawn = models.ForeignKey(
-        Lawn,
-        on_delete=models.CASCADE,
-    )
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-    )
+    lawn = models.ForeignKey(Lawn, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class LawnProduct(models.Model):

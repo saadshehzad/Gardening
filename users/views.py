@@ -85,7 +85,6 @@ from allauth.account.views import ConfirmEmailView
 class CustomConfirmEmailView(ConfirmEmailView):
     template_name = "account/email/email_confirm.html"  
 
-
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -110,15 +109,12 @@ class UserProfileView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, *args, **kwargs):
-        try:
-            profile, created = UserProfile.objects.get_or_create(user=request.user)
-            serializer = UserProfileSerializer(profile, data=request.data, partial=True)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except UserProfile.DoesNotExist:
-            return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
+        profile, created = UserProfile.objects.get_or_create(user=request.user)
+        serializer = UserProfileSerializer(profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
 

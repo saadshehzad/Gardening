@@ -21,48 +21,50 @@ class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LawnSerializer
     queryset = Lawn.objects.all()
     lookup_field = "id"
-
-
+    
+    
 class AddProductToUserLawn(APIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = CreateUserLawnProductSerialzier
+    serializer_class = CreateUserLawnProductSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
-
         if serializer.is_valid():
-            request_user = serializer.validated_data.get("username")
-            # request_userlawn= serializer.validated_data.get("user_lawn_id")
-            request_product_ids = serializer.validated_data.get("products")
+            product_ids = serializer.validated_data['products']
+            user = request.user
+            user_lawn, created = UserLawn.objects.get_or_create(
+                user=user,
+                defaults={'lawn': Lawn.objects.create(name=f"{user.username}'s Lawn")}
+            )
+            lawn = user_lawn.lawn
 
-            try:
-                user_ = User.objects.get(username=request_user)
-            except:
-                return Response(
-                    {"message": "User not found."}, status=status.HTTP_404_NOT_FOUND
-                )
-            try:
-                user_lawn = UserLawn.objects.get(user=user_).lawn
-            except:
-                return Response(
-                    {"message": "User lawn not found or does not belong to the user."},
-                    status=status.HTTP_404_NOT_FOUND,
-                )
-
-            for obj in request_product_ids:
-                LawnProduct.objects.create(lawn=user_lawn, product_id=obj)
-
+            lawn_products = []
+            for product_id in product_ids:
+                try:
+                    product = Product.objects.get(id=product_id)
+                    if LawnProduct.objects.filter(lawn=lawn, product=product).exists():
+                        return Response(
+                            {"message": f"Product is already assigned to your lawn."},
+                            status=status.HTTP_400_BAD_REQUEST,
+                        )
+                    lawn_product = LawnProduct.objects.create(lawn=lawn, product=product)
+                    lawn_products.append(lawn_product)
+                except Product.DoesNotExist:
+                    return Response(
+                        {"message": f"Product with ID {product_id} does not exist."},status=status.HTTP_400_BAD_REQUEST,)
+            response_serializer = LawnProductSerializer(lawn_products, many=True)
             return Response(
-                {"message": "Products successfully added to the lawn."},
+                {
+                    "message": "Products successfully added to the lawn.",
+                    "data": response_serializer.data
+                },
                 status=status.HTTP_201_CREATED,
             )
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class DisplayProductToUserLawn(APIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = DisplayUserLawnProductSerialzier
+    serializer_class = DisplayUserLawnProductSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
@@ -71,7 +73,6 @@ class DisplayProductToUserLawn(APIView):
             username_ = request.user
             print(username_)
             lawn_id = UserLawn.objects.get(user__username=username_).lawn.id
-            # request_userlawn = serializer.validated_data.get("lawn_id")
             lawn_products = LawnProduct.objects.filter(lawn__id=lawn_id)
             s = LawnProductSerializer(lawn_products, many=True)
 

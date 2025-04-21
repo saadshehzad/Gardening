@@ -42,13 +42,26 @@ class UserProfileSerializer(serializers.ModelSerializer):
 #         # You can add extra fields to the response here
 #         data['username'] = self.user.username  # Example: include username in the response
 #         return data  
-
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
         data['username'] = self.user.username
         data['uid'] = self.user.id
         data['email'] = self.user.email
-        data['first_name'] = self.user.first_name
-        data['last_name'] = self.user.last_name
+        try:
+            profile = UserProfile.objects.get(user=self.user)
+            data['full_name'] = profile.full_name or ""
+            data['region'] = profile.region or ""
+            data['image'] = profile.image.url if profile.image else None
+            data['bio'] = profile.bio or ""
+            data['latitude'] = profile.latitude or ""
+            data['longitude'] = profile.longitude or ""
+        except UserProfile.DoesNotExist:
+            data['full_name'] = ""
+            data['region'] = ""
+            data['image'] = None
+            data['bio'] = ""
+            data['latitude'] = ""
+            data['longitude'] = ""
+
         return data
