@@ -32,9 +32,10 @@ class ReportProblemSerializer(serializers.ModelSerializer):
     def validate_image(self, value):
         if value:
             try:
-                json.loads(value)
+                image_urls = json.loads(value)  # Convert JSON string back to list
+                if not isinstance(image_urls, list):
+                    raise serializers.ValidationError("Invalid image URL format.")
             except json.JSONDecodeError:
                 raise serializers.ValidationError("Invalid JSON format for image field")
         return value
-
 

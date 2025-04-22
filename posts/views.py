@@ -85,7 +85,7 @@ class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
     queryset = ReportProblem.objects.all()
 
     def post(self, request, *args, **kwargs):
-        data = request.data.copy()
+        data = request.data
 
         images = request.FILES.getlist("image")
         image_urls = []
@@ -105,9 +105,7 @@ class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
             
             return Response(
                 {
-                    "message": "Report Problem created successfully"
-                    
-                },
-                status=status.HTTP_201_CREATED
+                    "message": "Report Problem created successfully"},
+                status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
