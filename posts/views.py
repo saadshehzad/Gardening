@@ -78,7 +78,7 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [IsAuthenticated]
     serializer_class = ReportProblemSerializer
     queryset = ReportProblem.objects.all()
 
