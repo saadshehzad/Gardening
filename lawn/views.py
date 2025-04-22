@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from users.models import User
+from rest_framework.exceptions import ValidationError
 
 from .models import Lawn
 from .serializers import *
@@ -14,6 +15,17 @@ class LawnListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
     queryset = Lawn.objects.all()
+    def perform_create(self, serializer):
+        user = self.request.user
+        if UserLawn.objects.filter(user=user).exists():
+            raise ValidationError("You can only create one lawn.")
+        lawn = serializer.save()
+        UserLawn.objects.create(user=user,lawn=lawn)
+
+
+
+
+
 
 
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -22,6 +34,8 @@ class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Lawn.objects.all()
     lookup_field = "id"
     
+    
+
     
 class AddProductToUserLawn(APIView):
     permission_classes = [IsAuthenticated]
