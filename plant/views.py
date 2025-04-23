@@ -2,10 +2,10 @@ from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from .models import *
 from .serializers import *
-
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 class CategoryCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -51,6 +51,28 @@ class ProductCreateAPIView(generics.ListCreateAPIView):
             products_qs = Product.objects.all()
             data = ProductSerializer(products_qs, many=True)
             return Response(data.data)
+    def post(self, request, *args, **kwargs):
+        data = request.data.copy()
+        images = request.FILES.getlist("image")
+        image_urls = []
+        for image in images:
+            try:
+                path = default_storage.save(f"images/{image.name}", ContentFile(image.read()))
+                relative_url = default_storage.url(path)
+                full_url = request.build_absolute_uri(relative_url)
+                image_urls.append(full_url)
+            except Exception as e:
+                return Response({"error": f"Failed to save image: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        data["image"] = json.dumps(image_urls) if image_urls else None
+        serializer = self.get_serializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {
+                    "message": "Product added successfully"},
+                status=status.HTTP_201_CREATED,
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -58,3 +80,5 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = "id"
+
+
