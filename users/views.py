@@ -54,7 +54,7 @@ class GetProductsByUserRegion(APIView):
             username_ = request.user
 
             try:
-                region = UserRegion.objects.get(user__username=username_).region
+                region = UserRegion.objects.get(user_username=username_).region
             except:
                 return Response({"message": "Region not found for this user."})
 
@@ -91,7 +91,7 @@ class UserProfileView(APIView):
     def get(self, request, *args, **kwargs):
         try:
             profile, created = UserProfile.objects.get_or_create(user=request.user)
-            serializer = UserProfileSerializer(profile)
+            serializer = UserProfileSerializer(profile, context={'request': request})
             return Response(serializer.data)
         except UserProfile.DoesNotExist:
             return Response({}, status=status.HTTP_200_OK)
@@ -102,7 +102,7 @@ class UserProfileView(APIView):
                 {"error": "Profile already exists. Use PUT to update."},
                 status=status.HTTP_400_BAD_REQUEST
             )
-        serializer = UserProfileSerializer(data=request.data)
+        serializer = UserProfileSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -110,35 +110,8 @@ class UserProfileView(APIView):
 
     def put(self, request, *args, **kwargs):
         profile, created = UserProfile.objects.get_or_create(user=request.user)
-        serializer = UserProfileSerializer(profile, data=request.data, partial=True)
+        serializer = UserProfileSerializer(profile, data=request.data, partial=True, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-
-# class CustomTokenObtainPairView(TokenObtainPairView):
-#     serializer_class = CustomTokenObtainPairSerializer
-
-#     def post(self, request, *args, **kwargs):
-#         # Ensure user is authenticated before accessing the 'verified' field
-#         if request.user.is_authenticated:
-#             user = request.user
-            
-#             # Check if the user is verified, if not return an error
-#             if not user.verified:
-#                 return Response(
-#                     {"detail": "Email not verified."},
-#                     status=status.HTTP_400_BAD_REQUEST
-#                 )
-#         else:
-#             # If the user is not authenticated (AnonymousUser), return an error
-#             return Response(
-#                 {"detail": "Authentication credentials were not provided."},
-#                 status=status.HTTP_401_UNAUTHORIZED
-#             )
-        
-#         # Call the parent class's post method to generate and return the token
-#         response = super().post(request, *args, **kwargs)
-#         return response 

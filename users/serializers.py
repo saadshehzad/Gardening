@@ -10,7 +10,7 @@ from .models import *
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
-        fields = "__all__" 
+        fields = "_all_" 
 
 
 class UserRegionProductSerialzier(serializers.Serializer):
@@ -33,18 +33,22 @@ class CustomRegisterSerializer(RegisterSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ("id", "user", "full_name", "region", "image", "bio")
+        fields = ("id", "user", "full_name", "region", "image", "bio", "latitude", "longitude", "share_profile", "share_garden")
         read_only_fields = ("id", "user")
+    def get_image(self, obj):
+        request = self.context.get('request')
+        if obj.image and hasattr(obj.image, 'url'):
+            if request:
+                return request.build_absolute_uri(obj.image.url)
+            return obj.image.url 
+        return None
 
-# class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-#     def validate(self, attrs):
-#         data = super().validate(attrs)
-#         # You can add extra fields to the response here
-#         data['username'] = self.user.username  # Example: include username in the response
-#         return data  
+
+
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
+        request = self.context.get('request')
         data['username'] = self.user.username
         data['uid'] = self.user.id
         data['email'] = self.user.email
@@ -52,10 +56,15 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             profile = UserProfile.objects.get(user=self.user)
             data['full_name'] = profile.full_name or ""
             data['region'] = profile.region or ""
-            data['image'] = profile.image.url if profile.image else None
+            if profile.image and hasattr(profile.image, 'url'):
+                data['image'] = request.build_absolute_uri(profile.image.url) if request else profile.image.url
+            else:
+                data['image'] = None
             data['bio'] = profile.bio or ""
             data['latitude'] = profile.latitude or ""
             data['longitude'] = profile.longitude or ""
+            data['share_profile'] = profile.share_profile
+            data['share_garden'] = profile.share_garden
         except UserProfile.DoesNotExist:
             data['full_name'] = ""
             data['region'] = ""
@@ -63,5 +72,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             data['bio'] = ""
             data['latitude'] = ""
             data['longitude'] = ""
+            data['share_profile'] = False
+            data['share_garden'] = False
 
         return data
+

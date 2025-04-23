@@ -34,6 +34,8 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     latitude = models.FloatField(max_length=100, blank=True, null=True)
     longitude = models.FloatField(max_length=100, blank=True, null=True)
+    share_profile = models.BooleanField(default=True, blank=True)
+    share_garden = models.BooleanField(default=True, blank=True)
     
 
     def __str__(self):
