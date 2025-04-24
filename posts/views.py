@@ -8,41 +8,33 @@ import json
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from users.models import User
-from .models import UserPost
+from .models import *
 from .serializers import *
-
-
 
 class PostListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = UserPostSerializer
+    serializer_class = PostSerializer
     queryset = UserPost.objects.all()
+
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            req_user = request.user
             description = serializer.validated_data.get("description")
-            image=request.FILES.get('image')
+            image = request.FILES.get('image')
             if not image:
-                return Response({"error"})
+                return Response({"error": "Image is required"}, status=status.HTTP_400_BAD_REQUEST)
+            
             try:
-                user = User.objects.get(username=req_user)
-            except User.DoesNotExist:
-                return Response(
-                    {"error": "User not found"}, status=status.HTTP_404_NOT_FOUND
-                )
-            try:
-                UserPost.objects.create(description=description, user=user, image=image)
+                post = Post.objects.create(description=description, image=image)
+                UserPost.objects.create(post=post, user=request.user)
                 return Response(
                     {"message": "Post created successfully"},
                     status=status.HTTP_201_CREATED,
                 )
-            except:
-                return Response({"message": "Error while creating Post."})
+            except Exception as e:
+                return Response({"message": f"Error while creating Post: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
 class ArticlesListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -51,31 +43,26 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        image=request.FILES.get("image")
-
         if serializer.is_valid():
-            req_user = request.user
-            url = serializer.validated_data.get("url")
+            image = request.FILES.get("image")
+            if not image:
+                return Response({"error": "Image is required"}, status=status.HTTP_400_BAD_REQUEST)
+            
             try:
-                user = User.objects.get(username=req_user,image=image)
-            except User.DoesNotExist:
-                return Response(
-                    {"error": "User not found"}, status=status.HTTP_404_NOT_FOUND
+                Articles.objects.create(
+                    image=image,
+                    url=serializer.validated_data["url"],
+                    title=serializer.validated_data["title"],
+                    user_name=request.user.username
                 )
-
-            try:
-                Articles.objects.create(url=url)
                 return Response(
-                    {"message": "article created successfully"},
+                    {"message": "Article created successfully"},
                     status=status.HTTP_201_CREATED,
                 )
-            except:
-                return Response({"message": "Error while creating article."})
-
+            except Exception as e:
+                return Response({"message": f"Error while creating article: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
 class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -83,7 +70,7 @@ class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
     queryset = ReportProblem.objects.all()
 
     def post(self, request, *args, **kwargs):
-        data = request.data
+        data = request.data.copy()
         images = request.FILES.getlist("image")
         image_urls = []
         for image in images:
@@ -99,9 +86,139 @@ class ReportProblemListCreateAPIView(generics.ListCreateAPIView):
         if serializer.is_valid():
             serializer.save(user=self.request.user)
             return Response(
-                {
-                    "message": "Report Problem created successfully"},
+                {"message": "Report Problem created successfully"},
                 status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class UserPostLikeAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        user_post_likes = UserPostLike.objects.filter(user_post=user_post).values_list('liked_by__username', flat=True)
+        return Response({"likes": list(user_post_likes)}, status=status.HTTP_200_OK)
+    def post(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        user_post_like, created = UserPostLike.objects.get_or_create(
+            user_post=user_post, liked_by=request.user
+        )
+        if created:
+            return Response({"message": "Post liked successfully"}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"message": "You have already liked this post"}, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            user_post_like = UserPostLike.objects.get(user_post=user_post, liked_by=request.user)
+            user_post_like.delete()
+            return Response({"message": "You have removed the like successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except UserPostLike.DoesNotExist:
+            return Response({"error": "You have not liked this post"}, status=status.HTTP_400_BAD_REQUEST)
+
+class UserPostShareAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        user_post_shares = UserPostShare.objects.filter(user_post=user_post).values_list('shared_by__username', flat=True)
+        return Response({"shares": list(user_post_shares)}, status=status.HTTP_200_OK)
     
+    def post(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        user_post_share, created = UserPostShare.objects.get_or_create(
+            user_post=user_post, shared_by=request.user
+        )
+        if created:
+            return Response({"message": "Post shared successfully"}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"message": "You have already shared this post"}, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            user_post_share = UserPostShare.objects.get(user_post=user_post, shared_by=request.user)
+            user_post_share.delete()
+            return Response({"message": "You have removed the share successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except UserPostShare.DoesNotExist:
+            return Response({"error": "You have not shared this post"}, status=status.HTTP_400_BAD_REQUEST)
+
+class UserPostCommentAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        user_post_comments = UserPostComment.objects.filter(user_post=user_post).values_list('comment_by__username', flat=True)
+        return Response({"comments": list(user_post_comments)}, status=status.HTTP_200_OK)
+    
+    def post(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        comment_text = request.data.get("comment")
+        if not comment_text:
+            return Response({"error": "Comment text is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_post_comment = UserPostComment.objects.create(
+            user_post=user_post, comment_by=request.user, comment=comment_text
+        )
+        return Response(
+            {
+                "message": "Comment added successfully",
+                "comment_id": user_post_comment.id
+            },
+            status=status.HTTP_201_CREATED
+        )
+
+    def delete(self, request, pk):
+        try:
+            user_post = UserPost.objects.get(id=pk)
+        except UserPost.DoesNotExist:
+            return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        comment_id = request.data.get("comment_id")
+        if not comment_id:
+            return Response({"error": "Comment ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            comment_id = int(comment_id)  
+        except (ValueError, TypeError):
+            return Response({"error": "Comment ID must be a valid number"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user_post_comment = UserPostComment.objects.get(
+                id=comment_id, user_post=user_post, comment_by=request.user
+            )
+            user_post_comment.delete()
+            return Response({"message": "Comment deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except UserPostComment.DoesNotExist:
+            return Response({"error": "Comment not found"}, status=status.HTTP_404_NOT_FOUND)
