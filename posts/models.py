@@ -26,14 +26,21 @@ class Articles(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
 
 
-
 class ReportProblem(models.Model):
-    image=models.TextField(null=True,blank=True)
-    description=models.CharField(max_length=100,null=True)
-    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    image = models.TextField(null=True,blank=True)
+    description = models.CharField(max_length=100,null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
 
 
+class UserPostLike(models.Model):
+    user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    liked_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
+class UserPostShare(models.Model):
+    user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    shared_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
+class UserPostComment(models.Model):
+    user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    comment_by = models.ForeignKey(User, on_delete=models.CASCADE)
