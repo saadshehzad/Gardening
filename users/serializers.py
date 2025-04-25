@@ -70,8 +70,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             data['region'] = ""
             data['image'] = None
             data['bio'] = ""
-            data['latitude'] = ""
-            data['longitude'] = ""
+            data['latitude'] = None
+            data['longitude'] = None
             data['share_profile'] = False
             data['share_garden'] = False
 
