@@ -61,8 +61,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             else:
                 data['image'] = None
             data['bio'] = profile.bio or ""
-            data['latitude'] = profile.latitude or ""
-            data['longitude'] = profile.longitude or ""
+            data['latitude'] = profile.latitude or None
+            data['longitude'] = profile.longitude or None
             data['share_profile'] = profile.share_profile
             data['share_garden'] = profile.share_garden
         except UserProfile.DoesNotExist:
