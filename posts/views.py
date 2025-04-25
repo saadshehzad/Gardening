@@ -19,7 +19,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            description = serializer.validated_data.get("description")
+            description = request.data.get("description")
             image = request.FILES.get('image')
             if not image:
                 return Response({"error": "Image is required"}, status=status.HTTP_400_BAD_REQUEST)
@@ -35,6 +35,19 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
                 return Response({"message": f"Error while creating Post: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+    
+    def delete(self, request, *args, **kwargs):
+        post_id = request.data.get("post_id")
+        if not post_id:
+            return Response({"error": "Post ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user_post = UserPost.objects.get(id=post_id, user=request.user)
+            user_post.delete()
+            return Response({"message": "Post deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except UserPost.DoesNotExist:
+            return Response({"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)
 
 class ArticlesListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
