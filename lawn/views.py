@@ -76,8 +76,7 @@ class UserLawnProductAPIView(APIView):
             response_serializer = LawnProductSerializer(lawn_products, many=True)
             return Response(
                 {
-                    "message": "Products successfully added to the lawn.",
-                    "data": response_serializer.data
+                    "message": "Products successfully added to the lawn."
                 },
                 status=status.HTTP_201_CREATED
             )
@@ -120,7 +119,6 @@ class UserLawnProductAPIView(APIView):
             return Response(
                 {
                     "message": "Products successfully removed from the lawn.",
-                    "data": response_serializer.data
                 },
                 status=status.HTTP_200_OK
             )
