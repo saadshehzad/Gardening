@@ -1,13 +1,10 @@
-
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from users.models import User
 from rest_framework.exceptions import ValidationError
-
 from .models import Lawn
 from .serializers import *
 
@@ -21,12 +18,7 @@ class LawnListCreateAPIView(generics.ListCreateAPIView):
         if UserLawn.objects.filter(user=user).exists():
             raise ValidationError("You can only create one lawn.")
         lawn = serializer.save()
-        UserLawn.objects.create(user=user,lawn=lawn)
-
-
-
-
-
+        UserLawn.objects.create(user=user, lawn=lawn)
 
 
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -38,11 +30,12 @@ class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     
 
     
-class AddProductToUserLawn(APIView):
+class UserLawnProductAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = CreateUserLawnProductSerializer
-    
+    serializer_class = UserLawnProductSerializer
+
     def get(self, request, *args, **kwargs):
+        """Retrieve all products in the user's lawn."""
         user = request.user
         try:
             user_lawn = UserLawn.objects.get(user=user)
@@ -51,9 +44,9 @@ class AddProductToUserLawn(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except UserLawn.DoesNotExist:
             return Response([], status=status.HTTP_200_OK)
-        
-        
+
     def post(self, request, *args, **kwargs):
+        """Add products to the user's lawn."""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             product_ids = serializer.validated_data['products']
@@ -70,55 +63,34 @@ class AddProductToUserLawn(APIView):
                     product = Product.objects.get(id=product_id)
                     if LawnProduct.objects.filter(lawn=lawn, product=product).exists():
                         return Response(
-                            {"message": f"Product is already assigned to your lawn."},
-                            status=status.HTTP_400_BAD_REQUEST,
+                            {"message": f"Product {product_id} is already assigned to your lawn."},
+                            status=status.HTTP_400_BAD_REQUEST
                         )
                     lawn_product = LawnProduct.objects.create(lawn=lawn, product=product)
                     lawn_products.append(lawn_product)
                 except Product.DoesNotExist:
                     return Response(
-                        {"message": f"Product with ID {product_id} does not exist."},status=status.HTTP_400_BAD_REQUEST,)
+                        {"message": f"Product with ID {product_id} does not exist."},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
             response_serializer = LawnProductSerializer(lawn_products, many=True)
             return Response(
                 {
                     "message": "Products successfully added to the lawn.",
                     "data": response_serializer.data
                 },
-                status=status.HTTP_201_CREATED,
+                status=status.HTTP_201_CREATED
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class DisplayProductToUserLawn(APIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = DisplayUserLawnProductSerializer
-
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data)
-
-        if serializer.is_valid():
-            username_ = request.user
-            print(username_)
-            lawn_id = UserLawn.objects.get(user_username=username_).lawn.id
-            lawn_products = LawnProduct.objects.filter(lawn__id=lawn_id)
-            s = LawnProductSerializer(lawn_products, many=True)
-
-            return Response(s.data)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class RemoveProductFromUserLawn(APIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = DeleteUserLawnProductSerializer
-
     def delete(self, request, *args, **kwargs):
+        """Remove products from the user's lawn."""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             product_ids = serializer.validated_data['products']
             user = request.user
 
             try:
-                # Get the user's lawn
                 user_lawn = UserLawn.objects.get(user=user)
                 lawn = user_lawn.lawn
             except UserLawn.DoesNotExist:
@@ -134,7 +106,7 @@ class RemoveProductFromUserLawn(APIView):
                     lawn_product = LawnProduct.objects.filter(lawn=lawn, product=product).first()
                     if not lawn_product:
                         return Response(
-                            {"message": f"Product with ID {product_id} is not assigned to your lawn."},
+                            {"message": f"Product with ID {product_id} is.Concurrent Modification Exception not assigned to your lawn."},
                             status=status.HTTP_400_BAD_REQUEST
                         )
                     lawn_product.delete()
@@ -153,3 +125,4 @@ class RemoveProductFromUserLawn(APIView):
                 status=status.HTTP_200_OK
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
