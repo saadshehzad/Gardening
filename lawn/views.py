@@ -1,18 +1,28 @@
 from django.shortcuts import render
-from rest_framework import generics, status
+from rest_framework import generics, status, pagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from users.models import User
 from rest_framework.exceptions import ValidationError
-from .models import Lawn
-from .serializers import *
+from users.models import User
+from .models import Lawn, UserLawn, LawnProduct, RealGardenImages, Product
+from .serializers import (
+    LawnSerializer,
+    LawnProductSerializer,
+    UserLawnProductSerializer,
+    RealGardenImagesSerializer,
+)
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+import json
+
 
 
 class LawnListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
     queryset = Lawn.objects.all()
+
     def perform_create(self, serializer):
         user = self.request.user
         if UserLawn.objects.filter(user=user).exists():
@@ -20,16 +30,12 @@ class LawnListCreateAPIView(generics.ListCreateAPIView):
         lawn = serializer.save()
         UserLawn.objects.create(user=user, lawn=lawn)
 
-
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
     queryset = Lawn.objects.all()
     lookup_field = "id"
-    
-    
 
-    
 class UserLawnProductAPIView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserLawnProductSerializer
@@ -76,7 +82,8 @@ class UserLawnProductAPIView(APIView):
             response_serializer = LawnProductSerializer(lawn_products, many=True)
             return Response(
                 {
-                    "message": "Products successfully added to the lawn."
+                    "message": "Products successfully added to the lawn.",
+                    "data": response_serializer.data
                 },
                 status=status.HTTP_201_CREATED
             )
@@ -105,7 +112,7 @@ class UserLawnProductAPIView(APIView):
                     lawn_product = LawnProduct.objects.filter(lawn=lawn, product=product).first()
                     if not lawn_product:
                         return Response(
-                            {"message": f"Product with ID {product_id} is.Concurrent Modification Exception not assigned to your lawn."},
+                            {"message": f"Product with ID {product_id} is not assigned to your lawn."},
                             status=status.HTTP_400_BAD_REQUEST
                         )
                     lawn_product.delete()
@@ -119,8 +126,98 @@ class UserLawnProductAPIView(APIView):
             return Response(
                 {
                     "message": "Products successfully removed from the lawn.",
+                    "data": response_serializer.data
                 },
                 status=status.HTTP_200_OK
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class RealGardenImagesAPIView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = RealGardenImagesSerializer
+    queryset = RealGardenImages.objects.all()
+    pagination_class = pagination.PageNumberPagination
+    
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+    
+    def post(self, request, *args, **kwargs):
+        data = request.data.copy()
+        images = request.FILES.getlist("image")
+        image_urls = []
+        for image in images:
+            try:
+                path = default_storage.save(f"images/{image.name}", ContentFile(image.read()))
+                relative_url = default_storage.url(path)
+                full_url = request.build_absolute_uri(relative_url)
+                image_urls.append(full_url)
+            except Exception as e:
+                return Response({"error": f"Failed to save image: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        data["image"] = json.dumps(image_urls) if image_urls else None
+        serializer = self.get_serializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {
+                    "message": "Product added successfully"},
+                status=status.HTTP_201_CREATED,
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class RealGardenImagesDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = RealGardenImagesSerializer
+    queryset = RealGardenImages.objects.all()
+    lookup_field = 'pk'
+
+    def put(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.data.copy()
+        images = request.FILES.getlist("image")
+        if images:
+            if instance.image:
+                old_image_urls = json.loads(instance.image) if isinstance(instance.image, str) else instance.image
+                for url in old_image_urls:
+                    try:
+                        path = url.split('/media/')[-1] if '/media/' in url else url
+                        if default_storage.exists(path):
+                            default_storage.delete(path)
+                    except Exception as e:
+                        pass 
+                        
+            image_urls = []
+            for image in images:
+                try:
+                    path = default_storage.save(f"images/{image.name}", image)
+                    relative_url = default_storage.url(path)
+                    full_url = request.build_absolute_uri(relative_url)
+                    image_urls.append(full_url)
+                except Exception as e:
+                    return Response({"error": f"Failed to save image: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            data["image"] = json.dumps(image_urls)
+        
+        serializer = self.get_serializer(instance, data=data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "message": "Post updated successfully",
+            }, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.image:
+            image_urls = json.loads(instance.image) if isinstance(instance.image, str) else instance.image
+            for url in image_urls:
+                try:
+                    path = url.split('/media/')[-1] if '/media/' in url else url
+                    if default_storage.exists(path):
+                        default_storage.delete(path)
+                except Exception as e:
+                    pass 
+        
+        instance.delete()
+        return Response({
+            "message": "Post deleted successfully"
+        }, status=status.HTTP_204_NO_CONTENT)

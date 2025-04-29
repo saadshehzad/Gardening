@@ -28,3 +28,13 @@ class LawnProduct(models.Model):
     
     def __str__(self):
         return f"{self.product.name} in {self.lawn.name}" if self.product and self.lawn else "Unnamed Lawn Product"
+
+class RealGardenImages(models.Model):
+    description = models.CharField(max_length=255)
+    image = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.description if self.description else "Unnamed Image"
+    
