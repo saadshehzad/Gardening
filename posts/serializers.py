@@ -7,10 +7,33 @@ class PostSerializer(serializers.ModelSerializer):
     description = serializers.CharField(source='post.description', required=False)
     time = serializers.DateTimeField(source='post.time', format="%Y-%m-%d %H:%M:%S", read_only=True)
     user = serializers.CharField(source='user.username', read_only=True)
+    
+    # Additional fields for GET response
+    name = serializers.SerializerMethodField()
+    location = serializers.SerializerMethodField()
+    bio = serializers.SerializerMethodField()
+    posts = serializers.SerializerMethodField()
+    likes = serializers.SerializerMethodField()
+    comments = serializers.SerializerMethodField()
 
     class Meta:
         model = UserPost
-        fields = ['id', 'user', 'image', 'description', 'time']
+        fields = ['id', 'user', 'image', 'description', 'time', 'location', 'bio', 'posts', 'likes', 'comments']
+
+    def get_location(self, obj):
+        return getattr(obj.user.profile, 'location', "") if hasattr(obj.user, 'profile') else ""
+
+    def get_bio(self, obj):
+        return getattr(obj.user.profile, 'bio', "") if hasattr(obj.user, 'profile') else ""
+
+    def get_posts(self, obj):
+        return UserPost.objects.filter(user=obj.user).count()
+
+    def get_likes(self, obj):
+        return UserPostLike.objects.filter(user_post=obj).count()
+
+    def get_comments(self, obj):
+        return UserPostComment.objects.filter(user_post=obj).count()
 
 class ArticleSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=True)

@@ -56,6 +56,7 @@ class UserPostComment(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
     comment_by = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.comment_by.username} commented"

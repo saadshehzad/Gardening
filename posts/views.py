@@ -35,7 +35,6 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
                 return Response({"message": f"Error while creating Post: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
     
     def delete(self, request, *args, **kwargs):
         post_id = request.data.get("post_id")
@@ -124,9 +123,9 @@ class UserPostLikeAPIView(APIView):
             user_post=user_post, liked_by=request.user
         )
         if created:
-            return Response({"message": "Post liked successfully"}, status=status.HTTP_201_CREATED)
+            return Response({"detail": "Post liked successfully"}, status=status.HTTP_201_CREATED)
         else:
-            return Response({"message": "You have already liked this post"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "You have already liked this post"}, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
         try:
@@ -162,9 +161,9 @@ class UserPostShareAPIView(APIView):
             user_post=user_post, shared_by=request.user
         )
         if created:
-            return Response({"message": "Post shared successfully"}, status=status.HTTP_201_CREATED)
+            return Response({"detail": "Post shared successfully"}, status=status.HTTP_201_CREATED)
         else:
-            return Response({"message": "You have already shared this post"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "You have already shared this post"}, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
         try:
@@ -175,7 +174,7 @@ class UserPostShareAPIView(APIView):
         try:
             user_post_share = UserPostShare.objects.get(user_post=user_post, shared_by=request.user)
             user_post_share.delete()
-            return Response({"message": "You have removed the share successfully"}, status=status.HTTP_204_NO_CONTENT)
+            return Response({"detail": "You have removed the share successfully"}, status=status.HTTP_204_NO_CONTENT)
         except UserPostShare.DoesNotExist:
             return Response({"error": "You have not shared this post"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -184,12 +183,23 @@ class UserPostCommentAPIView(APIView):
 
     def get(self, request, pk):
         try:
-            user_post = UserPost.objects.get(id=pk)
+            user_post = UserPost.objects.get(pk=pk)
         except UserPost.DoesNotExist:
             return Response({"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND)
 
-        user_post_comments = UserPostComment.objects.filter(user_post=user_post).values_list('comment_by__username', flat=True)
-        return Response({"comments": list(user_post_comments)}, status=status.HTTP_200_OK)
+        comments_qs = UserPostComment.objects.filter(user_post=user_post).select_related('comment_by')
+
+        comments_data = [
+            {
+                "id": comment.id,
+                "name": comment.comment_by.username,
+                "comment": comment.comment,
+                "timestamp": comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
+            }
+            for comment in comments_qs
+        ]
+
+        return Response({"comments": comments_data}, status=status.HTTP_200_OK)
     
     def post(self, request, pk):
         try:
