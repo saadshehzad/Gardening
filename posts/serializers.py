@@ -9,7 +9,6 @@ class PostSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.username', read_only=True)
     
     # Additional fields for GET response
-    name = serializers.SerializerMethodField()
     location = serializers.SerializerMethodField()
     bio = serializers.SerializerMethodField()
     posts = serializers.SerializerMethodField()
