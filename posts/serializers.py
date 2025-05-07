@@ -20,10 +20,10 @@ class PostSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'image', 'description', 'time', 'location', 'bio', 'posts', 'likes', 'comments']
 
     def get_location(self, obj):
-        return getattr(obj.user.profile, 'location', "") if hasattr(obj.user, 'profile') else ""
+        return getattr(obj.user.userprofile, 'region', "") if hasattr(obj.user, 'userprofile') else ""
 
     def get_bio(self, obj):
-        return getattr(obj.user.profile, 'bio', "") if hasattr(obj.user, 'profile') else ""
+        return getattr(obj.user.userprofile, 'bio', "") if hasattr(obj.user, 'userprofile') else ""
 
     def get_posts(self, obj):
         return UserPost.objects.filter(user=obj.user).count()
