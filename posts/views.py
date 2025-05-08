@@ -136,7 +136,7 @@ class UserPostLikeAPIView(APIView):
         try:
             user_post_like = UserPostLike.objects.get(user_post=user_post, liked_by=request.user)
             user_post_like.delete()
-            return Response({"message": "You have removed the like successfully"}, status=status.HTTP_204_NO_CONTENT)
+            return Response({"detail": "You have removed the like successfully"}, status=status.HTTP_204_NO_CONTENT)
         except UserPostLike.DoesNotExist:
             return Response({"error": "You have not liked this post"}, status=status.HTTP_400_BAD_REQUEST)
 
