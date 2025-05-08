@@ -1,33 +1,31 @@
-from dj_rest_auth.registration.views import RegisterView
-from django.conf import settings
-from django.core.mail import EmailMessage, send_mail
-from django.shortcuts import render
-from django.template.loader import render_to_string
-from rest_framework import generics, status
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from allauth.account.views import ConfirmEmailView
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.exceptions import ValidationError
-from django.contrib.auth import get_user_model
-from rest_framework_simplejwt.tokens import RefreshToken
-
-from plant.models import Product, ProductRegion
-from plant.serializers import ProductSerializer
-
 from .models import *
-from .models import Region, User, UserRegion
 from .serializers import *
-from .serializers import CustomRegisterSerializer, UserRegionProductSerialzier, MyTokenObtainPairSerializer
-
+from django.shortcuts import render
+from plant.models import ProductRegion
+from .models import Region, UserRegion
+from rest_framework.views import APIView
+from rest_framework import generics, status
+from rest_framework.response import Response
+from plant.serializers import ProductSerializer
+from allauth.account.views import ConfirmEmailView
+from dj_rest_auth.registration.views import RegisterView
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+
+class CustomRegisterView(RegisterView):
+    serializer_class = CustomRegisterSerializer
+
+
+class CustomConfirmEmailView(ConfirmEmailView):
+    def get(self, *args, **kwargs):
+        self.object = confirmation = self.get_object()
+        confirmation.confirm(self.request)
+        return render(self.request, "account/email/email_confirm.html")
 
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+
 
 class RegionCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -75,15 +73,6 @@ class GetProductsByUserRegion(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-class CustomRegisterView(RegisterView):
-    serializer_class = CustomRegisterSerializer
-    
-    
-from allauth.account.views import ConfirmEmailView
-
-class CustomConfirmEmailView(ConfirmEmailView):
-    template_name = "account/email/email_confirm.html"  
 
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
