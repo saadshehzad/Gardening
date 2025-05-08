@@ -44,7 +44,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
         try:
             user_post = UserPost.objects.get(id=post_id, user=request.user)
             user_post.delete()
-            return Response({"message": "Post deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+            return Response({"detail": "Post deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
         except UserPost.DoesNotExist:
             return Response({"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)
 
