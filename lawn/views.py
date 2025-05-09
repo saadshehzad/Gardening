@@ -1,5 +1,4 @@
-import sys
-import json
+from django.shortcuts import render
 from rest_framework import generics, status, pagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -7,13 +6,15 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
 from users.models import User
 from .models import Lawn, UserLawn, LawnProduct, RealGardenImages, Product
-from .serializers import *
+from .serializers import (
+    LawnSerializer,
+    LawnProductSerializer,
+    UserLawnProductSerializer,
+    RealGardenImagesSerializer,
+)
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
-
-from PIL import Image
-from io import BytesIO
-from django.core.files.uploadedfile import InMemoryUploadedFile
+import json
 
 
 
@@ -170,50 +171,6 @@ class RealGardenImagesDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = RealGardenImages.objects.all()
     lookup_field = 'pk'
 
-    def resize_image(self, image, max_size_mb=1):
-        """
-        Resize image if it exceeds max_size_mb (in MB). Returns resized image as ContentFile.
-        """
-        max_size_bytes = max_size_mb * 1024 * 1024  # Convert MB to bytes
-        img = Image.open(image)
-        
-        # Convert to RGB if image is in RGBA or other modes
-        if img.mode in ('RGBA', 'LA'):
-            img = img.convert('RGB')
-        
-        # Get initial file size
-        img_buffer = BytesIO()
-        img.save(img_buffer, format='JPEG', quality=85)
-        img_size = img_buffer.tell()
-
-        # If image size is already under max_size_bytes, return original
-        if img_size <= max_size_bytes:
-            img_buffer.seek(0)
-            return ContentFile(img_buffer.read(), name=image.name)
-
-        # Calculate scaling factor to reduce size
-        scaling_factor = (max_size_bytes / img_size) ** 0.5
-        new_width = int(img.width * scaling_factor)
-        new_height = int(img.height * scaling_factor)
-
-        # Resize image
-        img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
-
-        # Save with iterative quality reduction if still too large
-        quality = 85
-        img_buffer = BytesIO()
-        while True:
-            img_buffer.seek(0)
-            img_buffer.truncate()
-            img.save(img_buffer, format='JPEG', quality=quality)
-            if img_buffer.tell() <= max_size_bytes or quality <= 10:
-                break
-            quality -= 5
-
-        img_buffer.seek(0)
-        return ContentFile(img_buffer.read(), name=image.name)
-    
-    
     def put(self, request, *args, **kwargs):
         instance = self.get_object()
         data = request.data.copy()
