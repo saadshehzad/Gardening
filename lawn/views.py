@@ -219,5 +219,5 @@ class RealGardenImagesDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
         
         instance.delete()
         return Response({
-            "message": "Post deleted successfully"
+            "detail": "Post deleted successfully"
         }, status=status.HTTP_204_NO_CONTENT)
