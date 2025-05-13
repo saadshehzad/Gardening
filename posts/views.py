@@ -243,6 +243,6 @@ class UserPostCommentAPIView(APIView):
                 id=comment_id, user_post=user_post, comment_by=request.user
             )
             user_post_comment.delete()
-            return Response({"message": "Comment deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+            return Response({"detail": "Comment deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
         except UserPostComment.DoesNotExist:
             return Response({"error": "Comment not found"}, status=status.HTTP_404_NOT_FOUND)
