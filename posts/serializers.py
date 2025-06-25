@@ -1,6 +1,7 @@
 from rest_framework import serializers
 import json
 from .models import *
+from lawn.models import Lawn, UserLawn
 
 class PostSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(source='post.image', read_only=True)
@@ -14,10 +15,11 @@ class PostSerializer(serializers.ModelSerializer):
     posts = serializers.SerializerMethodField()
     likes = serializers.SerializerMethodField()
     comments = serializers.SerializerMethodField()
+    lawn_id = serializers.SerializerMethodField()
 
     class Meta:
         model = UserPost
-        fields = ['id', 'user', 'image', 'description', 'time', 'location', 'bio', 'posts', 'likes', 'comments']
+        fields = ['id', 'user', 'image', 'description', 'time', 'location', 'bio', 'posts', 'likes', 'comments', 'lawn_id']
 
     def get_location(self, obj):
         return getattr(obj.user.userprofile, 'region', "") if hasattr(obj.user, 'userprofile') else ""
@@ -33,6 +35,12 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_comments(self, obj):
         return UserPostComment.objects.filter(user_post=obj).count()
+    def get_lawn_id(self, obj):
+        try:
+            user_lawn = UserLawn.objects.get(user=obj.user)
+            return str(user_lawn.lawn.id)
+        except UserLawn.DoesNotExist:
+            return None
 
 class ArticleSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=True)

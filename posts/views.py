@@ -15,6 +15,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
     queryset = UserPost.objects.all()
+    queryset = UserPost.objects.all().select_related('post', 'user').prefetch_related('user__userlawn_set__lawn')
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
