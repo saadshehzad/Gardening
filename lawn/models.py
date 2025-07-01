@@ -9,10 +9,10 @@ class Lawn(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    location = models.JSONField()
     
     def __str__(self):
         return self.name if self.name else "Unnamed Lawn"
-
 
 class UserLawn(models.Model):
     lawn = models.ForeignKey(Lawn, on_delete=models.CASCADE)

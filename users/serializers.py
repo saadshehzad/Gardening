@@ -33,7 +33,7 @@ class CustomRegisterSerializer(RegisterSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ("id", "user", "full_name", "region", "image", "bio", "latitude", "longitude", "share_profile", "share_garden")
+        fields = ("id", "user", "full_name", "region", "image", "bio", "share_profile", "share_garden")
         read_only_fields = ("id", "user")
     def get_image(self, obj):
         request = self.context.get('request')
@@ -61,8 +61,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             else:
                 data['image'] = None
             data['bio'] = profile.bio or ""
-            data['latitude'] = profile.latitude or None
-            data['longitude'] = profile.longitude or None
             data['share_profile'] = profile.share_profile
             data['share_garden'] = profile.share_garden
         except UserProfile.DoesNotExist:
@@ -70,8 +68,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             data['region'] = ""
             data['image'] = None
             data['bio'] = ""
-            data['latitude'] = None
-            data['longitude'] = None
             data['share_profile'] = False
             data['share_garden'] = False
 

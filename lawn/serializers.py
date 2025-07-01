@@ -8,7 +8,12 @@ class LawnSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     class Meta:
         model = Lawn
-        fields = "__all__"
+        fields = 'id', 'name', 'created_at', 'location'
+        def validate_location(self, value):
+            if not value:
+                raise serializers.ValidationError("Location cannot be empty.")
+            return value
+        
 
 
 class LawnProductSerializer(serializers.ModelSerializer):
