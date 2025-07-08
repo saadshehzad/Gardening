@@ -18,9 +18,10 @@ class UserRegionProductSerialzier(serializers.Serializer):
 
 class CustomRegisterSerializer(RegisterSerializer): 
     email = serializers.EmailField(required=True)
-
+    location = serializers.JSONField(required=True)
     def custom_signup(self, request, user):
         user.email = self.validated_data.get("email")
+        user.location = self.validated_data.get("location")
         user.save()
 
     def validate_email(self, value):
