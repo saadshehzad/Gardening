@@ -4,6 +4,9 @@ from django.conf import settings
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import *
+from users.models import User
+import uuid
+from lawn.models import Lawn, UserLawn
 
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -15,20 +18,29 @@ class RegionSerializer(serializers.ModelSerializer):
 class UserRegionProductSerialzier(serializers.Serializer):
     username = serializers.CharField(max_length=30, required=False) 
 
-
-class CustomRegisterSerializer(RegisterSerializer): 
-    email = serializers.EmailField(required=True)
+class CustomRegisterSerializer(RegisterSerializer, serializers.ModelSerializer):
     location = serializers.JSONField(required=True)
+    class Meta:
+        model = User
+        fields = ('email', 'location', 'username', 'password1', 'password2')
+    
     def custom_signup(self, request, user):
         user.email = self.validated_data.get("email")
         user.location = self.validated_data.get("location")
         user.save()
-
+        # Create a Lawn instance without location
+        lawn = Lawn.objects.create(
+            id=uuid.uuid4(),
+            name=f"{user.username}'s Lawn"
+        )
+        # Create a UserLawn instance with the user's location
+        UserLawn.objects.create(user=user, lawn=lawn, location=user.location)
+    
+    
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("Email is already in use.")
         return value
-
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:

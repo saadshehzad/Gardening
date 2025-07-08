@@ -8,13 +8,23 @@ class LawnSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     class Meta:
         model = Lawn
-        fields = 'id', 'name', 'created_at', 'location'
+        fields = 'id', 'name', 'created_at'
         def validate_location(self, value):
             if not value:
                 raise serializers.ValidationError("Location cannot be empty.")
             return value
         
+class UserLawnSerializer(serializers.ModelSerializer):
+    lawn = LawnSerializer(read_only=True)
+    location = serializers.JSONField()  
+    class Meta:
+        model = UserLawn
+        fields = ('id', 'user', 'lawn', 'location')
 
+    def validate_location(self, value):
+        if not value:
+            raise serializers.ValidationError("Location cannot be empty.")
+        return value
 
 class LawnProductSerializer(serializers.ModelSerializer):
     product = ProductSerializer()

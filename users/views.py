@@ -14,6 +14,7 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
+    
 
 
 class CustomConfirmEmailView(ConfirmEmailView):

@@ -6,15 +6,11 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
 from users.models import User
 from .models import Lawn, UserLawn, LawnProduct, RealGardenImages, Product
-from .serializers import (
-    LawnSerializer,
-    LawnProductSerializer,
-    UserLawnProductSerializer,
-    RealGardenImagesSerializer,
-)
+from lawn.serializers import *
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 import json
+from django.shortcuts import get_object_or_404
 
 
 
@@ -22,13 +18,25 @@ class LawnListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
     queryset = Lawn.objects.all()
-
+    
     def perform_create(self, serializer):
         user = self.request.user
         if UserLawn.objects.filter(user=user).exists():
             raise ValidationError("You can only create one lawn.")
         lawn = serializer.save()
-        UserLawn.objects.create(user=user, lawn=lawn)
+        # Create UserLawn with location from request data
+        location = self.request.data.get('location')
+        if not location:
+            raise ValidationError("Location is required.")
+        UserLawn.objects.create(user=user, lawn=lawn, location=location)
+
+class UserLawnRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserLawnSerializer
+
+    def get_object(self):
+        user = self.request.user
+        return get_object_or_404(UserLawn, user=user)
 
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
