@@ -3,7 +3,6 @@ from dj_rest_auth.registration.serializers import RegisterSerializer
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
 from .models import *
 
 
@@ -19,17 +18,15 @@ class UserRegionProductSerialzier(serializers.Serializer):
 
 class CustomRegisterSerializer(RegisterSerializer): 
     email = serializers.EmailField(required=True)
-    address = serializers.JSONField(required=True)
 
     def custom_signup(self, request, user):
         user.email = self.validated_data.get("email")
-        user.address = self.validated_data.get("address")
         user.save()
 
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("Email is already in use.")
-        return value  
+        return value
 
 
 class UserProfileSerializer(serializers.ModelSerializer):

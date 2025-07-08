@@ -14,3 +14,4 @@ psycopg2==2.9.10
 requests==2.32.3
 twilio==9.3.7
 celery
+geopy>=2.3.0

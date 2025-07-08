@@ -3,12 +3,11 @@ import uuid
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
-
 class User(AbstractUser):
-    phone = models.CharField(max_length=15, blank=True),
+    phone = models.CharField(max_length=15, blank=True)
     country = models.CharField(max_length=20, null=True, blank=True)
-    verified = models.CharField(default=False,blank=True,max_length=20)    
+    verified = models.CharField(default=False,blank=True,max_length=20)
+    address = models.JSONField(null=True,blank=True)
 
 
 class Region(models.Model):

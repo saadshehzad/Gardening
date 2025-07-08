@@ -40,7 +40,10 @@ urlpatterns = [
     path("auth/password/reset/", include("dj_rest_auth.urls")),
     path("auth/password/reset/confirm/", include("dj_rest_auth.urls")),
     path("auth/registration/", CustomRegisterView.as_view(), name="custom_register"),
-    path("auth/registration/account-confirm-email/<str:key>/", CustomConfirmEmailView.as_view(), name="account_confirm_email"),
+    re_path(
+    r"^auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$", 
+    CustomConfirmEmailView.as_view(), 
+    name="account_confirm_email"),    
     path("auth/registration/", include("dj_rest_auth.registration.urls")),
     path(
         "swagger/",
