@@ -17,21 +17,30 @@ class RegionSerializer(serializers.ModelSerializer):
 
 class UserRegionProductSerialzier(serializers.Serializer):
     username = serializers.CharField(max_length=30, required=False) 
+    
 
 class CustomRegisterSerializer(RegisterSerializer, serializers.ModelSerializer):
-    location = serializers.JSONField(required=True)
+    location = serializers.SerializerMethodField()
+    
     class Meta:
         model = User
-        fields = ('email', 'location', 'username', 'password1', 'password2')
-    
+        fields = ('email', 'username', 'password1', 'password2', 'location')
+
+    def get_location(self, obj):
+        request = self.context.get('request')
+        if request:
+            return request.data.get('location')
+        return None
+
     def custom_signup(self, request, user):
+        location = self.get_location("obj")
         user.email = self.validated_data.get("email")
-        user.location = self.validated_data.get("location")
         user.save()
         lawn = Lawn.objects.create(
             name=f"{user.username}'s Lawn"
         )
-        UserLawn.objects.create(user=user, lawn=lawn, location=user.location)
+        UserLawn.objects.create(user=user, lawn=lawn, location=location)
+    
     
     
     def validate_email(self, value):
