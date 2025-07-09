@@ -16,7 +16,6 @@ class LawnSerializer(serializers.ModelSerializer):
         
 class UserLawnSerializer(serializers.ModelSerializer):
     lawn = LawnSerializer(read_only=True)
-    location = serializers.JSONField()  
     class Meta:
         model = UserLawn
         fields = ('id', 'user', 'lawn', 'location')

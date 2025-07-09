@@ -28,12 +28,9 @@ class CustomRegisterSerializer(RegisterSerializer, serializers.ModelSerializer):
         user.email = self.validated_data.get("email")
         user.location = self.validated_data.get("location")
         user.save()
-        # Create a Lawn instance without location
         lawn = Lawn.objects.create(
-            id=uuid.uuid4(),
             name=f"{user.username}'s Lawn"
         )
-        # Create a UserLawn instance with the user's location
         UserLawn.objects.create(user=user, lawn=lawn, location=user.location)
     
     

@@ -24,7 +24,7 @@ class LawnListCreateAPIView(generics.ListCreateAPIView):
         if UserLawn.objects.filter(user=user).exists():
             raise ValidationError("You can only create one lawn.")
         lawn = serializer.save()
-        # Create UserLawn with location from request data
+        
         location = self.request.data.get('location')
         if not location:
             raise ValidationError("Location is required.")
