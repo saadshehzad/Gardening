@@ -9,12 +9,12 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback_key")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "54.82.253.10", "172.31.88.122","54.221.153.85"]
- 
+ALLOWED_HOSTS = ["*", "54.82.253.10", "172.31.88.122", "54.221.153.85"]
+
 OPENAI_API_KEY = None
 
 
-INSTALLED_APPS = [ 
+INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.sites",
@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     "lawn",
     "plant",
     "posts",
-    "drf_yasg", 
-    "tasks"
+    "drf_yasg",
+    "tasks",
 ]
 
 # broker_url = 'redis://localhost:6379/0'
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
-SITE_ID = 2 
+SITE_ID = 2
 
 AUTH_USER_MODEL = "users.User"
 
@@ -62,7 +62,7 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=3),
     "ROTATE_REFRESH_TOKENS": False,
-    "BLACKLIST_AFTER_ROTATION": True, 
+    "BLACKLIST_AFTER_ROTATION": True,
 }
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -78,14 +78,16 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-ROOT_URLCONF = "myproject.urls"  
+ROOT_URLCONF = "myproject.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates'),],   
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"),
+        ],
         "APP_DIRS": True,
-        "OPTIONS": { 
+        "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
@@ -125,9 +127,9 @@ DATABASES = {
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True     
+EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "haris03045025656@gmail.com"
-EMAIL_HOST_PASSWORD = "zcvc djzv bwux zdrs" 
+EMAIL_HOST_PASSWORD = "zcvc djzv bwux zdrs"
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True
 
@@ -158,8 +160,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -177,4 +179,4 @@ REST_AUTH_REGISTER_SERIALIZERS = {
     "REGISTER_SERIALIZER": "users.serializers.CustomRegisterSerializer",
 }
 
-FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024 # 10 Mb limit
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 Mb limit

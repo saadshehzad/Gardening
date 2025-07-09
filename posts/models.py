@@ -1,6 +1,9 @@
 import uuid
+
 from django.db import models
+
 from users.models import User
+
 
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -11,12 +14,14 @@ class Post(models.Model):
     def __str__(self):
         return f"Post {self.id}"
 
+
 class UserPost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user.username}'s post"
+
 
 class Articles(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -29,6 +34,7 @@ class Articles(models.Model):
     def __str__(self):
         return self.title
 
+
 class ReportProblem(models.Model):
     image = models.TextField(null=True, blank=True)
     description = models.CharField(max_length=100, null=True)
@@ -37,6 +43,7 @@ class ReportProblem(models.Model):
     def __str__(self):
         return f"Report by {self.user.username}"
 
+
 class UserPostLike(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
     liked_by = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -44,12 +51,14 @@ class UserPostLike(models.Model):
     def __str__(self):
         return f"{self.liked_by.username} liked"
 
+
 class UserPostShare(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
     shared_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.shared_by.username} shared"
+
 
 class UserPostComment(models.Model):
     id = models.BigAutoField(primary_key=True)

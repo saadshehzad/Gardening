@@ -15,28 +15,31 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         }
         if app_settings.EMAIL_VERIFICATION_BY_CODE_ENABLED:
             print("===========================")
-            ctx.update({"code": emailconfirmation.key}) 
+            ctx.update({"code": emailconfirmation.key})
         else:
             print("--------------------------")
             ctx.update(
                 {
                     "key": emailconfirmation.key,
-                    "activate_url": self.get_email_confirmation_url( 
+                    "activate_url": self.get_email_confirmation_url(
                         request, emailconfirmation
                     ),
                 }
-            ) 
+            )
         if signup:
-            email_template = "account/email/email_confirmation_signup" 
+            email_template = "account/email/email_confirmation_signup"
         else:
             email_template = "account/email/email_confirmation"
-            
+
         print(email_template)
-        print("emailconfirmation.email_address.email =====> ", emailconfirmation.email_address.email)
+        print(
+            "emailconfirmation.email_address.email =====> ",
+            emailconfirmation.email_address.email,
+        )
         print(ctx)
         self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
 
     def get_email_confirmation_url(self, request, emailconfirmation):
         custom_domain = "http://18.118.254.193:8000/"
         url = reverse("account_confirm_email", args=[emailconfirmation.key])
-        return f"{custom_domain}{url}"   
+        return f"{custom_domain}{url}"

@@ -1,6 +1,9 @@
-from rest_framework import serializers
-from .models import *
 import json
+
+from rest_framework import serializers
+
+from .models import *
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,10 +13,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     image = serializers.JSONField()
+
     class Meta:
         model = Product
         fields = "__all__"
- 
+
     # def validate_image(self, value):
     #     if value:
     #         try:
@@ -23,8 +27,3 @@ class ProductSerializer(serializers.ModelSerializer):
     #         except json.JSONDecodeError:
     #             raise serializers.ValidationError("Invalid JSON format for image field")
     #     return value
-    
-
-
-    
-   

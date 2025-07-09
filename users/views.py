@@ -1,20 +1,22 @@
-from .models import *
-from .serializers import *
-from django.shortcuts import render
-from plant.models import ProductRegion
-from .models import Region, UserRegion
-from rest_framework.views import APIView
-from rest_framework import generics, status
-from rest_framework.response import Response
-from plant.serializers import ProductSerializer
 from allauth.account.views import ConfirmEmailView
 from dj_rest_auth.registration.views import RegisterView
-from rest_framework_simplejwt.views import TokenObtainPairView
+from django.shortcuts import render
+from rest_framework import generics, status
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+from plant.models import ProductRegion
+from plant.serializers import ProductSerializer
+
+from .models import *
+from .models import Region, UserRegion
+from .serializers import *
+
 
 class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
-    
 
 
 class CustomConfirmEmailView(ConfirmEmailView):
@@ -81,7 +83,7 @@ class UserProfileView(APIView):
     def get(self, request, *args, **kwargs):
         try:
             profile, created = UserProfile.objects.get_or_create(user=request.user)
-            serializer = UserProfileSerializer(profile, context={'request': request})
+            serializer = UserProfileSerializer(profile, context={"request": request})
             return Response(serializer.data)
         except UserProfile.DoesNotExist:
             return Response({}, status=status.HTTP_200_OK)
@@ -90,9 +92,11 @@ class UserProfileView(APIView):
         if UserProfile.objects.filter(user=request.user).exists():
             return Response(
                 {"error": "Profile already exists. Use PUT to update."},
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST,
             )
-        serializer = UserProfileSerializer(data=request.data, context={'request': request})
+        serializer = UserProfileSerializer(
+            data=request.data, context={"request": request}
+        )
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -100,7 +104,9 @@ class UserProfileView(APIView):
 
     def put(self, request, *args, **kwargs):
         profile, created = UserProfile.objects.get_or_create(user=request.user)
-        serializer = UserProfileSerializer(profile, data=request.data, partial=True, context={'request': request})
+        serializer = UserProfileSerializer(
+            profile, data=request.data, partial=True, context={"request": request}
+        )
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
