@@ -37,8 +37,13 @@ class CustomRegisterSerializer(RegisterSerializer, serializers.ModelSerializer):
 
     def custom_signup(self, request, user):
         location = self.get_location("obj")
+
+        fcm_token = request.data.get("fcm_token")
+        if fcm_token:
+            UserFCMToken.objects.create(user=user, fcm_token=fcm_token)
         user.email = self.validated_data.get("email")
         user.save()
+
         lawn = Lawn.objects.create(name=f"{user.username}'s Lawn")
         UserLawn.objects.create(user=user, lawn=lawn, location=location)
 

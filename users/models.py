@@ -36,3 +36,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class UserFCMToken(models.Model):
+    fcm_token = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="fcm_tokens")
+    
+    def __str__(self):
+        return f"{self.user.username} x {self.fcm_token}"

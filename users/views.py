@@ -11,8 +11,8 @@ from plant.models import ProductRegion
 from plant.serializers import ProductSerializer
 
 from .models import *
-from .models import Region, UserRegion
 from .serializers import *
+
 
 
 class CustomRegisterView(RegisterView):
@@ -111,3 +111,15 @@ class UserProfileView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UpdateFCMTokenView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        fcm_token = request.data.get("fcm_token")
+        if not fcm_token:
+            return Response({"error": "FCM token is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        UserFCMToken.objects.update_or_create(user=request.user, defaults={"fcm_token": fcm_token})
+        return Response({"success": "FCM token updated successfully."})
