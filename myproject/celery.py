@@ -20,7 +20,8 @@ def debug_task(self):
 
 app.conf.beat_schedule = {
     "run-first-task": {
-        "task": "tasks.tasks.abc",
-        "schedule": crontab(minute="*/1"),
+        "task": "tasks.tasks.send_watering_notification",
+        "schedule": crontab(minute=0, hour=1),  # Every day at 1 AM 'UTC'
+        "args": (),
     }
 }
