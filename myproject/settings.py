@@ -189,13 +189,4 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Karachi' 
-
-
-CELERY_BEAT_SCHEDULE = {
-    'add-every-10-seconds': {
-        'task': 'tasks.abc',
-        'schedule': 10.0,
-        'args': ()
-    },
-}
+CELERY_TIMEZONE = 'Asia/Karachi'

@@ -1,19 +1,15 @@
 from django.db import models
 
-# class Notification(models.Model):
-#     TYPE_ = (
-#         ("Watering", "Watering")
-#     )
-#     type_ = models.CharField(max_length=50, choices=TYPE_)
-#     mesage = models.TextField()
-#     sent = models.BooleanField(default=False)
-
-
-
-# @shared_task
-# def sent_watering_notification():
-#     users = User.objects.all()
-#     for user in users:
-#         Notification.objects.create()
-
-
+class FCMNotification(models.Model):
+    TYPE = (
+        ("Watering", "Watering"),
+    )
+    type = models.CharField(max_length=50, choices=TYPE)
+    message = models.TextField()
+    sent = models.BooleanField(default=False)
+    title = models.CharField(max_length=100, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.title if self.title else 'No Title'}"
