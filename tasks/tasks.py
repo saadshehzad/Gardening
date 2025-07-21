@@ -27,6 +27,7 @@ def send_notification(user):
         logger.warning(f"No FCM tokens found for user: {user.username}")
         return
     for token in tokens:
+        print(f"FCM token Found, send notification to {user.username}: {token.fcm_token}")
         message = Message(
             notification=Notification(
                 title="Watering Reminder",
