@@ -40,6 +40,12 @@ class UserLawnRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
         user = self.request.user
         return get_object_or_404(UserLawn, user=user)
 
+    def patch(self, request, *args, **kwargs):
+        response = super().patch(request, *args, **kwargs)
+        return Response({
+            "detail": "Location updated successfully."
+        })
+
 
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
