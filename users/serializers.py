@@ -28,7 +28,7 @@ class UserRegionProductSerialzier(serializers.Serializer):
 class CustomRegisterSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True, required=True)
     password2 = serializers.CharField(write_only=True, required=True)
-    location = serializers.CharField(required=True)
+    location = serializers.JSONField(required=True)
 
     class Meta:
         model = User
