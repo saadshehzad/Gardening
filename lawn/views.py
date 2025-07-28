@@ -44,6 +44,7 @@ class UserLawnRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
         return Response({"detail": "Location updated successfully."})
 
 
+
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
