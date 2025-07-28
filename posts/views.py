@@ -3,7 +3,8 @@ import json
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
@@ -201,62 +202,35 @@ class UserPostLikeAPIView(APIView):
 class UserPostShareAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, pk):
-        try:
-            user_post = UserPost.objects.get(id=pk)
-        except UserPost.DoesNotExist:
-            return Response(
-                {"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
-        user_post_shares = UserPostShare.objects.filter(
-            user_post=user_post
-        ).values_list("shared_by__username", flat=True)
-        return Response({"shares": list(user_post_shares)}, status=status.HTTP_200_OK)
-
-    def post(self, request, pk):
-        try:
-            user_post = UserPost.objects.get(id=pk)
-        except UserPost.DoesNotExist:
-            return Response(
-                {"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
-        user_post_share, created = UserPostShare.objects.get_or_create(
-            user_post=user_post, shared_by=request.user
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        if not post.share_token:
+            post.share_token = str(uuid.uuid4())
+            post.save()
+        share_url = request.build_absolute_uri(
+            reverse("redirect_to_post", kwargs={"share_token": post.share_token})
         )
-        if created:
-            return Response(
-                {"detail": "Post shared successfully"}, status=status.HTTP_201_CREATED
-            )
-        else:
-            return Response(
-                {"detail": "You have already shared this post"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
 
-    def delete(self, request, pk):
-        try:
-            user_post = UserPost.objects.get(id=pk)
-        except UserPost.DoesNotExist:
-            return Response(
-                {"error": "User post not found"}, status=status.HTTP_404_NOT_FOUND
-            )
+        return Response(
+            {
+                "detail": "Share link generated successfully!",
+                "share_url": share_url,
+                "post_id": str(post.id),
+                "description": post.description,
+                "share_token": str(post.share_token),
+                "image": post.image.url if post.image else None,
+            },
+            status=status.HTTP_200_OK,
+        )
 
-        try:
-            user_post_share = UserPostShare.objects.get(
-                user_post=user_post, shared_by=request.user
-            )
-            user_post_share.delete()
-            return Response(
-                {"detail": "You have removed the share successfully"},
-                status=status.HTTP_204_NO_CONTENT,
-            )
-        except UserPostShare.DoesNotExist:
-            return Response(
-                {"error": "You have not shared this post"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+
+class RedirectToPostView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, share_token):
+        post = get_object_or_404(Post, share_token=share_token)
+        message = f"You have been redirected to {post.description}"
+        return Response({"detail": message}, status=status.HTTP_200_OK)
 
 
 class UserPostCommentAPIView(APIView):

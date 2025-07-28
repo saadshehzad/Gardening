@@ -10,6 +10,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to="images/", null=True, blank=True)
     description = models.TextField(max_length=100, null=True)
     time = models.DateTimeField(auto_now_add=True)
+    share_token = models.UUIDField(null=True, blank=True, unique=True)
 
     def __str__(self):
         return f"Post {self.id}"

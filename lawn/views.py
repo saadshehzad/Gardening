@@ -2,7 +2,7 @@ import json
 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 from rest_framework import generics, pagination, status
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -10,7 +10,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from lawn.serializers import *
-from users.models import User
 
 from .models import Lawn, LawnProduct, Product, RealGardenImages, UserLawn
 
@@ -42,9 +41,7 @@ class UserLawnRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
 
     def patch(self, request, *args, **kwargs):
         response = super().patch(request, *args, **kwargs)
-        return Response({
-            "detail": "Location updated successfully."
-        })
+        return Response({"detail": "Location updated successfully."})
 
 
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

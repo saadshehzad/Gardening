@@ -7,7 +7,7 @@ from django.db import models
 class User(AbstractUser):
     phone = models.CharField(max_length=15, blank=True)
     country = models.CharField(max_length=20, null=True, blank=True)
-    verified = models.CharField(default=False, blank=True, max_length=20)
+    verified = models.BooleanField(default=False)
 
 
 class Region(models.Model):
@@ -41,6 +41,6 @@ class UserProfile(models.Model):
 class UserFCMToken(models.Model):
     fcm_token = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="fcm_tokens")
-    
+
     def __str__(self):
         return f"{self.user.username} x {self.fcm_token}"

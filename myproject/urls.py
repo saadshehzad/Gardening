@@ -1,16 +1,15 @@
-from allauth.account.views import confirm_email
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, re_path
-from django.views.generic import TemplateView
+from django.urls import include, path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import TokenRefreshView
 
-# from users.views import CustomConfirmEmailView
-from users.views import CustomConfirmEmailView, CustomRegisterView
+from users.views import (CustomLoginView, CustomRegisterView, EmailVerifyView,
+                         PasswordChangeView, PasswordResetConfirmHTMLView,
+                         PasswordResetView)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -25,24 +24,23 @@ schema_view = get_schema_view(
     permission_classes=[permissions.AllowAny],
 )
 
-from users.views import MyTokenObtainPairView
-
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("auth/token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-    path("auth/", include("dj_rest_auth.urls")),
-    path("auth/", include("django.contrib.auth.urls")),
-    path("auth/password/change/", include("dj_rest_auth.urls")),
-    path("auth/password/reset/", include("dj_rest_auth.urls")),
-    path("auth/password/reset/confirm/", include("dj_rest_auth.urls")),
-    path("auth/registration/", CustomRegisterView.as_view(), name="custom_register"),
-    re_path(
-        r"^auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$",
-        CustomConfirmEmailView.as_view(),
-        name="account_confirm_email",
+    path("auth/registration/", CustomRegisterView.as_view(), name="register"),
+    path(
+        "verify-email/<str:uidb64>/<str:token>/",
+        EmailVerifyView.as_view(),
+        name="verify-email",
     ),
-    path("auth/registration/", include("dj_rest_auth.registration.urls")),
+    path("auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("auth/token/", CustomLoginView.as_view(), name="login"),
+    path("auth/password/change/", PasswordChangeView.as_view(), name="password_change"),
+    path("auth/password/reset/", PasswordResetView.as_view(), name="password_reset"),
+    path(
+        "password/reset/confirm/<str:uidb64>/<str:token>/",
+        PasswordResetConfirmHTMLView.as_view(),
+        name="password_reset_confirm",
+    ),
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

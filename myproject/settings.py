@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
 from pathlib import Path
+
 from celery.schedules import crontab
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,13 +32,14 @@ INSTALLED_APPS = [
     "allauth.socialaccount",  # Social account support (optional)
     "dj_rest_auth",  # Authentication endpoints
     "dj_rest_auth.registration",  # Registration endpoints (if needed)
+    "rest_framework_simplejwt.token_blacklist",
     "users",
     "lawn",
     "plant",
     "posts",
     "drf_yasg",
     "tasks",
-    'notifications',
+    "notifications",
 ]
 
 # broker_url = 'redis://localhost:6379/0'
@@ -48,6 +50,7 @@ AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 SITE_ID = 2
 
 AUTH_USER_MODEL = "users.User"
+FRONTEND_URL = "http://localhost:8000"
 
 
 REST_FRAMEWORK = {
@@ -185,8 +188,8 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 Mb limit
 
 
 # Celery settings
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Karachi'
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_TIMEZONE = "Asia/Karachi"
