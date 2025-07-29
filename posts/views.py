@@ -202,13 +202,10 @@ class UserPostLikeAPIView(APIView):
 class UserPostShareAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, post_id):
+    def get(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
-        if not post.share_token:
-            post.share_token = str(uuid.uuid4())
-            post.save()
         share_url = request.build_absolute_uri(
-            reverse("redirect_to_post", kwargs={"share_token": post.share_token})
+            reverse("redirect_to_post", kwargs={"post_id": post.id})
         )
 
         return Response(
@@ -216,9 +213,7 @@ class UserPostShareAPIView(APIView):
                 "detail": "Share link generated successfully!",
                 "share_url": share_url,
                 "post_id": str(post.id),
-                "description": post.description,
-                "share_token": str(post.share_token),
-                "image": post.image.url if post.image else None,
+                "description": post.description
             },
             status=status.HTTP_200_OK,
         )
@@ -226,12 +221,10 @@ class UserPostShareAPIView(APIView):
 
 class RedirectToPostView(APIView):
     permission_classes = [IsAuthenticated]
-
-    def get(self, request, share_token):
-        post = get_object_or_404(Post, share_token=share_token)
+    def get(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
         message = f"You have been redirected to {post.description}"
         return Response({"detail": message}, status=status.HTTP_200_OK)
-
 
 class UserPostCommentAPIView(APIView):
     permission_classes = [IsAuthenticated]
