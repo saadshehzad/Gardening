@@ -50,7 +50,7 @@ AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 SITE_ID = 2
 
 AUTH_USER_MODEL = "users.User"
-FRONTEND_URL = "http://localhost:8000"
+FRONTEND_URL = "http://18.118.254.193:8000/"
 
 
 REST_FRAMEWORK = {
