@@ -319,4 +319,4 @@ class UpdateFCMTokenView(APIView):
         UserFCMToken.objects.update_or_create(
             user=request.user, defaults={"fcm_token": fcm_token}
         )
-        return Response({"success": "FCM token updated successfully."})
+        return Response({"detail": "FCM token updated successfully."})
