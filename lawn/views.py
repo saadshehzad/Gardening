@@ -86,7 +86,7 @@ class UserLawnProductAPIView(APIView):
                     if LawnProduct.objects.filter(lawn=lawn, product=product).exists():
                         return Response(
                             {
-                                "message": f"Product {product_id} is already assigned to your lawn."
+                                "message": f"This product is already assigned to your lawn."
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
@@ -96,7 +96,7 @@ class UserLawnProductAPIView(APIView):
                     lawn_products.append(lawn_product)
                 except Product.DoesNotExist:
                     return Response(
-                        {"message": f"Product with ID {product_id} does not exist."},
+                        {"message": f"Product does not exist."},
                         status=status.HTTP_400_BAD_REQUEST,
                     )
             response_serializer = LawnProductSerializer(lawn_products, many=True)
@@ -135,7 +135,7 @@ class UserLawnProductAPIView(APIView):
                     if not lawn_product:
                         return Response(
                             {
-                                "message": f"Product with ID {product_id} is not assigned to your lawn."
+                                "message": f"This product is not assigned to your lawn."
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
@@ -143,7 +143,7 @@ class UserLawnProductAPIView(APIView):
                     deleted_products.append(lawn_product)
                 except Product.DoesNotExist:
                     return Response(
-                        {"message": f"Product with ID {product_id} does not exist."},
+                        {"message": f"Product does not exist."},
                         status=status.HTTP_400_BAD_REQUEST,
                     )
             response_serializer = LawnProductSerializer(deleted_products, many=True)
