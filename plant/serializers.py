@@ -11,11 +11,11 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class PlantSerializer(serializers.ModelSerializer):
     image = serializers.JSONField()
 
     class Meta:
-        model = Product
+        model = Plant
         fields = "__all__"
 
     # def validate_image(self, value):
