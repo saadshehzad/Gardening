@@ -16,7 +16,7 @@ class Category(models.Model):
         return self.name
 
 
-class Product(models.Model):
+class Plant(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(max_length=15)
@@ -34,12 +34,20 @@ class Product(models.Model):
     variety_info = models.CharField(max_length=200)
     attributes = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    planted_date = models.DateField(null=True, blank=True)
+    fertilizer_interval = models.CharField(max_length=50, null=True, blank=True)
+    last_notification_send_date = models.JSONField()
+
+    # {
+    #     "type": "Watering",
+    #     "date": "2023-10-01"
+    # }
 
     def __str__(self):
         return self.name
 
 
-class ProductRegion(models.Model):
+class PlantRegion(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)

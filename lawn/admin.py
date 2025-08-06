@@ -4,5 +4,5 @@ from .models import *
 
 admin.site.register(Lawn)
 admin.site.register(UserLawn)
-admin.site.register(LawnProduct)
+admin.site.register(LawnPlant)
 admin.site.register(RealGardenImages)

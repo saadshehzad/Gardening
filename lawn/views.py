@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 
 from lawn.serializers import *
 
-from .models import Lawn, LawnProduct, Product, RealGardenImages, UserLawn
+from .models import Lawn, LawnPlant, Plant, RealGardenImages, UserLawn
 
 
 class LawnListCreateAPIView(generics.ListCreateAPIView):
@@ -52,26 +52,26 @@ class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
 
 
-class UserLawnProductAPIView(APIView):
+class UserLawnPlantAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = UserLawnProductSerializer
+    serializer_class = UserLawnPlantSerializer
 
     def get(self, request, *args, **kwargs):
-        """Retrieve all products in the user's lawn."""
+        """Retrieve all plants in the user's lawn."""
         user = request.user
         try:
             user_lawn = UserLawn.objects.get(user=user)
-            lawn_products = LawnProduct.objects.filter(lawn=user_lawn.lawn)
-            serializer = LawnProductSerializer(lawn_products, many=True)
+            lawn_plants = LawnPlant.objects.filter(lawn=user_lawn.lawn)
+            serializer = LawnPlantSerializer(lawn_plants, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except UserLawn.DoesNotExist:
             return Response([], status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
-        """Add products to the user's lawn."""
+        """Add plants to the user's lawn."""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            product_ids = serializer.validated_data["products"]
+            plant_ids = serializer.validated_data["plants"]
             user = request.user
             user_lawn, created = UserLawn.objects.get_or_create(
                 user=user,
@@ -79,30 +79,30 @@ class UserLawnProductAPIView(APIView):
             )
             lawn = user_lawn.lawn
 
-            lawn_products = []
-            for product_id in product_ids:
+            lawn_plants = []
+            for plant_id in plant_ids:
                 try:
-                    product = Product.objects.get(id=product_id)
-                    if LawnProduct.objects.filter(lawn=lawn, product=product).exists():
+                    plant = Plant.objects.get(id=plant_id)
+                    if LawnPlant.objects.filter(lawn=lawn, plant=plant).exists():
                         return Response(
                             {
-                                "message": f"This product is already assigned to your lawn."
+                                "message": f"This plant is already assigned to your lawn."
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
-                    lawn_product = LawnProduct.objects.create(
-                        lawn=lawn, product=product
+                    lawn_plant = LawnPlant.objects.create(
+                        lawn=lawn, plant=plant
                     )
-                    lawn_products.append(lawn_product)
-                except Product.DoesNotExist:
+                    lawn_plants.append(lawn_plant)
+                except Plant.DoesNotExist:
                     return Response(
-                        {"message": f"Product does not exist."},
+                        {"message": f"Plant does not exist."},
                         status=status.HTTP_400_BAD_REQUEST,
                     )
-            response_serializer = LawnProductSerializer(lawn_products, many=True)
+            response_serializer = LawnPlantSerializer(lawn_plants, many=True)
             return Response(
                 {
-                    "message": "Products successfully added to the lawn.",
+                    "message": "Plants successfully added to the lawn.",
                     "data": response_serializer.data,
                 },
                 status=status.HTTP_201_CREATED,
@@ -110,10 +110,10 @@ class UserLawnProductAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, *args, **kwargs):
-        """Remove products from the user's lawn."""
+        """Remove plants from the user's lawn."""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            product_ids = serializer.validated_data["products"]
+            plant_ids = serializer.validated_data["plants"]
             user = request.user
 
             try:
@@ -125,31 +125,31 @@ class UserLawnProductAPIView(APIView):
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
-            deleted_products = []
-            for product_id in product_ids:
+            deleted_plants = []
+            for plant_id in plant_ids:
                 try:
-                    product = Product.objects.get(id=product_id)
-                    lawn_product = LawnProduct.objects.filter(
-                        lawn=lawn, product=product
+                    plant = Plant.objects.get(id=plant_id)
+                    lawn_plant = LawnPlant.objects.filter(
+                        lawn=lawn, plant=plant
                     ).first()
-                    if not lawn_product:
+                    if not lawn_plant:
                         return Response(
                             {
-                                "message": f"This product is not assigned to your lawn."
+                                "message": f"This plant is not assigned to your lawn."
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
-                    lawn_product.delete()
-                    deleted_products.append(lawn_product)
-                except Product.DoesNotExist:
+                    lawn_plant.delete()
+                    deleted_plants.append(lawn_plant)
+                except Plant.DoesNotExist:
                     return Response(
-                        {"message": f"Product does not exist."},
+                        {"message": f"Plant does not exist."},
                         status=status.HTTP_400_BAD_REQUEST,
                     )
-            response_serializer = LawnProductSerializer(deleted_products, many=True)
+            response_serializer = LawnPlantSerializer(deleted_plants, many=True)
             return Response(
                 {
-                    "message": "Products successfully removed from the lawn.",
+                    "message": "Plants successfully removed from the lawn.",
                     "data": response_serializer.data,
                 },
                 status=status.HTTP_200_OK,
@@ -189,7 +189,7 @@ class RealGardenImagesAPIView(generics.ListCreateAPIView):
         if serializer.is_valid():
             serializer.save()
             return Response(
-                {"message": "Product added successfully"},
+                {"message": "Plant added successfully"},
                 status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

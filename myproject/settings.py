@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "dj_rest_auth",  # Authentication endpoints
     "dj_rest_auth.registration",  # Registration endpoints (if needed)
     "rest_framework_simplejwt.token_blacklist",
+    'django_celery_beat',
     "users",
     "lawn",
     "plant",
@@ -193,3 +194,13 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_TIMEZONE = TIME_ZONE
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
