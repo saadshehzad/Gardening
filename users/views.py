@@ -14,8 +14,8 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-from plant.models import ProductRegion
-from plant.serializers import ProductSerializer
+from plant.models import PlantRegion
+from plant.serializers import PlantSerializer
 
 from .models import *
 from .serializers import *
@@ -236,9 +236,9 @@ class RegionDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
 
 
-class GetProductsByUserRegion(APIView):
+class GetPlantsByUserRegion(APIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = UserRegionProductSerialzier
+    serializer_class = UserRegionPlantSerializer
 
     def post(self, request, *args, **kwargs):
 
@@ -253,18 +253,18 @@ class GetProductsByUserRegion(APIView):
                 return Response({"message": "Region not found for this user."})
 
             try:
-                product_regions = ProductRegion.objects.filter(region=region)
+                plant_regions = PlantRegion.objects.filter(region=region)
             except:
-                return Response({"message": "Product Region not found."})
+                return Response({"message": "Plant Region not found."})
 
-            products = []
+            plants = []
 
-            for obj in product_regions:
-                products.append(obj.product)
+            for obj in plant_regions:
+                plants.append(obj.plant)
 
-            product_serializer = ProductSerializer(products, many=True)
+            plant_serializer = PlantSerializer(plants, many=True)
 
-            return Response(product_serializer.data)
+            return Response(plant_serializer.data)
 
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
