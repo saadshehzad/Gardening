@@ -21,7 +21,7 @@ class RegionSerializer(serializers.ModelSerializer):
         fields = "_all_"
 
 
-class UserRegionProductSerialzier(serializers.Serializer):
+class UserRegionPlantSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=30, required=False)
 
 

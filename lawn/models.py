@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from plant.models import Product
+from plant.models import Plant
 from users.models import User
 
 from .models import *
@@ -26,15 +26,15 @@ class UserLawn(models.Model):
         return f"{self.user.username}'s Lawn" if self.user else "Unnamed User Lawn"
 
 
-class LawnProduct(models.Model):
+class LawnPlant(models.Model):
     lawn = models.ForeignKey(Lawn, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
     def __str__(self):
         return (
-            f"{self.product.name} in {self.lawn.name}"
-            if self.product and self.lawn
-            else "Unnamed Lawn Product"
+            f"{self.plant.name} in {self.lawn.name}"
+            if self.plant and self.lawn
+            else "Unnamed Lawn Plant"
         )
 
 

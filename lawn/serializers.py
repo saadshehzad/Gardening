@@ -2,7 +2,7 @@ from uuid import UUID
 
 from rest_framework import serializers
 
-from plant.serializers import ProductSerializer
+from plant.serializers import PlantSerializer
 
 from .models import *
 
@@ -33,37 +33,37 @@ class UserLawnSerializer(serializers.ModelSerializer):
         return value
 
 
-class LawnProductSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
+class LawnPlantSerializer(serializers.ModelSerializer):
+    plant = PlantSerializer()
     lawn = LawnSerializer()
 
     class Meta:
-        model = LawnProduct
+        model = LawnPlant
         fields = "__all__"
 
 
-class UserLawnProductSerializer(serializers.Serializer):
-    products = serializers.ListField(
+class UserLawnPlantSerializer(serializers.Serializer):
+    plants = serializers.ListField(
         child=serializers.CharField(),
         min_length=1,
-        error_messages={"min_length": "At least one product ID is required."},
+        error_messages={"min_length": "At least one plant ID is required."},
     )
 
     def validate(self, data):
-        product_ids = data.get("products", [])
-        for product_id in product_ids:
+        plant_ids = data.get("plants", [])
+        for plant_id in plant_ids:
             try:
-                uuid.UUID(product_id)
+                uuid.UUID(plant_id)
             except ValueError:
                 raise serializers.ValidationError(
-                    {"message": f"Invalid Product ID: {product_id}"}
+                    {"message": f"Invalid Plant ID: {plant_id}"}
                 )
         return data
 
 
-class LawnProductSerializer(serializers.ModelSerializer):
+class LawnPlantSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LawnProduct
+        model = LawnPlant
         fields = "__all__"
 
 
