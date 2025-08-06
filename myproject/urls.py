@@ -51,6 +51,7 @@ urlpatterns = [
     path("plant/", include("plant.urls")),
     path("users/", include("users.urls")),
     path("posts/", include("posts.urls")),
+    path("notifications/", include("notifications.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
