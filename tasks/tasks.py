@@ -6,6 +6,7 @@ from firebase_admin.messaging import Message, Notification, send
 from django.utils import timezone
 from datetime import timedelta
 from myproject import fcm_config
+from .plant_care import send_trimming_notification, send_fertilizing_notification,send_watering_notification_to_user
 
 from plant.models import Plant
 from django_redis import get_redis_connection
@@ -22,39 +23,10 @@ User = get_user_model()
 def send_watering_notification():
     users = User.objects.all()
     for user in users:
-        send_notification(user)
+        send_watering_notification_to_user(user)
 
 
-def send_notification(user):
-    if not user:
-        return
 
-    tokens = UserFCMToken.objects.filter(user=user)
-    if not tokens.exists():
-        logger.warning(f"No FCM tokens found for user: {user.username}")
-        return
-    for token in tokens:
-        print(
-            f"FCM token Found, send notification to {user.username}: {token.fcm_token}"
-        )
-        message = Message(
-            notification=Notification(
-                title="Watering Reminder",
-                body=f"It's time to water your plants, {user.username}!",
-            ),
-            token=token.fcm_token,
-        )
-        try:
-            send(message)
-            FCMNotification.objects.create(
-                type="Watering",
-                title="Watering Reminder",
-                message=f"Sent watering reminder to {user.username}",
-                sent=True,
-                user=user,
-            )
-        except Exception as e:
-            logger.error(f"Failed to send notification to {user.username}: {e}")
 
 
 @shared_task
@@ -62,68 +34,124 @@ def send_fertilizing_notifications():
     today = timezone.now()
     redis_conn = get_redis_connection("default")
     
-    try:
-        users = User.objects.all()  
-    except User.DoesNotExist:
-        return
-
-    plants = Plant.objects.filter(fertilizer_interval__isnull=False)
+    users = User.objects.all()
+    plants = Plant.objects.filter(fertilizer_interval__isnull=False).exclude(fertilizer_interval='')
 
     for plant in plants:
         for user in users:
             redis_key = f"fertilizing_notification:{plant.id}:{user.id}"
+            
             next_notification_str = redis_conn.get(redis_key)
             if next_notification_str:
                 next_notification = timezone.datetime.fromisoformat(next_notification_str.decode())
+                next_notification = timezone.make_aware(next_notification) if timezone.is_naive(next_notification) else next_notification
             else:
-                last_notification = plant.last_notification_send_date.get("Fertilizing")
-            if last_notification:
-                try:
-                    next_notification = timezone.datetime.strptime(last_notification, "%Y-%m-%d %H:%M:%S")
-                    next_notification = timezone.make_aware(next_notification)
-                except ValueError:
-                    next_notification = today
+                notification_data = plant.notification_send_date_and_type or {}
+                last_notification_str = notification_data.get(f"Fertilizing_{user.id}")
+                
+                if last_notification_str:
+                    try:
+                        last_notification = timezone.datetime.fromisoformat(last_notification_str)
+                        last_notification = timezone.make_aware(last_notification) if timezone.is_naive(last_notification) else last_notification
+                        interval_days = int(plant.fertilizer_interval)
+                        next_notification = last_notification + timedelta(days=interval_days)
+                    except (ValueError, TypeError):
+                        next_notification = today
+                else:
+                    next_notification = today  
+            
+            if today >= next_notification:
+                success = send_fertilizing_notification(user, plant)
+                
+                if success:
+                    try:
+                        interval_days = int(plant.fertilizer_interval)
+                        next_notification_date = today + timedelta(days=interval_days)
+                        
+                        # Store in Redis
+                        redis_conn.set(redis_key, next_notification_date.isoformat(), ex=86400 * interval_days * 2)
+                        
+                        # Update plant's notification field
+                        notification_data = plant.notification_send_date_and_type or {}
+                        notification_data[f"Fertilizing_{user.id}"] = next_notification_date.isoformat()
+                        plant.notification_send_date_and_type = notification_data
+                        plant.save(update_fields=['notification_send_date_and_type'])
+                    except (ValueError, TypeError):
+                        continue
+
+"""We'll use this code  if we want to use the shared task decorator for send_fertilizing_notifications as every minute."""
+
+# @shared_task
+# def send_fertilizing_notifications():
+#     users = User.objects.all()
+#     plants = Plant.objects.all()
+
+#     for plant in plants:
+#         for user in users:
+#             success = send_fertilizing_notification(user, plant)
+
+#             if success:
+#                 today = timezone.now()
+#                 notification_data = plant.notification_send_date_and_type or {}
+#                 notification_data[f"Fertilizing_{user.id}"] = today.isoformat()
+#                 plant.notification_send_date_and_type = notification_data
+#                 plant.save(update_fields=['notification_send_date_and_type'])
+
+
+
+
+@shared_task
+def send_trimming_notifications():
+    today = timezone.now()
+    redis_conn = get_redis_connection("default")
+    
+    users = User.objects.all()
+    plants = Plant.objects.filter(trimming_interval__isnull=False)
+    for plant in plants:
+        for user in users:
+            redis_key = f"trimming_notification:{plant.id}:{user.id}"
+            
+            # Check Redis first
+            next_notification_str = redis_conn.get(redis_key)
+            if next_notification_str:
+                next_notification = timezone.datetime.fromisoformat(next_notification_str.decode())
+                next_notification = timezone.make_aware(next_notification) if timezone.is_naive(next_notification) else next_notification
             else:
-                next_notification = today
+                # Check plant's notification field
+                notification_data = plant.notification_send_date_and_type or {}
+                last_notification_str = notification_data.get(f"Trimming_{user.id}")
+                
+                if last_notification_str:
+                    try:
+                        last_notification = timezone.datetime.fromisoformat(last_notification_str)
+                        last_notification = timezone.make_aware(last_notification) if timezone.is_naive(last_notification) else last_notification
+                        interval_days = int(plant.trimming_interval)
+                        next_notification = last_notification + timedelta(days=interval_days)
+                    except (ValueError, TypeError):
+                        next_notification = today
+                else:
+                    next_notification = today  # First notification
+            
+            # Send notification if it's time
+            if today >= next_notification:
+                success = send_trimming_notification(user, plant)
+                
+                if success:
+                    try:
+                        interval_days = int(plant.trimming_interval)
+                        next_notification_date = today + timedelta(days=interval_days)
+                        
+                        # Store in Redis
+                        redis_conn.set(redis_key, next_notification_date.isoformat(), ex=86400 * interval_days * 2)
+                        
+                        # Update plant's notification field
+                        notification_data = plant.notification_send_date_and_type or {}
+                        notification_data[f"Trimming_{user.id}"] = next_notification_date.isoformat()
+                        plant.notification_send_date_and_type = notification_data
+                        plant.save(update_fields=['notification_send_date_and_type'])
+                    except (ValueError, TypeError):
+                        continue
 
-        if not next_notification or today >= next_notification:
-            send_fertilizing_notification(user, plant)
-            try:
-                interval_days = int(plant.fertilizer_interval)
-                next_notification = today + timedelta(days=interval_days)
-                redis_conn.set(redis_key, next_notification.isoformat())
-                plant.last_notification_send_date = {
-                    "Fertilizing": next_notification.strftime("%Y-%m-%d %H:%M:%S")
-                }
-                plant.save()
-            except:
-                pass
-
-
-def send_fertilizing_notification(user, plant):
-    tokens = UserFCMToken.objects.filter(user=user)
-    if not tokens.exists():
-        return
-
-    for token in tokens:
-        message = Message(
-            notification=Notification(
-                title="Fertilizing Reminder",
-                body=f"It's time to fertilize your {plant.name}, {user.username}!",
-            ),
-            token=token.fcm_token,
-        )
-        try:
-            send(message)
-            FCMNotification.objects.create(
-                type="Fertilizing",
-                title="Fertilizing Reminder",
-                message=f"Sent fertilizing reminder for {plant.name} to {user.username}",
-                sent=True,
-                user=user,
-            )
-        except:
-            pass
 
 
 @shared_task
