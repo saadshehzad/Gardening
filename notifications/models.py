@@ -4,7 +4,9 @@ from django.conf import settings
 class FCMNotification(models.Model):
     TYPE = (("Watering", "Watering"),
             ("Fertilizing", "Fertilizing"),
-            ("Pest Check", "Pest Check"),)
+            ("Pest Check", "Pest Check"),
+            ("Trimming", "Trimming"),
+    )
     type = models.CharField(max_length=50, choices=TYPE)
     message = models.TextField()
     sent = models.BooleanField(default=False)

@@ -23,18 +23,23 @@ def debug_task(self):
 app.conf.beat_schedule = {
     "run-watering-notification-daily": {
         "task": "tasks.tasks.send_watering_notification",
-        "schedule": crontab(hour=10, minute=0),  # every day 10:00 AM
+        "schedule": crontab(),  # Daily at 10:00 AM
         "args": (),
     },
     "send-fertilizing-notifications": {
         "task": "tasks.tasks.send_fertilizing_notifications",
-        "schedule": crontab(hour=10, minute=0),  # every day at 10:00 AM
+        "schedule": crontab(),  # Every hour
         "args": (),
     },
     "send-monthly-pest-check": {
-    "task": "tasks.tasks.send_monthly_pest_check",  
-    "schedule": crontab(day_of_month=1, hour=10, minute=0),  # Every 1st day of the month at 10:00 AM
-    "args": (),
+        "task": "tasks.tasks.send_monthly_pest_check",  
+        "schedule": crontab(),  # 6th of each month at 10:00 AM
+        "args": (),
     },
-}  
+    "send-trimming-notifications": {
+        "task": "tasks.tasks.send_trimming_notifications",
+        "schedule": crontab(),  # Every hour
+        "args": (),
+    },
+}
 
