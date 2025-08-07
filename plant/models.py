@@ -36,7 +36,8 @@ class Plant(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     planted_date = models.DateField(null=True, blank=True)
     fertilizer_interval = models.CharField(max_length=50, null=True, blank=True)
-    last_notification_send_date = models.JSONField()
+    trimming_interval = models.CharField(max_length=50, null=True, blank=True)
+    notification_send_date_and_type = models.JSONField()
 
     # {
     #     "type": "Watering",
