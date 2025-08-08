@@ -9,7 +9,7 @@ from users.models import Region
 class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
-    description = models.TextField(max_length=20)
+    description = models.TextField(max_length=255)
     image = models.CharField(max_length=255)
 
     def __str__(self):
