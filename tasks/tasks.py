@@ -173,6 +173,9 @@ def send_monthly_pest_check():
                     body=f"It's time for your monthly pest check, {user.username}!",
                 ),
                 token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                }
             )
             try:
                 send(message)
