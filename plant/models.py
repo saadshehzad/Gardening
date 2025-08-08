@@ -19,7 +19,7 @@ class Category(models.Model):
 class Plant(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
-    description = models.TextField(max_length=15)
+    description = models.TextField(max_length=255)
     image = models.JSONField()
     days_to_maturity = models.CharField(max_length=20)
     mature_speed = models.CharField(max_length=20)
