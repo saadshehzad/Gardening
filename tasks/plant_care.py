@@ -18,9 +18,12 @@ def send_watering_notification_to_user(user):
         message = Message(
             notification=Notification(
                 title="Watering Reminder",
-                body=f"It's time to water your plants, {user.username}!",
+                body=f"It's time to water your Garden, {user.username}!",
             ),
             token=token.fcm_token,
+            data={
+                "type": "Generic",
+            }
         )
         try:
             send(message)
@@ -48,6 +51,10 @@ def send_fertilizing_notification(user, plant):
                 body=f"It's time to fertilize your {plant.name}!",
             ),
             token=token.fcm_token,
+            data={
+                "type": "fertilizing_reminder",
+                "plant_id": str(plant.id),
+            }
         )
         try:
             send(message)
@@ -84,6 +91,10 @@ def send_trimming_notification(user, plant):
                 body=f"It's time to trim your {plant.name}!",
             ),
             token=token.fcm_token,
+            data={
+            "type": "trimming_reminder",
+            "plant_id": str(plant.id)
+        }
         )
         try:
             send(message)
