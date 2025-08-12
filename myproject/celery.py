@@ -44,8 +44,8 @@ app.conf.beat_schedule = {
         "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
-    "send-trimming-notifications": {
-        "task": "tasks.tasks.send_trimming_notifications",
+    "send_seasonal_plant_notification": {
+        "task": "tasks.tasks.send_seasonal_plant_notification",
         "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
