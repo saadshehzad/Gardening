@@ -44,7 +44,6 @@ class UserLawnRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
         return Response({"detail": "Location updated successfully."})
 
 
-
 class LawnDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = LawnSerializer
@@ -90,9 +89,7 @@ class UserLawnPlantAPIView(APIView):
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
-                    lawn_plant = LawnPlant.objects.create(
-                        lawn=lawn, plant=plant
-                    )
+                    lawn_plant = LawnPlant.objects.create(lawn=lawn, plant=plant)
                     lawn_plants.append(lawn_plant)
                 except Plant.DoesNotExist:
                     return Response(
@@ -134,9 +131,7 @@ class UserLawnPlantAPIView(APIView):
                     ).first()
                     if not lawn_plant:
                         return Response(
-                            {
-                                "message": f"This plant is not assigned to your lawn."
-                            },
+                            {"message": f"This plant is not assigned to your lawn."},
                             status=status.HTTP_400_BAD_REQUEST,
                         )
                     lawn_plant.delete()

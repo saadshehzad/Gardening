@@ -1,3 +1,4 @@
+import logging
 import os
 import logging
 from celery import Celery
@@ -28,12 +29,19 @@ app.conf.beat_schedule = {
     },
     "send-fertilizing-notifications": {
         "task": "tasks.tasks.send_fertilizing_notifications",
-        "schedule": crontab(hour=10, minute=0),
+        "schedule": crontab(),
         "args": (),
     },
     "send-monthly-pest-check": {
-        "task": "tasks.tasks.send_monthly_pest_check",  
-        "schedule": crontab(day_of_month=6, hour=10, minute=0),  # 6th of each month at 10:00 AM
+        "task": "tasks.tasks.send_monthly_pest_check",
+        "schedule": crontab(
+            day_of_month=6, hour=10, minute=0
+        ),  # 6th of each month at 10:00 AM
+        "args": (),
+    },
+    "send-trimming-notifications": {
+        "task": "tasks.tasks.send_trimming_notifications",
+        "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
     "send-trimming-notifications": {

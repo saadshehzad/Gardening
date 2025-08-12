@@ -1,13 +1,17 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import FCMNotification
 from .serializers import NotificationSerializer
+
 
 class UserNotificationsAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        notifications = FCMNotification.objects.filter(user=request.user).order_by('-created_at')
+        notifications = FCMNotification.objects.filter(user=request.user).order_by(
+            "-created_at"
+        )
         serializer = NotificationSerializer(notifications, many=True)
         return Response(serializer.data)
