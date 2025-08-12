@@ -30,7 +30,7 @@ app.conf.beat_schedule = {
     },
     "send-fertilizing-notifications": {
         "task": "tasks.tasks.send_fertilizing_notifications",
-        "schedule": crontab(hour=10, minute=0),
+        "schedule": crontab(),
         "args": (),
     },
     "send-monthly-pest-check": {

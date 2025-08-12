@@ -1,3 +1,6 @@
+import logging
+logger = logging.getLogger(__name__)
+
 from notifications.models import *
 from plant.models import *
 from users.models import UserFCMToken
