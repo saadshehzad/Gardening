@@ -1,5 +1,6 @@
-import os
 import logging
+import os
+
 from celery import Celery
 from celery.schedules import crontab
 from celery.signals import worker_process_init
@@ -20,6 +21,7 @@ logger = logging.getLogger(__name__)
 def debug_task(self):
     print(f"Request: {self.request!r}")
 
+
 app.conf.beat_schedule = {
     "run-watering-notification-daily": {
         "task": "tasks.tasks.send_watering_notification",
@@ -32,8 +34,15 @@ app.conf.beat_schedule = {
         "args": (),
     },
     "send-monthly-pest-check": {
-        "task": "tasks.tasks.send_monthly_pest_check",  
-        "schedule": crontab(day_of_month=6, hour=10, minute=0),  # 6th of each month at 10:00 AM
+        "task": "tasks.tasks.send_monthly_pest_check",
+        "schedule": crontab(
+            day_of_month=6, hour=10, minute=0
+        ),  # 6th of each month at 10:00 AM
+        "args": (),
+    },
+    "send-trimming-notifications": {
+        "task": "tasks.tasks.send_trimming_notifications",
+        "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
     "send-trimming-notifications": {
@@ -42,4 +51,3 @@ app.conf.beat_schedule = {
         "args": (),
     },
 }
-

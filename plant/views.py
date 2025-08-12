@@ -87,5 +87,3 @@ class PlantDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PlantSerializer
     queryset = Plant.objects.all()
     lookup_field = "id"
-
-

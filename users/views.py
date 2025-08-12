@@ -1,4 +1,5 @@
 from collections import OrderedDict
+
 from django.conf import settings
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.tokens import default_token_generator
@@ -14,6 +15,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from plant.models import PlantRegion
 from plant.serializers import PlantSerializer
 
