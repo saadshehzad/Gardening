@@ -1,7 +1,12 @@
-from .tasks import *
+import logging
+logger = logging.getLogger(__name__)
+
 from notifications.models import *
 from plant.models import *
 from users.models import UserFCMToken
+
+from .tasks import *
+
 
 def send_watering_notification_to_user(user):
     if not user:
@@ -23,7 +28,7 @@ def send_watering_notification_to_user(user):
             token=token.fcm_token,
             data={
                 "type": "Generic",
-            }
+            },
         )
         try:
             send(message)
@@ -54,7 +59,7 @@ def send_fertilizing_notification(user, plant):
             data={
                 "type": "fertilizing_reminder",
                 "plant_id": str(plant.id),
-            }
+            },
         )
         try:
             send(message)
@@ -62,7 +67,7 @@ def send_fertilizing_notification(user, plant):
         except Exception as e:
             logger.error(f"Failed to send fertilizing notification: {e}")
             continue
-    
+
     # Create notification record
     if success:
         FCMNotification.objects.create(
@@ -72,10 +77,8 @@ def send_fertilizing_notification(user, plant):
             sent=True,
             user=user,
         )
-    
+
     return success
-
-
 
 
 def send_trimming_notification(user, plant):
@@ -91,10 +94,7 @@ def send_trimming_notification(user, plant):
                 body=f"It's time to trim your {plant.name}!",
             ),
             token=token.fcm_token,
-            data={
-            "type": "trimming_reminder",
-            "plant_id": str(plant.id)
-        }
+            data={"type": "trimming_reminder", "plant_id": str(plant.id)},
         )
         try:
             send(message)
@@ -102,7 +102,7 @@ def send_trimming_notification(user, plant):
         except Exception as e:
             logger.error(f"Failed to send trimming notification: {e}")
             continue
-    
+
     # Create notification record
     if success:
         FCMNotification.objects.create(
@@ -112,5 +112,5 @@ def send_trimming_notification(user, plant):
             sent=True,
             user=user,
         )
-    
+
     return success

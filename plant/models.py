@@ -39,11 +39,6 @@ class Plant(models.Model):
     trimming_interval = models.CharField(max_length=50, null=True, blank=True)
     notification_send_date_and_type = models.JSONField()
 
-    # {
-    #     "type": "Watering",
-    #     "date": "2023-10-01"
-    # }
-
     def __str__(self):
         return self.name
 
@@ -52,3 +47,17 @@ class PlantRegion(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
+
+
+class Season(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    from_date = models.DateField()
+    to_date = models.DateField()
+
+    def __str__(self):
+        return self.name
+
+
+class SeasonalPlant(models.Model):
+    name = models.CharField(max_length=255)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)

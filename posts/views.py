@@ -213,7 +213,7 @@ class UserPostShareAPIView(APIView):
                 "detail": "Share link generated successfully!",
                 "share_url": share_url,
                 "post_id": str(post.id),
-                "description": post.description
+                "description": post.description,
             },
             status=status.HTTP_200_OK,
         )
@@ -221,10 +221,12 @@ class UserPostShareAPIView(APIView):
 
 class RedirectToPostView(APIView):
     permission_classes = [IsAuthenticated]
+
     def get(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         message = f"You have been redirected to {post.description}"
         return Response({"detail": message}, status=status.HTTP_200_OK)
+
 
 class UserPostCommentAPIView(APIView):
     permission_classes = [IsAuthenticated]

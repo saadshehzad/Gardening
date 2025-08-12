@@ -90,4 +90,8 @@ db.sqlite3
 venv
 venv/
 .pyc
-pyc
+pycgardening_secrets.json
+gardening_secrets.json
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
