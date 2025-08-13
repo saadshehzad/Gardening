@@ -1,8 +1,9 @@
 from django.conf import settings
 from django.db import models
-
+import uuid
 
 class FCMNotification(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     TYPE = (
         ("Watering", "Watering"),
         ("Fertilizing", "Fertilizing"),
