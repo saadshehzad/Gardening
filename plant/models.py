@@ -35,9 +35,9 @@ class Plant(models.Model):
     attributes = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     planted_date = models.DateField(null=True, blank=True)
-    fertilizer_interval = models.CharField(max_length=50, null=True, blank=True)
-    trimming_interval = models.CharField(max_length=50, null=True, blank=True)
-    notification_send_date_and_type = models.JSONField()
+    fertilizer_interval = models.PositiveIntegerField()
+    trimming_interval = models.PositiveIntegerField(null=True, blank=True)
+    notification_send_date_and_type = models.JSONField(default=dict, blank=True)
 
     def __str__(self):
         return self.name
