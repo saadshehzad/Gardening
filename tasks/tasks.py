@@ -11,7 +11,7 @@ from myproject import fcm_config
 from notifications.models import FCMNotification
 from plant.models import *
 from users.models import UserFCMToken
-from lawn.models import  UserLawnPlant
+from lawn.models import  LawnPlant
 from .plant_care import (send_fertilizing_notification,
                          send_trimming_notification,
                          send_watering_notification_to_user)
@@ -33,13 +33,10 @@ def send_watering_notification():
 def send_fertilizing_notifications():
     today = timezone.now().date()
 
-    user_lawn_plants = UserLawnPlant.objects.select_related(
-        "user", "lawn_plant__plant"
-    )
-
-    for ulp in user_lawn_plants:
-        user = ulp.user
-        plant = ulp.lawn_plant.plant
+    lawn_plants = LawnPlant.objects.all()
+    for lp in lawn_plants:
+        user = lp.user
+        plant = lp.plant
 
         if not plant.fertilizer_interval:
             continue
@@ -78,9 +75,9 @@ def send_trimming_notifications():
     today = timezone.now()
     users = User.objects.all()
     for user in users:
-        user_lawn_plants = UserLawnPlant.objects.filter(user=user)
-        for ulp in user_lawn_plants:
-            plant = ulp.lawn_plant.plant
+        user_lawn_plants = LawnPlant.objects.filter(user=user)
+        for lp in user_lawn_plants:
+            plant = lp.plant
             if not plant.trimming_interval:
                 continue
 
@@ -105,7 +102,7 @@ def send_trimming_notifications():
             next_due_date = (last_sent + timedelta(days=interval_days)).date()  
             
 
-            if today >= next_due_date:
+            if today.date() >= next_due_date:
                 if send_trimming_notification(user, plant):
                     notif_data["trimming"] = today.strftime("%Y-%m-%d")
                     plant.notification_send_date_and_type = notif_data

@@ -64,7 +64,7 @@ class UserLawnPlantSerializer(serializers.Serializer):
 class LawnPlantSerializer(serializers.ModelSerializer):
     class Meta:
         model = LawnPlant
-        fields = "__all__"
+        fields = "lawn", "plant"
 
 
 class RealGardenImagesSerializer(serializers.ModelSerializer):
