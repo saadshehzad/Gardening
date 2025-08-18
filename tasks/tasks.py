@@ -111,44 +111,6 @@ def send_trimming_notifications():
 
 
 @shared_task
-def send_monthly_pest_check():
-    today = timezone.now().date()
-    if today.day != 6:
-        return
-
-    users = User.objects.all()
-    for user in users:
-        tokens = UserFCMToken.objects.filter(user=user)
-        if not tokens.exists():
-            continue
-
-        for token in tokens:
-            message = Message(
-                notification=Notification(
-                    title="Pest Check Reminder",
-                    body=f"It's time for your monthly pest check, {user.username}!",
-                ),
-                token=token.fcm_token,
-                data={
-                    "type": "Generic",
-                },
-            )
-            try:
-                send(message)
-                FCMNotification.objects.create(
-                    type="Pest Check",
-                    title="Pest Check Reminder",
-                    message=f"Sent pest check reminder to {user.username}",
-                    sent=True,
-                    user=user,
-                )
-            except Exception as e:
-                logger.error(
-                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
-                )
-
-
-@shared_task
 def send_seasonal_plant_notification():
     today = timezone.now().date()
 
@@ -188,6 +150,385 @@ def send_seasonal_plant_notification():
                     type="Seasonal Plant",
                     title="Seasonal Plant Reminder",
                     message=f"Sent Seasonal Plants to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def send_weekly_gardening_tip():
+    today = timezone.now().date()
+    if today.day != 3:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Gardening Tip",
+                    body=f"Tip of the week: Mix crushed eggshells into your soil for extra calcium!",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Gardening Tip",
+                    title="Gardening Tip",
+                    message=f"Sent gardening tip to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def send_monthly_pest_check():
+    today = timezone.now().date()
+    if today.day != 6:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Pest Check Reminder",
+                    body=f"It's time for your monthly pest check, {user.username}!",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Pest Check",
+                    title="Pest Check Reminder",
+                    message=f"Sent pest check reminder to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def mindful_gardening_prompt():
+    today = timezone.now().date()
+    if today.day != 9:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Mindful Gardening Prompt",
+                    body=f"Step outside, take a breath, and spend 5 minutes with your plants today.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Mindful Gardening",
+                    title="Get Mindful",
+                    message=f"Sent mindful gardening prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def photo_prompt():
+    today = timezone.now().date()
+    if today.day != 12:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Photo Prompt",
+                    body=f"Capture your garden's beauty—share your plant's progress with friends!",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Photo Prompt",
+                    title="Photo Prompt",
+                    message=f"Sent photo prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def morning_in_the_garden():
+    today = timezone.now().date()
+    if today.day != 15:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Morning in the Garden",
+                    body=f"Hey {user.username}, start your day with fresh air—step into your garden for a quick recharge.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Morning in the Garden",
+                    title="Morning in the Garden",
+                    message=f"sent morning in the garden prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def nature_break():
+    today = timezone.now().date()
+    if today.day != 18:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Nature Break",
+                    body=f"Take a short break, stretch, and enjoy the beauty of your plants.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Nature Break",
+                    title="Nature Break",
+                    message=f"Sent nature break prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+@shared_task
+def touch_of_green():
+    today = timezone.now().date()
+    if today.day != 21:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Touch of Green",
+                    body=f"Gardening is therapy—go touch the soil and feel grounded.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Touch of Green",
+                    title="Touch of Green",
+                    message=f"Sent touch of green prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def mindful_moment():
+    today = timezone.now().date()
+    if today.day != 24:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Mindful Moment",
+                    body=f"Disconnect from screens and reconnect with your garden. Enjoy the sights, sounds, and scents of nature.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Mindful Moment",
+                    title="Mindful Moment",
+                    message=f"sent mindful moment prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def tiny_care():
+    today = timezone.now().date()
+    if today.day != 27:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Tiny Care",
+                    body=f"Even 5 minutes of attention keeps your plants thriving.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Tiny Care",
+                    title="Tiny Care",
+                    message=f"Sent tiny care prompt to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+
+@shared_task
+def garden_vibes():
+    today = timezone.now().date()
+    if today.day != 30:
+        return
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Garden Vibes",
+                    body=f"Spend time outside—let your garden be your happy place today.",
+                ),
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Garden Vibes",
+                    title="Garden Vibes",
+                    message=f"Sent garden vibes prompt to {user.username}",
                     sent=True,
                     user=user,
                 )
