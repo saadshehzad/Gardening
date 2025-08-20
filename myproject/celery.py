@@ -30,18 +30,7 @@ app.conf.beat_schedule = {
 
     "send-fertilizing-notifications": {
         "task": "tasks.tasks.send_fertilizing_notifications",
-<<<<<<< HEAD
-        "schedule": crontab(hour=10, minute=0),
-        "args": (),
-    },
-    "send-monthly-pest-check": {
-        "task": "tasks.tasks.send_monthly_pest_check",
-        "schedule": crontab(
-            day_of_month=6, hour=10, minute=0
-        ),  # 6th of each month at 10:00 AM
-=======
         "schedule": crontab(hour=12, minute=0),
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
         "args": (),
     },
 
@@ -62,20 +51,6 @@ app.conf.beat_schedule = {
         "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
-<<<<<<< HEAD
-    "send_seasonal_plant_suggestion": {
-        "task": "tasks.tasks.send_seasonal_plant_suggestions",
-        "schedule": crontab(hour=10, minute=0,day_of_month="1,16"),
-        "args": (),
-    },
-     "send_gardening_tips": {
-        "task": "tasks.tasks.send_gardening_tips",
-        "schedule": crontab(hour=10, minute=0,day_of_month="1,16"),
-        "args": (),
-    },
-}
-=======
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
 
     "send_gardening_tip_notification": {
         "task": "tasks.tasks.send_weekly_gardening_tip",
