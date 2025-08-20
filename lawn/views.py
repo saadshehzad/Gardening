@@ -89,7 +89,7 @@ class UserLawnPlantAPIView(APIView):
                             },
                             status=status.HTTP_400_BAD_REQUEST,
                         )
-                    lawn_plant = LawnPlant.objects.create(lawn=lawn, plant=plant)
+                    lawn_plant = LawnPlant.objects.create(lawn=lawn, plant=plant, user=user)
                     lawn_plants.append(lawn_plant)
                 except Plant.DoesNotExist:
                     return Response(
