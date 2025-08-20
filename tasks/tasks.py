@@ -15,6 +15,7 @@ from lawn.models import UserLawn
 from .plant_care import (send_fertilizing_notification,
                          send_trimming_notification,
                          send_watering_notification_to_user)
+import random
 
 logger = logging.getLogger(__name__)
 
@@ -246,7 +247,119 @@ def send_seasonal_plant_notification():
             message = Message(
                 notification=Notification(
                     title="Seasonal Plant",
-                    body=f"Hello {user.username}, here are seasonal plants for you: {plants_list}",
+                    body=f"Hello {user.username}, in this {current_season} season this is the best time to plant {plants_list}",
+                ),
+                token=token.fcm_token,
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Seasonal Plant",
+                    title="Seasonal Plant Reminder",
+                    message=f"Sent Seasonal Plants to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+seasonal_plant_suggestions = {
+    "Spring": [
+        "Plant strawberries for early summer treats",
+        "Grow chamomile for calming tea",
+        "Sow peas — they love cool weather"
+    ],
+    "Summer": [
+        "Grow cherry tomatoes for salads",
+        "Plant watermelon for a sweet snack",
+        "Grow lavender for fragrance"
+    ],
+    "Autumn": [
+        "Plant garlic now for next year's bulbs",
+        "Grow coriander — loves cooler weather",
+        "Sow broad beans for early spring crops"
+    ],
+    "Winter": [
+        "Start lettuce indoors for fresh greens",
+        "Grow rosemary in pots for year-round herbs",
+        "Plant thyme — thrives even in cold months"
+    ]
+}
+
+@shared_task
+def send_seasonal_plant_suggestions():
+    today = timezone.now().date()
+
+    current_season = Season.objects.filter(
+        from_date__lte= today, to_date__gte=today
+    ).first()
+    if not current_season:
+        return
+
+    current_suggestions = seasonal_plant_suggestions.get(current_season.name, [])
+    if current_suggestions:
+        suggestion = random.choice(current_suggestions)
+    else:
+        suggestion = "No seasonal suggestions available"
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Seasonal Plant",
+                    body=f"Hello {user.username}, {suggestion}",
+                ),
+                token=token.fcm_token,
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+                    type="Seasonal Plant",
+                    title="Seasonal Plant Reminder",
+                    message=f"Sent Seasonal Plants to {user.username}",
+                    sent=True,
+                    user=user,
+                )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
+
+gardening_tips = [
+    "Water your plants early in the morning to reduce evaporation.",
+    "Use coffee grounds to enrich your soil with nitrogen.",
+    "Companion planting: grow basil near tomatoes to improve flavor and repel pests.",
+    "Mulch around plants to retain moisture and prevent weeds.",
+    "Rotate your crops each season to maintain soil health.",
+    "Check the underside of leaves for early signs of pests."
+]
+
+@shared_task
+def send_gardening_tips():
+    today = timezone.now().date()
+    if today.day != 6:
+        return
+    
+    tip = random.choice(gardening_tips)
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+                    title="Seasonal Plant",
+                    body=f"Hello {user.username}, {tip}",
                 ),
                 token=token.fcm_token,
             )

@@ -29,7 +29,7 @@ app.conf.beat_schedule = {
     },
     "send-fertilizing-notifications": {
         "task": "tasks.tasks.send_fertilizing_notifications",
-        "schedule": crontab(),
+        "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
     "send-monthly-pest-check": {
@@ -47,6 +47,16 @@ app.conf.beat_schedule = {
     "send_seasonal_plant_notification": {
         "task": "tasks.tasks.send_seasonal_plant_notification",
         "schedule": crontab(hour=10, minute=0),
+        "args": (),
+    },
+    "send_seasonal_plant_suggestion": {
+        "task": "tasks.tasks.send_seasonal_plant_suggestions",
+        "schedule": crontab(hour=10, minute=0,day_of_month="1,16"),
+        "args": (),
+    },
+     "send_gardening_tips": {
+        "task": "tasks.tasks.send_gardening_tips",
+        "schedule": crontab(hour=10, minute=0,day_of_month="1,16"),
         "args": (),
     },
 }
