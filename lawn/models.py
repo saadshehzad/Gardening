@@ -29,6 +29,7 @@ class UserLawn(models.Model):
 class LawnPlant(models.Model):
     lawn = models.ForeignKey(Lawn, on_delete=models.CASCADE)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return (
@@ -46,3 +47,6 @@ class RealGardenImages(models.Model):
 
     def __str__(self):
         return self.description if self.description else "Unnamed Image"
+
+
+

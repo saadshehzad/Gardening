@@ -1,14 +1,24 @@
 from django.conf import settings
 from django.db import models
-
+import uuid
 
 class FCMNotification(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     TYPE = (
         ("Watering", "Watering"),
         ("Fertilizing", "Fertilizing"),
         ("Pest Check", "Pest Check"),
         ("Trimming", "Trimming"),
         ("Seasonal Plant", "Seasonal Plant"),
+        ("Gardening Tip", "Gardening Tip"),
+        ("Mindful Gardening", "Mindful Gardening"),
+        ("Photo Prompt", "Photo Prompt"),
+        ("Morning in the Garden", "Morning in the Garden"),
+        ("Nature Break", "Nature Break"),
+        ("Touch of Green", "Touch of Green"),
+        ("Mindful Moment", "Mindful Moment"),
+        ("Tiny Care", "Tiny Care"),
+        ("Garden Vibes", "Garden Vibes")
     )
     type = models.CharField(max_length=50, choices=TYPE)
     message = models.TextField()
