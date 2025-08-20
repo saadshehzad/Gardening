@@ -159,7 +159,6 @@ def send_seasonal_plant_notification():
                     f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
                 )
 
-<<<<<<< HEAD
 seasonal_plant_suggestions = {
     "Spring": [
         "Plant strawberries for early summer treats",
@@ -199,15 +198,6 @@ def send_seasonal_plant_suggestions():
     else:
         suggestion = "No seasonal suggestions available"
 
-=======
-
-@shared_task
-def send_weekly_gardening_tip():
-    today = timezone.now().date()
-    if today.day != 3:
-        return
-
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
     users = User.objects.all()
     for user in users:
         tokens = UserFCMToken.objects.filter(user=user)
@@ -217,33 +207,17 @@ def send_weekly_gardening_tip():
         for token in tokens:
             message = Message(
                 notification=Notification(
-<<<<<<< HEAD
                     title="Seasonal Plant",
                     body=f"Hello {user.username}, {suggestion}",
                 ),
                 token=token.fcm_token,
-=======
-                    title="Gardening Tip",
-                    body=f"Tip of the week: Mix crushed eggshells into your soil for extra calcium!",
-                ),
-                token=token.fcm_token,
-                data={
-                    "type": "Generic",
-                },
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
             )
             try:
                 send(message)
                 FCMNotification.objects.create(
-<<<<<<< HEAD
                     type="Seasonal Plant",
                     title="Seasonal Plant Reminder",
                     message=f"Sent Seasonal Plants to {user.username}",
-=======
-                    type="Gardening Tip",
-                    title="Gardening Tip",
-                    message=f"Sent gardening tip to {user.username}",
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
                     sent=True,
                     user=user,
                 )
@@ -252,7 +226,6 @@ def send_weekly_gardening_tip():
                     f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
                 )
 
-<<<<<<< HEAD
 gardening_tips = [
     "Water your plants early in the morning to reduce evaporation.",
     "Use coffee grounds to enrich your soil with nitrogen.",
@@ -269,14 +242,6 @@ def send_gardening_tips():
         return
     
     tip = random.choice(gardening_tips)
-=======
-
-@shared_task
-def send_monthly_pest_check():
-    today = timezone.now().date()
-    if today.day != 6:
-        return
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
 
     users = User.objects.all()
     for user in users:
@@ -287,32 +252,17 @@ def send_monthly_pest_check():
         for token in tokens:
             message = Message(
                 notification=Notification(
-<<<<<<< HEAD
                     title="Seasonal Plant",
                     body=f"Hello {user.username}, {tip}",
                 ),
                 token=token.fcm_token,
-=======
-                    title="Pest Check Reminder",
-                    body=f"It's time for your monthly pest check, {user.username}!",
-                ),
-                token=token.fcm_token,
-                data={
-                    "type": "Generic",
-                },
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
             )
             try:
                 send(message)
                 FCMNotification.objects.create(
-<<<<<<< HEAD
                     type="Seasonal Plant",
                     title="Seasonal Plant Reminder",
                     message=f"Sent Seasonal Plants to {user.username}",
-=======
-                    type="Pest Check",
-                    title="Pest Check Reminder",
-                    message=f"Sent pest check reminder to {user.username}",
                     sent=True,
                     user=user,
                 )
@@ -321,6 +271,55 @@ def send_monthly_pest_check():
                     f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
                 )
 
+
+@shared_task
+def send_weekly_gardening_tip():
+    today = timezone.now().date()
+    if today.day != 3:
+        return
+
+
+    users = User.objects.all()
+    for user in users:
+        tokens = UserFCMToken.objects.filter(user=user)
+        if not tokens.exists():
+            continue
+
+        for token in tokens:
+            message = Message(
+                notification=Notification(
+
+                    title="Seasonal Plant",
+                    body=f"Hello {user.username}, {suggestion}",
+                ),
+                token=token.fcm_token,
+
+                    title="Gardening Tip",
+                    body=f"Tip of the week: Mix crushed eggshells into your soil for extra calcium!",
+                token=token.fcm_token,
+                data={
+                    "type": "Generic",
+                },
+            )
+            try:
+                send(message)
+                FCMNotification.objects.create(
+
+                    type="Seasonal Plant",
+                    title="Seasonal Plant Reminder",
+                    message=f"Sent Seasonal Plants to {user.username}",
+
+                    type="Gardening Tip",
+                    title="Gardening Tip",
+                    message=f"Sent gardening tip to {user.username}",
+
+                    sent=True,
+                    user=user,
+                 )
+            except Exception as e:
+                logger.error(
+                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
+                )
 
 @shared_task
 def mindful_gardening_prompt():
@@ -616,7 +615,6 @@ def garden_vibes():
                     type="Garden Vibes",
                     title="Garden Vibes",
                     message=f"Sent garden vibes prompt to {user.username}",
->>>>>>> 6fd1b5310ddcbeab11640bb33d5cdc119b99fa0d
                     sent=True,
                     user=user,
                 )
