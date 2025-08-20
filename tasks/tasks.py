@@ -273,55 +273,6 @@ def send_gardening_tips():
 
 
 @shared_task
-def send_weekly_gardening_tip():
-    today = timezone.now().date()
-    if today.day != 3:
-        return
-
-
-    users = User.objects.all()
-    for user in users:
-        tokens = UserFCMToken.objects.filter(user=user)
-        if not tokens.exists():
-            continue
-
-        for token in tokens:
-            message = Message(
-                notification=Notification(
-
-                    title="Seasonal Plant",
-                    body=f"Hello {user.username}, {suggestion}",
-                ),
-                token=token.fcm_token,
-
-                    title="Gardening Tip",
-                    body=f"Tip of the week: Mix crushed eggshells into your soil for extra calcium!",
-                token=token.fcm_token,
-                data={
-                    "type": "Generic",
-                },
-            )
-            try:
-                send(message)
-                FCMNotification.objects.create(
-
-                    type="Seasonal Plant",
-                    title="Seasonal Plant Reminder",
-                    message=f"Sent Seasonal Plants to {user.username}",
-
-                    type="Gardening Tip",
-                    title="Gardening Tip",
-                    message=f"Sent gardening tip to {user.username}",
-
-                    sent=True,
-                    user=user,
-                 )
-            except Exception as e:
-                logger.error(
-                    f"Failed to send notification to {user.username} for token {token.fcm_token}: {str(e)}"
-                )
-
-@shared_task
 def mindful_gardening_prompt():
     today = timezone.now().date()
     if today.day != 9:
