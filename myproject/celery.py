@@ -51,9 +51,13 @@ app.conf.beat_schedule = {
         "schedule": crontab(hour=10, minute=0),
         "args": (),
     },
-
-    "mindful_gardening_notification": {
-        "task": "tasks.tasks.mindful_gardening_prompt",
+    "send_seasonal_plant_suggestion": {
+        "task": "tasks.tasks.send_seasonal_plant_suggestion",
+        "schedule": crontab(hour=10, minute=0),
+        "args": (),
+    },
+    "send_gardening_tip": {
+        "task": "tasks.tasks.send_gardening_tip",
         "schedule": crontab(hour=10, minute=0),
         "args": (),
     },

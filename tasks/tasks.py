@@ -186,8 +186,10 @@ seasonal_plant_suggestions = {
 }
 
 @shared_task
-def send_seasonal_plant_suggestions():
+def send_seasonal_plant_suggestion():
     today = timezone.now().date()
+    if today.day != 15:
+        return
 
     current_season = Season.objects.filter(
         from_date__lte= today, to_date__gte=today
@@ -243,9 +245,9 @@ gardening_tips = [
 ]
 
 @shared_task
-def send_gardening_tips():
+def send_gardening_tip():
     today = timezone.now().date()
-    if today.day != 6:
+    if today.day != 15:
         return
     
     tip = random.choice(gardening_tips)
