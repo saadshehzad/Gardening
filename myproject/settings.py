@@ -118,27 +118,16 @@ DATABASES = {
 }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'gardening',     # Replace with your database name
-#         'USER': 'postgres',           # Replace with your PostgreSQL username
-#         'PASSWORD': 'haris',       # Replace with your PostgreSQL password
-#         'HOST': '127.0.0.1',               # Set to 'localhost' for local connection
-#         'PORT': '5432',                         # Default PostgreSQL port
-#     }
-# }
-
-
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = "smtp.titan.email"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "haris03045025656@gmail.com"
-EMAIL_HOST_PASSWORD = "zcvc djzv bwux zdrs"
+EMAIL_HOST_USER = "noreply@myfriendbob.info"
+EMAIL_HOST_PASSWORD = "MFB.Garden"
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True
-
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER 
 
 AUTH_PASSWORD_VALIDATORS = [
     {
