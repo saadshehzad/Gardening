@@ -15,20 +15,21 @@ class CategoryCreateAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
 
 
-def post(self, request):
-    category_id = request.data.get("category_id")
-    if not category_id:
-        return Response(
-            {"error": "category_id is required."}, status=status.HTTP_400_BAD_REQUEST
-        )
+    def post(self, request):
+        category_id = request.data.get("category_id")
+        
+        if not category_id:
+            return Response(
+                {"error": "category_id is required."}, status=status.HTTP_400_BAD_REQUEST
+            )
 
-    if not Plant.objects.filter(id=category_id).exists():
-        plants_qs = Plant.objects.filter(category_id=category_id)
-        return Response(
-            {"error": "Plant Category not found."}, status=status.HTTP_404_NOT_FOUND
-        )
+        if not Plant.objects.filter(id=category_id).exists():
+            plants_qs = Plant.objects.filter(category_id=category_id)
+            return Response(
+                {"error": "Plant Category not found."}, status=status.HTTP_404_NOT_FOUND
+            )
 
-    return Response(PlantSerializer(plants_qs, many=True).data)
+        return Response(PlantSerializer(plants_qs, many=True).data)
 
 
 class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
