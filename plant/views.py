@@ -1,6 +1,7 @@
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
+from django.http import JsonResponse
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -17,7 +18,7 @@ class CategoryCreateAPIView(generics.ListCreateAPIView):
 
     def post(self, request):
         category_id = request.data.get("category_id")
-        
+
         if not category_id:
             return Response(
                 {"error": "category_id is required."}, status=status.HTTP_400_BAD_REQUEST
@@ -88,5 +89,3 @@ class PlantDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PlantSerializer
     queryset = Plant.objects.all()
     lookup_field = "id"
-
-

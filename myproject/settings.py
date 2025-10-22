@@ -112,21 +112,26 @@ ACCOUNT_ADAPTER = "users.adapters.CustomAccountAdapter"
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'gardening_database',
+            'USER': 'myuser',
+            'PASSWORD': '9895',
+            'HOST': '18.118.254.193',
+            'PORT': '5432',
+        }
     }
-}
+
 
 # Email configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config("EMAIL_HOST")
-EMAIL_PORT = config("EMAIL_PORT", cast=int)
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER)
-SERVER_EMAIL = DEFAULT_FROM_EMAIL
+# EMAIL_HOST = config("EMAIL_HOST")
+# EMAIL_PORT = config("EMAIL_PORT", cast=int)
+# EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
+# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+# DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER)
+# SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 AUTH_PASSWORD_VALIDATORS = [
     {
