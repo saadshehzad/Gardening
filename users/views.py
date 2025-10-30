@@ -33,6 +33,7 @@ class CustomRegisterView(APIView):
         serializer = CustomRegisterSerializer(
             data=request.data, context={"request": request}
         )
+        print(request.data)
         print("00000000000000000")
         if serializer.is_valid():
             print("111111111111111111111")
