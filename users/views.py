@@ -53,8 +53,6 @@ class CustomRegisterView(APIView):
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     recipient_list=[user.email],
                 )
-                import traceback
-                traceback.print_exc()
                 print("===========")
                 
                 return Response(
@@ -62,8 +60,6 @@ class CustomRegisterView(APIView):
                    status=status.HTTP_201_CREATED,
                   )
             except Exception as e:
-                import traceback
-                traceback.print_exc()
                 print(f"Error inserting {e}")
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
