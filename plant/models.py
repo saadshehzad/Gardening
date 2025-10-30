@@ -52,15 +52,15 @@ class Plant(models.Model):
     temperature_max = models.CharField(max_length=20, blank=True, null=True)
     humidity_preference = models.CharField(max_length=50, blank=True, null=True)
 
-    watering_interval = models.PositiveIntegerField(default=7) 
+    watering_interval = models.CharField(max_length=20, null=True) 
     last_watered = models.DateField(null=True, blank=True)
     next_watering_date = models.DateField(null=True, blank=True)
 
-    fertilizer_interval = models.PositiveIntegerField() 
+    fertilizer_interval = models.CharField(max_length=20, null=True) 
     last_fertilized = models.DateField(null=True, blank=True)
     next_fertilizing_date = models.DateField(null=True, blank=True)
 
-    trimming_interval = models.PositiveIntegerField(null=True, blank=True)
+    trimming_interval = models.CharField(max_length=20, null=True)
     last_trimmed = models.DateField(null=True, blank=True)
     next_trimming_date = models.DateField(null=True, blank=True)
 
