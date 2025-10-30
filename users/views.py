@@ -33,7 +33,9 @@ class CustomRegisterView(APIView):
         serializer = CustomRegisterSerializer(
             data=request.data, context={"request": request}
         )
+        print("00000000000000000")
         if serializer.is_valid():
+            print("111111111111111111111")
             try:
                 user = serializer.save(request)
 
@@ -61,8 +63,11 @@ class CustomRegisterView(APIView):
                   )
             except Exception as e:
                 print(f"Error inserting {e}")
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        else:
+            import traceback
+            traceback.print_exc()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class EmailVerifyView(APIView):
