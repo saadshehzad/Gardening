@@ -27,8 +27,7 @@ class Run:
         print("All the categories has been saved successfully.")
     
     def get_all_categories(self):
-        data = get_category_ids(cursor=self.get_db_connection())
-        # print(data)
+        get_category_ids(cursor=self.get_db_connection())
 
     def add_plants(self):
         with open('plant_data.json', 'r') as f:
@@ -36,9 +35,9 @@ class Run:
         insert_plant(cursor=self.get_db_connection(),plants=loaded_data)
         self.connection.commit()
         print("All the plants has been saved successfully.")
-
+        
     def run(self):
-        # self.create_categories()
+        self.create_categories()
         self.get_all_categories()
         self.add_plants()
 

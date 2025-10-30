@@ -34,29 +34,35 @@ class CustomRegisterView(APIView):
             data=request.data, context={"request": request}
         )
         if serializer.is_valid():
-            user = serializer.save(request)
+            try:
+                user = serializer.save(request)
 
-            token = default_token_generator.make_token(user)
-            uid = urlsafe_base64_encode(force_bytes(user.pk))
-            verification_url = f"{settings.FRONTEND_URL}/verify-email/{uid}/{token}/"
+                token = default_token_generator.make_token(user)
+                uid = urlsafe_base64_encode(force_bytes(user.pk))
+                verification_url = f"{settings.FRONTEND_URL}/verify-email/{uid}/{token}/"
 
-            send_mail(
-                subject="Verify Your Email",
-                message=render_to_string(
-                    "account/email/email_verification.html",
-                    {
-                        "user": user,
-                        "verification_url": verification_url,
-                    },
-                ),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[user.email],
-            )
+                send_mail(
+                    subject="Verify Your Email",
+                    message=render_to_string(
+                        "account/email/email_verification.html",
+                        {
+                            "user": user,
+                            "verification_url": verification_url,
+                        },
+                    ),
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[user.email],
+                )
+                
+                return Response(
+                   {"detail": "Registration successful. Please verify your email."},
+                   status=status.HTTP_201_CREATED,
+                  )
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                print(f"Error inserting {e}")
 
-            return Response(
-                {"detail": "Registration successful. Please verify your email."},
-                status=status.HTTP_201_CREATED,
-            )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -273,7 +279,7 @@ class GetPlantsByUserRegion(APIView):
 
 
 class UserProfileView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
 
     def get(self, request, *args, **kwargs):
         try:

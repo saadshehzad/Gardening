@@ -23,22 +23,22 @@ def insert_plant(cursor,plants):
                     humidity_preference, watering_interval, last_watered, next_watering_date,
                     fertilizer_interval, last_fertilized, next_fertilizing_date, trimming_interval,
                     last_trimmed, next_trimming_date, planted_date, health_status, common_pests,
-                    disease_signs, treatment_methods
+                    disease_signs, treatment_methods, notification_send_date_and_type
                 ) VALUES (
                     %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s,
+                    %s, %s, %s, %s, %s, 
                     %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s
+                    %s, %s, %s, %s, %s
                 )
             """, (
-                str(uuid.uuid4()),  # keep UUID with dashes, PostgreSQL accepts it
+                str(uuid.uuid4()),
                 plant_name,
                 category_id,
-                1,
+                1,  
                 plant.get("description", ""),
                 json.dumps(plant.get("image", {})),
                 plant.get("variety_info", ""),
@@ -74,6 +74,7 @@ def insert_plant(cursor,plants):
                 plant.get("common_pests", ""),
                 plant.get("disease_signs", ""),
                 plant.get("treatment_methods", ""),
+                json.dumps(plant.get("notification_send_date_and_type") if isinstance(plant.get("notification_send_date_and_type"), dict) else {})
             ))
             
 
@@ -81,4 +82,4 @@ def insert_plant(cursor,plants):
             import traceback
             traceback.print_exc()
             print(f"Error inserting {plant.get('name')}: {e}")
-            cursor.connection.rollback() 
+            cursor.connection.rollback()
