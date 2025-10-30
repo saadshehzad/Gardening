@@ -34,6 +34,7 @@ class CustomRegisterView(APIView):
             data=request.data, context={"request": request}
         )
         print(request.data)
+
         print("00000000000000000")
         if serializer.is_valid():
             print("111111111111111111111")
@@ -44,18 +45,18 @@ class CustomRegisterView(APIView):
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
                 verification_url = f"{settings.FRONTEND_URL}/verify-email/{uid}/{token}/"
 
-                send_mail(
-                    subject="Verify Your Email",
-                    message=render_to_string(
-                        "account/email/email_verification.html",
-                        {
-                            "user": user,
-                            "verification_url": verification_url,
-                        },
-                    ),
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[user.email],
-                )
+                # send_mail(
+                #     subject="Verify Your Email",
+                #     message=render_to_string(
+                #         "account/email/email_verification.html",
+                #         {
+                #             "user": user,
+                #             "verification_url": verification_url,
+                #         },
+                #     ),
+                #     from_email=settings.DEFAULT_FROM_EMAIL,
+                #     recipient_list=[user.email],
+                # )
                 print("===========")
                 
                 return Response(
