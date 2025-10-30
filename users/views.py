@@ -1,3 +1,4 @@
+import traceback
 from collections import OrderedDict
 
 from django.conf import settings
@@ -33,11 +34,7 @@ class CustomRegisterView(APIView):
         serializer = CustomRegisterSerializer(
             data=request.data, context={"request": request}
         )
-        print(request.data)
-
-        print("00000000000000000")
         if serializer.is_valid():
-            print("111111111111111111111")
             try:
                 user = serializer.save(request)
 
@@ -45,19 +42,21 @@ class CustomRegisterView(APIView):
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
                 verification_url = f"{settings.FRONTEND_URL}/verify-email/{uid}/{token}/"
 
-                # send_mail(
-                #     subject="Verify Your Email",
-                #     message=render_to_string(
-                #         "account/email/email_verification.html",
-                #         {
-                #             "user": user,
-                #             "verification_url": verification_url,
-                #         },
-                #     ),
-                #     from_email=settings.DEFAULT_FROM_EMAIL,
-                #     recipient_list=[user.email],
-                # )
-                print("===========")
+                try:
+                    send_mail(
+                        subject="Verify Your Email",
+                        message=render_to_string(
+                            "account/email/email_verification.html",
+                            {
+                                "user": user,
+                                "verification_url": verification_url,
+                            },
+                        ),
+                        from_email=settings.DEFAULT_FROM_EMAIL,
+                        recipient_list=[user.email],
+                    )
+                except:
+                    print("Unable to sent email for some reason")
                 
                 return Response(
                    {"detail": "Registration successful. Please verify your email."},
@@ -67,7 +66,6 @@ class CustomRegisterView(APIView):
                 print(f"Error inserting {e}")
         
         else:
-            import traceback
             traceback.print_exc()
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
