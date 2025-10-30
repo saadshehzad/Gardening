@@ -53,6 +53,9 @@ class CustomRegisterView(APIView):
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     recipient_list=[user.email],
                 )
+                import traceback
+                traceback.print_exc()
+                print("===========")
                 
                 return Response(
                    {"detail": "Registration successful. Please verify your email."},
