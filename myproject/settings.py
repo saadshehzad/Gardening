@@ -111,21 +111,14 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 ACCOUNT_ADAPTER = "users.adapters.CustomAccountAdapter"
 
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'gardening_database',
-#             'USER': 'myuser',
-#             'PASSWORD': '9895',
-#             'HOST': '18.118.254.193',
-#             'PORT': '5432',
-#         }
-#     }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gardening_db',
+        'USER': 'myuser',
+        'PASSWORD': '9895',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
