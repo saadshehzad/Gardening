@@ -24,7 +24,7 @@ class Command(BaseCommand):
         category,
         llm,(I have an extra field "llm", put "DeepSeek" in that field)
         description,
-        image,
+        image, (image format will be in list)
         variety_info,
         attributes,
         family,
