@@ -1,3 +1,4 @@
+import ast
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.shortcuts import render,HttpResponse
@@ -50,11 +51,12 @@ class PlantCreateAPIView(generics.ListCreateAPIView):
 
         if category_id:
             plants_qs = Plant.objects.filter(category=category_id)
-            return Response(PlantSerializer(plants_qs, many=True).data)
+            data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+            return Response(data)
         else:
             plants_qs = Plant.objects.all()
-            data = PlantSerializer(plants_qs, many=True)
-            return Response(data.data)
+            data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+            return Response(data)
 
     def post(self, request, *args, **kwargs):
         data = request.data.copy()
