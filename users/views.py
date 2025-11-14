@@ -131,11 +131,11 @@ class CustomLoginView(APIView):
                 )
             return Response(
                 {"detail": "No active account found with the given credentials"},
-                status=status.HTTP_401_UNAUTHORIZED,
+                status=status.HTTP_403_FORBIDDEN,
             )
         return Response(
             {"detail": "No active account found with the given credentials"},
-            status=status.HTTP_401_UNAUTHORIZED,
+            status=status.HTTP_403_FORBIDDEN,
         )
 
 
