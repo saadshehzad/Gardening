@@ -25,7 +25,7 @@ class MarkAllNotificationsReadAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def patch(self, request):
-        FCaMNotification.objects.filter(
+        FCMNotification.objects.filter(
             user=request.user, 
             is_read=False
         ).update(is_read=True)
