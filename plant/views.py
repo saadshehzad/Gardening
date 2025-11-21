@@ -47,16 +47,24 @@ class PlantCreateAPIView(generics.ListCreateAPIView):
     queryset = Plant.objects.all()
 
     def list(self, request, *args, **kwargs):
-        category_id = request.query_params.get("category_id")
+        try:
+            print("=============================================")
+            category_id = request.query_params.get("category_id")
+            print("========", category_id)
 
-        if category_id:
-            plants_qs = Plant.objects.filter(category=category_id)
-            data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
-            return Response(data)
-        else:
-            plants_qs = Plant.objects.all()
-            data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
-            return Response(data)
+            if category_id:
+                plants_qs = Plant.objects.filter(category=category_id)
+                print("plant_qs", "========")
+                data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+                return Response(data)
+            else:
+                plants_qs = Plant.objects.all()
+                data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+                return Response(data)
+        except Exception as e:
+            print(e)
+            import traceback
+            traceback.print_exc()
 
     def post(self, request, *args, **kwargs):
         data = request.data.copy()
