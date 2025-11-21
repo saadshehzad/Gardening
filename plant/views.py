@@ -59,8 +59,22 @@ class PlantCreateAPIView(generics.ListCreateAPIView):
                 return Response(data)
             else:
                 plants_qs = Plant.objects.all()
-                data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+                print("plant_qs", "*********************")
+
+                serializer_data = PlantSerializer(plants_qs, many=True).data
+                data = []
+
+                for item in serializer_data:
+                    print("Item", item)
+                    item["image"] = ast.literal_eval(item["image"])
+                    data.append(item)
+
                 return Response(data)
+
+                # plants_qs = Plant.objects.all()
+                # print("plant_qs", "*********************")
+                # data = [{**item, "image": ast.literal_eval(item["image"])} for item in PlantSerializer(plants_qs, many=True).data]
+                # return Response(data)
         except Exception as e:
             print(e)
             import traceback
