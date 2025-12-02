@@ -12,6 +12,7 @@ urlpatterns = [
         RedirectToPostView.as_view(),
         name="redirect_to_post",
     ),
+    path("userpost/<uuid:post_id>/", PostDetailAPIView.as_view(), name="post_detail"),
     path("like/<str:pk>/", UserPostLikeAPIView.as_view(), name="userpost-like"),
     path(
         "comment/<str:pk>/", UserPostCommentAPIView.as_view(), name="userpost-comment"

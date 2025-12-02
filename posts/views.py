@@ -207,6 +207,7 @@ class UserPostShareAPIView(APIView):
         share_url = request.build_absolute_uri(
             reverse("redirect_to_post", kwargs={"post_id": post.id})
         )
+        
 
         return Response(
             {
@@ -220,13 +221,19 @@ class UserPostShareAPIView(APIView):
 
 
 class RedirectToPostView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
+
+    def get(self, request, post_id):
+        url = reverse("post_detail", kwargs={"post_id": post_id})
+        return redirect(url)
+
+class PostDetailAPIView(APIView):
+    permission_classes = [AllowAny]
 
     def get(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
-        message = f"You have been redirected to {post.description}"
-        return Response({"detail": message}, status=status.HTTP_200_OK)
-
+        serializer = PostSerializer(post, context={"request": request})
+        return Response(serializer.data)
 
 class UserPostCommentAPIView(APIView):
     permission_classes = [IsAuthenticated]

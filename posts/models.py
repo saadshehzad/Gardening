@@ -25,7 +25,7 @@ class UserPost(models.Model):
 
 class Articles(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to="images/")
+    image = models.ImageField(upload_to="static/images/")
     url = models.CharField(max_length=1000)
     title = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
