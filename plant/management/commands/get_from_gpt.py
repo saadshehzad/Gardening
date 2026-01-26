@@ -59,13 +59,16 @@ class Command(BaseCommand):
             
             IMPORTANT: Return ONLY valid JSON. Do NOT include explanations, markdown, or extra text.
             Escape all quotes. Use straight quotes only. No trailing commas.
+            Add the season for every plant, which season a plant supposed to grow. 
+            give real images for every plant 
+
 
             FIELDS:
             name, category, llm, description, image, variety_info, attributes, family, type, native,
             plant_dimension, growth_stage, days_to_maturity, mature_speed, mature_height, fruit_size,
             exposure, sunlight_requirement, soil_type, soil_ph, hardiness, temperature_min, temperature_max,
             humidity_preference, watering_interval, fertilizer_interval, trimming_interval, common_pests,
-            disease_signs, treatment_methods
+            disease_signs, treatment_methods ,seasons
 
             PLANTS:
             [{chunk_text}]
