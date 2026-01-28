@@ -8,5 +8,5 @@ urlpatterns = [
     path("productlist/", PlantCreateAPIView.as_view(), name="product-list-create"),
     path("productdetail/<uuid:id>/", PlantDetailAPIView.as_view(), name="product-detail"),
 
-    path("productseason/", PlantSeasonListAPIView.as_view(), name="product-season-list"),
+    path("seasonalproduct/", SeasonalPlantListAPIView.as_view(), name="seasonal-product-list"),
 ]

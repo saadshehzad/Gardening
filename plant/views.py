@@ -36,26 +36,6 @@ def parse_image_field(value):
     return []
 
 
-def current_season_name(d: date) -> str:
-    m = d.month
-    if m in (12, 1, 2):
-        return "winter"
-    if m in (3, 4, 5):
-        return "spring"
-    if m in (6, 7, 8):
-        return "summer"
-    return "fall"
-
-
-def current_season(d: date | None = None) -> Season:
-    d = d or timezone.localdate()
-    return Season.objects.get(name=current_season_name(d))
-
-class PlantPagination(PageNumberPagination):
-    page_size = 20
-    page_size_query_param = "page_size"
-    max_page_size = 100
-
 class CategoryCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = CategorySerializer
@@ -134,10 +114,24 @@ class PlantDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "id"
 
 
-class PlantSeasonListAPIView(generics.ListAPIView):
+def current_season_name(d: date) -> str:
+    m = d.month
+    if m in (12, 1, 2):
+        return "winter"
+    if m in (3, 4, 5):
+        return "spring"
+    if m in (6, 7, 8):
+        return "summer"
+    return "fall"
+
+
+def current_season(d: date | None = None) -> Season:
+    d = d or timezone.localdate()
+    return Season.objects.get(name=current_season_name(d))
+
+class SeasonalPlantListAPIView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PlantSerializer
-    pagination_class = PlantPagination
 
     def get_queryset(self):
         qs = Plant.objects.all()
@@ -154,21 +148,11 @@ class PlantSeasonListAPIView(generics.ListAPIView):
         else:
             season_name = current_season_name(timezone.localdate())
 
-        return qs.filter(seasons__name=season_name).distinct()
+        limit = self.request.query_params.get("limit")
+        if limit:
+            try:
+                qs = qs[:int(limit)]
+            except (ValueError, TypeError):
+                pass
 
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            data = serializer.data
-            for item in data:
-                item["image"] = parse_image_field(item.get("image"))
-            return self.get_paginated_response(data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        data = serializer.data
-        for item in data:
-            item["image"] = parse_image_field(item.get("image"))
-        return Response(data, status=status.HTTP_200_OK)
+        return qs
