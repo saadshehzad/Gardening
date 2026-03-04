@@ -14,6 +14,8 @@ from rest_framework.pagination import PageNumberPagination
 from .models import Category, Plant, Season
 from .serializers import CategorySerializer, PlantSerializer
 
+from rest_framework.pagination import PageNumberPagination
+
 
 def parse_image_field(value):
     if value is None:
@@ -129,12 +131,19 @@ def current_season(d: date | None = None) -> Season:
     d = d or timezone.localdate()
     return Season.objects.get(name=current_season_name(d))
 
+
+class PlantPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = "page_size"
+    max_page_size = 100
+
 class SeasonalPlantListAPIView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PlantSerializer
+    pagination_class = PlantPagination
 
     def get_queryset(self):
-        qs = Plant.objects.all()
+        qs = Plant.objects.all().order_by("id")
 
         category_id = self.request.query_params.get("category_id")
         if category_id:
@@ -148,11 +157,6 @@ class SeasonalPlantListAPIView(generics.ListAPIView):
         else:
             season_name = current_season_name(timezone.localdate())
 
-        limit = self.request.query_params.get("limit")
-        if limit:
-            try:
-                qs = qs[:int(limit)]
-            except (ValueError, TypeError):
-                pass
+        qs = qs.filter(seasons__name=season_name).distinct()
 
         return qs
