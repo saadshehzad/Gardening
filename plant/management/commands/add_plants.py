@@ -5,8 +5,8 @@ import os
 
 def add_plant(cursor):
     data_from_llms = {
-        "ChatGPT": os.path.join(os.getcwd(), "plant_data_from_gpt.json"),
-        "DeepSeek": os.path.join(os.getcwd(), "plant_data_from_deepseek.json")
+        "ChatGPT": os.path.join(os.getcwd(), "plant_data_from_gpt_2.json"),
+        # "DeepSeek": os.path.join(os.getcwd(), "plant_data_from_deepseek.json")
     }
 
     category_ids = get_category_ids(cursor)
