@@ -1,0 +1,6001 @@
+[
+  {
+    "name": "Asparagus",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Asparagus is a perennial vegetable known for its tender spears that are a delicacy in various cuisines.",
+    "image": [
+      "https://example.com/images/asparagus.jpg"
+    ],
+    "variety_info": "Common varieties include Green Marvel and Jersey Knight.",
+    "attributes": [
+      "Perennial",
+      "High in fiber",
+      "Low calorie"
+    ],
+    "family": "Asparagaceae",
+    "type": "Vegetable",
+    "native": "Europe and Western Asia",
+    "plant_dimension": "50-150 cm",
+    "growth_stage": "Sprouting",
+    "days_to_maturity": 365,
+    "mature_speed": "Slow",
+    "mature_height": "1.5 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": "7.0-8.0",
+    "hardiness": "USDA Zones 3-10",
+    "temperature_min": "-28",
+    "temperature_max": "35",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Biannually",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Asparagus beetle",
+      "Cutworms"
+    ],
+    "disease_signs": [
+      "Fungal rot",
+      "Rust"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Crop rotation"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Artichoke",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Artichokes are thistle-like plants cultivated for their edible buds.",
+    "image": [
+      "https://example.com/images/artichoke.jpg"
+    ],
+    "variety_info": "Popular varieties include Green Globe and Imperial Star.",
+    "attributes": [
+      "Perennial",
+      "High in antioxidants",
+      "Rich in vitamins"
+    ],
+    "family": "Asteraceae",
+    "type": "Vegetable",
+    "native": "Mediterranean region",
+    "plant_dimension": "1-2 m",
+    "growth_stage": "Bud formation",
+    "days_to_maturity": 150,
+    "mature_speed": "Moderate",
+    "mature_height": "2 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 7-10",
+    "temperature_min": "0",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Aphids",
+      "Slugs"
+    ],
+    "disease_signs": [
+      "Powdery mildew",
+      "Leaf spot"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper watering"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Brussels Sprouts",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Brussels sprouts are small cabbage-like buds that grow along a tall stalk.",
+    "image": [
+      "https://example.com/images/brussels_sprouts.jpg"
+    ],
+    "variety_info": "Common varieties include Long Island Improved and Jade Cross.",
+    "attributes": [
+      "Annual",
+      "High in fiber",
+      "Rich in vitamins C and K"
+    ],
+    "family": "Brassicaceae",
+    "type": "Vegetable",
+    "native": "Belgium",
+    "plant_dimension": "60-90 cm",
+    "growth_stage": "Bud development",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "0.9 m",
+    "fruit_size": "3-4 cm",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Rich, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-10",
+    "temperature_min": "-6",
+    "temperature_max": "24",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Biannually",
+    "common_pests": [
+      "Cabbage worms",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Downy mildew",
+      "Black rot"
+    ],
+    "treatment_methods": [
+      "Companion planting",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Leek",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Leeks are a member of the onion family with a mild flavor, often used in soups and stews.",
+    "image": [
+      "https://example.com/images/leek.jpg"
+    ],
+    "variety_info": "Notable varieties include King Richard and American Flag.",
+    "attributes": [
+      "Biennial",
+      "Low calorie",
+      "Rich in vitamins"
+    ],
+    "family": "Amaryllidaceae",
+    "type": "Vegetable",
+    "native": "Mediterranean region",
+    "plant_dimension": "30-100 cm",
+    "growth_stage": "Maturity",
+    "days_to_maturity": 120,
+    "mature_speed": "Moderate",
+    "mature_height": "1 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-6",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Onion fly",
+      "Thrips"
+    ],
+    "disease_signs": [
+      "Fusarium wilt",
+      "Downy mildew"
+    ],
+    "treatment_methods": [
+      "Crop rotation",
+      "Insect traps"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Shallot",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Shallots are a type of onion with a milder taste, often used in gourmet cooking.",
+    "image": [
+      "https://example.com/images/shallot.jpg"
+    ],
+    "variety_info": "Common varieties include French Gray and Echalion.",
+    "attributes": [
+      "Biennial",
+      "Rich in antioxidants",
+      "Low calorie"
+    ],
+    "family": "Amaryllidaceae",
+    "type": "Vegetable",
+    "native": "Central Asia",
+    "plant_dimension": "30-60 cm",
+    "growth_stage": "Bulb formation",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "0.6 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, sandy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 4-9",
+    "temperature_min": "-5",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Onion maggot",
+      "Flea beetle"
+    ],
+    "disease_signs": [
+      "Downy mildew",
+      "Basal rot"
+    ],
+    "treatment_methods": [
+      "Crop rotation",
+      "Organic fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Scallion",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Scallions, or green onions, are young onions harvested before they fully mature.",
+    "image": [
+      "https://example.com/images/scallion.jpg"
+    ],
+    "variety_info": "Popular varieties include White Lisbon and Evergreen Bunching.",
+    "attributes": [
+      "Annual",
+      "Rich in vitamins A and C",
+      "Low calorie"
+    ],
+    "family": "Amaryllidaceae",
+    "type": "Vegetable",
+    "native": "Asia",
+    "plant_dimension": "30-60 cm",
+    "growth_stage": "Harvest-ready",
+    "days_to_maturity": 60,
+    "mature_speed": "Fast",
+    "mature_height": "0.6 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-5",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 5-7 days",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Aphids",
+      "Cutworms"
+    ],
+    "disease_signs": [
+      "Fungal rot",
+      "Leaf blight"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Proper watering"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Parsnip",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Parsnips are root vegetables with a sweet, nutty flavor, often used in soups and roasts.",
+    "image": [
+      "https://example.com/images/parsnip.jpg"
+    ],
+    "variety_info": "Common varieties include Hollow Crown and White Gem.",
+    "attributes": [
+      "Biennial",
+      "High in fiber",
+      "Rich in vitamins"
+    ],
+    "family": "Apiaceae",
+    "type": "Vegetable",
+    "native": "Europe",
+    "plant_dimension": "60-90 cm",
+    "growth_stage": "Root development",
+    "days_to_maturity": 130,
+    "mature_speed": "Slow",
+    "mature_height": "0.9 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 2-9",
+    "temperature_min": "-10",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Carrot fly",
+      "Flea beetle"
+    ],
+    "disease_signs": [
+      "Fungal rot",
+      "Root knot nematodes"
+    ],
+    "treatment_methods": [
+      "Crop rotation",
+      "Organic pesticide"
+    ],
+    "seasons": [
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Rutabaga",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Rutabagas are root vegetables that are a cross between a cabbage and a turnip.",
+    "image": [
+      "https://example.com/images/rutabaga.jpg"
+    ],
+    "variety_info": "Common varieties include American Purple Top and Laurentian.",
+    "attributes": [
+      "Biennial",
+      "High in fiber",
+      "Rich in vitamins"
+    ],
+    "family": "Brassicaceae",
+    "type": "Vegetable",
+    "native": "Scandinavia",
+    "plant_dimension": "30-60 cm",
+    "growth_stage": "Root development",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "0.6 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, loamy",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-5",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Cabbage worms",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Black rot",
+      "Downy mildew"
+    ],
+    "treatment_methods": [
+      "Companion planting",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Kohlrabi",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Kohlrabi is a cruciferous vegetable with a bulbous stem that can be eaten raw or cooked.",
+    "image": [
+      "https://example.com/images/kohlrabi.jpg"
+    ],
+    "variety_info": "Popular varieties include White Vienna and Purple Vienna.",
+    "attributes": [
+      "Annual",
+      "High in vitamin C",
+      "Low calorie"
+    ],
+    "family": "Brassicaceae",
+    "type": "Vegetable",
+    "native": "Europe",
+    "plant_dimension": "30-60 cm",
+    "growth_stage": "Bulb formation",
+    "days_to_maturity": 60,
+    "mature_speed": "Fast",
+    "mature_height": "0.6 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-5",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Cabbage moths",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Downy mildew",
+      "Fungal rot"
+    ],
+    "treatment_methods": [
+      "Organic pesticides",
+      "Proper watering"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Swiss Chard",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Swiss chard is a leafy green vegetable known for its bright colored stems and nutritious leaves.",
+    "image": [
+      "https://example.com/images/swiss_chard.jpg"
+    ],
+    "variety_info": "Common varieties include Rainbow and Fordhook Giant.",
+    "attributes": [
+      "Annual",
+      "Rich in vitamins A, C, and K",
+      "Low calorie"
+    ],
+    "family": "Amaranthaceae",
+    "type": "Vegetable",
+    "native": "Mediterranean region",
+    "plant_dimension": "30-60 cm",
+    "growth_stage": "Leaf development",
+    "days_to_maturity": 50,
+    "mature_speed": "Fast",
+    "mature_height": "0.6 m",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-10",
+    "temperature_min": "-5",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 5-7 days",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Leaf miners",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Downy mildew",
+      "Fungal rot"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Crop rotation"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Arugula",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Arugula is a leafy green vegetable known for its peppery flavor and is often used in salads.",
+    "image": [
+      "https://example.com/images/arugula.jpg"
+    ],
+    "variety_info": "Common varieties include Wild Arugula and Astro.",
+    "attributes": [
+      "Fast-growing",
+      "Nutritious",
+      "Cold-tolerant"
+    ],
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Mediterranean region",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 30,
+    "mature_speed": "Fast",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Annual",
+    "temperature_min": 40,
+    "temperature_max": 75,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 4 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Flea beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Mildew"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Collard Greens",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Collard greens are a type of leafy green vegetable that belong to the cabbage family, known for their thick, dark leaves.",
+    "image": [
+      "https://example.com/images/collard_greens.jpg"
+    ],
+    "variety_info": "Popular varieties include Georgia and Vates.",
+    "attributes": [
+      "Nutrient-rich",
+      "Heat-tolerant",
+      "Cold-hardy"
+    ],
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Southeastern U.S.",
+    "plant_dimension": "18-36 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "18-36 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Hardy",
+    "temperature_min": 30,
+    "temperature_max": 85,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Cabbage worms",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Handpicking",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Mustard Greens",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Mustard greens are leafy vegetables with a peppery flavor, often used in salads and cooking.",
+    "image": [
+      "https://example.com/images/mustard_greens.jpg"
+    ],
+    "variety_info": "Varieties include Curly Mustard and Southern Giant.",
+    "attributes": [
+      "Fast-growing",
+      "Rich in vitamins",
+      "Cold-tolerant"
+    ],
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Asia",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 30,
+    "mature_speed": "Fast",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Annual",
+    "temperature_min": 40,
+    "temperature_max": 80,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 4 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Flea beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Mildew"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Bok Choy",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Bok choy is a type of Chinese cabbage with tender green leaves and a mild flavor, popular in stir-fries.",
+    "image": [
+      "https://example.com/images/bok_choy.jpg"
+    ],
+    "variety_info": "Notable varieties include Joi Choi and Mei Qing.",
+    "attributes": [
+      "Fast-growing",
+      "Nutritious",
+      "Cold-hardy"
+    ],
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "China",
+    "plant_dimension": "12-18 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 45,
+    "mature_speed": "Medium",
+    "mature_height": "12-18 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Hardy",
+    "temperature_min": 35,
+    "temperature_max": 75,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 4 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Cabbage loopers"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Bolting"
+    ],
+    "treatment_methods": [
+      "Handpicking",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Endive",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Endive is a leafy vegetable known for its slightly bitter taste, often used in salads.",
+    "image": [
+      "https://example.com/images/endive.jpg"
+    ],
+    "variety_info": "Common varieties include Curly Endive and Escarole.",
+    "attributes": [
+      "Bitter flavor",
+      "Nutritious",
+      "Cold-hardy"
+    ],
+    "family": "Asteraceae",
+    "type": "Annual",
+    "native": "Mediterranean region",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 75,
+    "mature_speed": "Medium",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Hardy",
+    "temperature_min": 30,
+    "temperature_max": 75,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Flea beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Mildew"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Escarole",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Escarole is a type of endive that has broad, curly leaves and is often used in salads and soups.",
+    "image": [
+      "https://example.com/images/escarole.jpg"
+    ],
+    "variety_info": "Varieties include Broadleaf and Batavian.",
+    "attributes": [
+      "Bitter flavor",
+      "Nutritious",
+      "Cold-hardy"
+    ],
+    "family": "Asteraceae",
+    "type": "Annual",
+    "native": "Mediterranean region",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 80,
+    "mature_speed": "Medium",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Hardy",
+    "temperature_min": 30,
+    "temperature_max": 75,
+    "humidity_preference": "Moderate",
+    "watering_interval": "2-3 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Cabbage loopers"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Bolting"
+    ],
+    "treatment_methods": [
+      "Handpicking",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Fennel",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Fennel is a flavorful herb with a bulbous base and feathery leaves, used in cooking and salads.",
+    "image": [
+      "https://example.com/images/fennel.jpg"
+    ],
+    "variety_info": "Varieties include Florence and Common Fennel.",
+    "attributes": [
+      "Aromatic",
+      "Nutritious",
+      "Drought-tolerant"
+    ],
+    "family": "Apiaceae",
+    "type": "Perennial",
+    "native": "Mediterranean region",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "24-36 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy",
+    "soil_ph": 6.0,
+    "hardiness": "Hardy",
+    "temperature_min": 40,
+    "temperature_max": 75,
+    "humidity_preference": "Low",
+    "watering_interval": "3-4 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Slugs"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Companion planting"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Okra (Red)",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Red okra is a variety of okra that has vibrant red pods and is used in Southern cooking.",
+    "image": [
+      "https://example.com/images/okra_red.jpg"
+    ],
+    "variety_info": "Notable varieties include Burgundy and Red Velvet.",
+    "attributes": [
+      "Heat-loving",
+      "Drought-resistant",
+      "Edible flowers"
+    ],
+    "family": "Malvaceae",
+    "type": "Annual",
+    "native": "West Africa",
+    "plant_dimension": "36-48 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "36-48 inches",
+    "fruit_size": "3-5 inches",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Tender",
+    "temperature_min": 70,
+    "temperature_max": 95,
+    "humidity_preference": "Moderate",
+    "watering_interval": "3-4 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Wilting",
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Summer"
+    ]
+  },
+  {
+    "name": "Tomatillo",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Tomatillos are small, green fruits encased in a papery husk, commonly used in salsas.",
+    "image": [
+      "https://example.com/images/tomatillo.jpg"
+    ],
+    "variety_info": "Common varieties include Verde and Purple.",
+    "attributes": [
+      "Fruiting",
+      "Heat-loving",
+      "Self-pollinating"
+    ],
+    "family": "Solanaceae",
+    "type": "Annual",
+    "native": "Mexico",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 75,
+    "mature_speed": "Medium",
+    "mature_height": "24-36 inches",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Tender",
+    "temperature_min": 60,
+    "temperature_max": 85,
+    "humidity_preference": "Moderate",
+    "watering_interval": "3-4 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Whiteflies"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Summer"
+    ]
+  },
+  {
+    "name": "Ground Cherry",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Ground cherries are small, sweet fruits that grow inside a husk, often used in desserts and jams.",
+    "image": [
+      "https://example.com/images/ground_cherry.jpg"
+    ],
+    "variety_info": "Common varieties include Aunt Molly's and Cossack Pine.",
+    "attributes": [
+      "Sweet flavor",
+      "Unique husk",
+      "Self-pollinating"
+    ],
+    "family": "Solanaceae",
+    "type": "Annual",
+    "native": "North America",
+    "plant_dimension": "18-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 70,
+    "mature_speed": "Medium",
+    "mature_height": "18-24 inches",
+    "fruit_size": "1 inch",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Tender",
+    "temperature_min": 60,
+    "temperature_max": 85,
+    "humidity_preference": "Moderate",
+    "watering_interval": "3-4 days",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Summer"
+    ]
+  },
+  {
+    "name": "Rhubarb",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Rhubarb is a perennial vegetable known for its tart stalks, often used in pies and sauces.",
+    "image": [
+      "https://example.com/images/rhubarb.jpg"
+    ],
+    "variety_info": "Common varieties include Victoria and Crimson Cherry.",
+    "attributes": "High in fiber, low in calories.",
+    "family": "Polygonaceae",
+    "type": "Perennial",
+    "native": "Asia and North America",
+    "plant_dimension": "3-4 feet tall, 2-3 feet wide",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "3-4 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-6.8",
+    "hardiness": "USDA Zones 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in early spring",
+    "trimming_interval": "Annually in fall",
+    "common_pests": "Aphids, slugs",
+    "disease_signs": "Wilting, leaf spots",
+    "treatment_methods": "Insecticidal soap, neem oil",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Jerusalem Artichoke",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Also known as sunchoke, this tuber is related to sunflowers and has a nutty flavor.",
+    "image": [
+      "https://example.com/images/jerusalem_artichoke.jpg"
+    ],
+    "variety_info": "Common varieties include White and Purple.",
+    "attributes": "High in inulin, gluten-free.",
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-10 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Medium",
+    "mature_height": "6-10 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Well-drained sandy soil",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-20",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 1-2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "As needed in fall",
+    "common_pests": "Wireworms, aphids",
+    "disease_signs": "Yellowing leaves, stunted growth",
+    "treatment_methods": "Crop rotation, insecticidal soap",
+    "seasons": "Fall, Spring"
+  },
+  {
+    "name": "Jicama",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Jicama is a sweet, crunchy tuber, often eaten raw in salads or as snacks.",
+    "image": [
+      "https://example.com/images/jicama.jpg"
+    ],
+    "variety_info": "Commonly grown varieties include Mexican Jicama.",
+    "attributes": "Low in calories, high in fiber.",
+    "family": "Fabaceae",
+    "type": "Annual",
+    "native": "Mexico and Central America",
+    "plant_dimension": "3-4 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Slow",
+    "mature_height": "3-4 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Loose, well-drained soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 7-10",
+    "temperature_min": "50",
+    "temperature_max": "85",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Every week",
+    "fertilizer_interval": "Once a month during growth",
+    "trimming_interval": "As needed",
+    "common_pests": "Root maggots, aphids",
+    "disease_signs": "Wilting, rotting tubers",
+    "treatment_methods": "Crop rotation, organic pesticides",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Cauliflower (Romanesco)",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Romanesco cauliflower has a unique fractal shape and a slightly nutty flavor.",
+    "image": [
+      "https://example.com/images/romanesco.jpg"
+    ],
+    "variety_info": "Includes varieties like Veronica and Romanesco.",
+    "attributes": "Rich in vitamins C and K.",
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Italy",
+    "plant_dimension": "2-3 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 70,
+    "mature_speed": "Medium",
+    "mature_height": "2-3 feet",
+    "fruit_size": "6-8 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Fertile, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-7",
+    "temperature_min": "50",
+    "temperature_max": "75",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 3-5 days",
+    "fertilizer_interval": "Every 4 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": "Cabbage worms, aphids",
+    "disease_signs": "Yellowing leaves, stunted growth",
+    "treatment_methods": "Organic pesticides, insecticidal soap",
+    "seasons": "Spring, Fall"
+  },
+  {
+    "name": "Broccoli Rabe",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "A leafy green vegetable with a slightly bitter taste, often used in Italian cuisine.",
+    "image": [
+      "https://example.com/images/broccoli_rabe.jpg"
+    ],
+    "variety_info": "Varieties include Cima di Rapa and Broccoli Raab.",
+    "attributes": "High in vitamins A and C.",
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Southern Europe",
+    "plant_dimension": "1-2 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "1-2 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Fertile, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 4-8",
+    "temperature_min": "40",
+    "temperature_max": "75",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every week",
+    "fertilizer_interval": "Every 3-4 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": "Aphids, flea beetles",
+    "disease_signs": "Leaf spots, yellowing leaves",
+    "treatment_methods": "Neem oil, insecticidal soap",
+    "seasons": "Spring, Fall"
+  },
+  {
+    "name": "Daikon Radish",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Daikon is a long white radish known for its mild flavor, often used in Asian cuisines.",
+    "image": [
+      "https://example.com/images/daikon_radish.jpg"
+    ],
+    "variety_info": "Common varieties include Sakurajima and Minowase.",
+    "attributes": "Rich in vitamin C and fiber.",
+    "family": "Brassicaceae",
+    "type": "Annual",
+    "native": "Asia",
+    "plant_dimension": "1-2 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 60,
+    "mature_speed": "Fast",
+    "mature_height": "1-2 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Loose, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-10",
+    "temperature_min": "40",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every week",
+    "fertilizer_interval": "Once a month",
+    "trimming_interval": "As needed",
+    "common_pests": "Root maggots, aphids",
+    "disease_signs": "Wilting, stunted growth",
+    "treatment_methods": "Crop rotation, organic pesticides",
+    "seasons": "Spring, Fall"
+  },
+  {
+    "name": "Horseradish",
+    "category": "Vegetable",
+    "llm": "Chatgpt",
+    "description": "Horseradish is a perennial root vegetable known for its pungent flavor, often used as a condiment.",
+    "image": [
+      "https://example.com/images/horseradish.jpg"
+    ],
+    "variety_info": "Varieties include Common and Japanese.",
+    "attributes": "Rich in antioxidants, anti-inflammatory properties.",
+    "family": "Brassicaceae",
+    "type": "Perennial",
+    "native": "Eastern Europe",
+    "plant_dimension": "2-3 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Medium",
+    "mature_height": "2-3 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-20",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Annually in fall",
+    "common_pests": "Aphids, beetles",
+    "disease_signs": "Yellowing leaves, wilting",
+    "treatment_methods": "Neem oil, insecticidal soap",
+    "seasons": "Spring, Fall"
+  },
+  {
+    "name": "Serviceberry",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Serviceberry is a deciduous tree known for its white flowers and edible berries.",
+    "image": [
+      "https://example.com/images/serviceberry.jpg"
+    ],
+    "variety_info": "Includes varieties like Saskatoon and Autumn Brilliance.",
+    "attributes": "Attracts birds, edible fruit.",
+    "family": "Rosaceae",
+    "type": "Tree",
+    "native": "North America",
+    "plant_dimension": "15-25 feet tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Medium",
+    "mature_height": "15-25 feet",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Well-drained, loamy soil",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 1-2 weeks",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Annually after fruiting",
+    "common_pests": "Caterpillars, aphids",
+    "disease_signs": "Leaf spots, wilting",
+    "treatment_methods": "Organic pesticides, pruning",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Huckleberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Huckleberries are small, sweet berries that grow on shrubs, often found in mountainous regions.",
+    "image": [
+      "https://example.com/images/huckleberry.jpg"
+    ],
+    "variety_info": "Includes varieties like Blue and Black Huckleberry.",
+    "attributes": "High in antioxidants, vitamin C.",
+    "family": "Ericaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "3-6 feet tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Slow",
+    "mature_height": "3-6 feet",
+    "fruit_size": "0.25-0.5 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Acidic, well-drained",
+    "soil_ph": "4.5-6.0",
+    "hardiness": "USDA Zones 4-8",
+    "temperature_min": "-10",
+    "temperature_max": "80",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Annually after harvest",
+    "common_pests": "Birds, aphids",
+    "disease_signs": "Wilting, leaf spots",
+    "treatment_methods": "Netting, insecticidal soap",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Salmonberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Salmonberry is a deciduous shrub known for its bright orange to red berries.",
+    "image": [
+      "https://example.com/images/salmonberry.jpg"
+    ],
+    "variety_info": "Includes varieties like Rubus spectabilis.",
+    "attributes": "Rich in vitamin C, edible fruit.",
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "3-10 feet tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Medium",
+    "mature_height": "3-10 feet",
+    "fruit_size": "0.5-1 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours of sunlight",
+    "soil_type": "Moist, well-drained soil",
+    "soil_ph": "5.0-6.5",
+    "hardiness": "USDA Zones 5-8",
+    "temperature_min": "0",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Annually after harvest",
+    "common_pests": "Birds, aphids",
+    "disease_signs": "Wilting, leaf spots",
+    "treatment_methods": "Netting, organic pesticides",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Thimbleberry",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "Thimbleberry is a deciduous shrub known for its sweet, red berries.",
+    "image": [
+      "https://example.com/images/thimbleberry.jpg"
+    ],
+    "variety_info": "Common variety includes Rubus parviflorus.",
+    "attributes": [
+      "Edible",
+      "Attractive foliage"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "3-6 feet",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 60,
+    "mature_speed": "Moderate",
+    "mature_height": "3-6 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-7",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 4-6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Spider mites",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Boysenberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Boysenberry is a hybrid berry known for its sweet-tart flavor.",
+    "image": [
+      "https://example.com/images/boysenberry.jpg"
+    ],
+    "variety_info": "A cross between raspberry, blackberry, and loganberry.",
+    "attributes": [
+      "High yield",
+      "Disease resistant"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "United States",
+    "plant_dimension": "4-6 feet",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 90,
+    "mature_speed": "Fast",
+    "mature_height": "4-6 feet",
+    "fruit_size": "2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "8-10 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "5.5-6.5",
+    "hardiness": "Zones 5-10",
+    "temperature_min": "25",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "2 times per week",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Japanese beetles",
+      "Thrips"
+    ],
+    "disease_signs": [
+      "Powdery mildew",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Fungicides",
+      "Organic pesticides"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Cloudberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Cloudberry is a unique fruit-bearing plant found in northern regions.",
+    "image": [
+      "https://example.com/images/cloudberry.jpg"
+    ],
+    "variety_info": "Rubus chamaemorus is the primary species.",
+    "attributes": [
+      "Edible",
+      "High in vitamins"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "Arctic and subarctic regions",
+    "plant_dimension": "6-12 inches",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 70,
+    "mature_speed": "Slow",
+    "mature_height": "6-12 inches",
+    "fruit_size": "0.5 inches",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Peaty",
+    "soil_ph": "4.5-6.0",
+    "hardiness": "Zones 2-5",
+    "temperature_min": "-40",
+    "temperature_max": "75",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "None significant"
+    ],
+    "disease_signs": [
+      "Leaf discoloration"
+    ],
+    "treatment_methods": [
+      "Organic fungicides"
+    ],
+    "seasons": [
+      "Summer"
+    ]
+  },
+  {
+    "name": "Lingonberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Lingonberry is a small red berry with a tart flavor, popular in Nordic countries.",
+    "image": [
+      "https://example.com/images/lingonberry.jpg"
+    ],
+    "variety_info": "Vaccinium vitis-idaea is the common species.",
+    "attributes": [
+      "Edible",
+      "Medicinal properties"
+    ],
+    "family": "Ericaceae",
+    "type": "Perennial",
+    "native": "Northern Europe and North America",
+    "plant_dimension": "8-12 inches",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 100,
+    "mature_speed": "Slow",
+    "mature_height": "8-12 inches",
+    "fruit_size": "0.3 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Acidic",
+    "soil_ph": "4.5-5.5",
+    "hardiness": "Zones 2-6",
+    "temperature_min": "-30",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every few years",
+    "common_pests": [
+      "None significant"
+    ],
+    "disease_signs": [
+      "None significant"
+    ],
+    "treatment_methods": [
+      "None needed"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Currant (Red)",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Red currants are small, tart berries often used in jams and jellies.",
+    "image": [
+      "https://example.com/images/red_currant.jpg"
+    ],
+    "variety_info": "Ribes rubrum is the common species.",
+    "attributes": [
+      "Edible",
+      "High in antioxidants"
+    ],
+    "family": "Grossulariaceae",
+    "type": "Perennial",
+    "native": "Europe, Asia",
+    "plant_dimension": "3-5 feet",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "3-5 feet",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Spider mites",
+      "Leafhoppers"
+    ],
+    "disease_signs": [
+      "Powdery mildew"
+    ],
+    "treatment_methods": [
+      "Fungicides",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Currant (Black)",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Black currants are known for their rich flavor and medicinal properties.",
+    "image": [
+      "https://example.com/images/black_currant.jpg"
+    ],
+    "variety_info": "Ribes nigrum is the common species.",
+    "attributes": [
+      "Edible",
+      "High in vitamin C"
+    ],
+    "family": "Grossulariaceae",
+    "type": "Perennial",
+    "native": "Europe, Asia",
+    "plant_dimension": "3-5 feet",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "3-5 feet",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-20",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Aphids",
+      "Whiteflies"
+    ],
+    "disease_signs": [
+      "Powdery mildew"
+    ],
+    "treatment_methods": [
+      "Fungicides",
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Chokecherry",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Chokecherry is a small tree with clusters of white flowers and dark cherries.",
+    "image": [
+      "https://example.com/images/chokecherry.jpg"
+    ],
+    "variety_info": "Prunus virginiana is the common species.",
+    "attributes": [
+      "Ornamental",
+      "Wildlife attractor"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "15-30 feet",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 3,
+    "mature_speed": "Moderate",
+    "mature_height": "15-30 feet",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 2-6",
+    "temperature_min": "-40",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Caterpillars",
+      "Bark beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Cankers"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Black Cherry",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Black Cherry is a large tree known for its dark fruit and beautiful foliage.",
+    "image": [
+      "https://example.com/images/black_cherry.jpg"
+    ],
+    "variety_info": "Prunus serotina is the common species.",
+    "attributes": [
+      "Ornamental",
+      "Edible fruit"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "50-80 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Slow",
+    "mature_height": "50-80 feet",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6-8 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Caterpillars",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Cankers"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "American Plum",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "American Plum is a small to medium-sized tree with sweet, edible plums.",
+    "image": [
+      "https://example.com/images/american_plum.jpg"
+    ],
+    "variety_info": "Prunus americana is the common species.",
+    "attributes": [
+      "Edible",
+      "Attractive flowers"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "10-20 feet",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 3,
+    "mature_speed": "Moderate",
+    "mature_height": "10-20 feet",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Plum curculio",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Cankers"
+    ],
+    "treatment_methods": [
+      "Pesticides",
+      "Proper sanitation"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Wild Strawberry",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "Wild Strawberry is a low-growing plant that produces small, sweet strawberries.",
+    "image": [
+      "https://example.com/images/wild_strawberry.jpg"
+    ],
+    "variety_info": "Fragaria vesca is the common species.",
+    "attributes": [
+      "Edible",
+      "Ground cover"
+    ],
+    "family": "Rosaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 60,
+    "mature_speed": "Fast",
+    "mature_height": "6-12 inches",
+    "fruit_size": "0.5 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "75",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Slugs",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Powdery mildew"
+    ],
+    "treatment_methods": [
+      "Organic pesticides",
+      "Proper spacing"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Beach Plum",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "Beach Plum is a small shrub producing edible plums, typically found in coastal areas.",
+    "image": [
+      "https://example.com/images/beach_plum.jpg"
+    ],
+    "variety_info": "Common varieties include 'Native Beach Plum' and 'Plymouth Beach Plum'.",
+    "attributes": [
+      "Deciduous",
+      "Drought-tolerant"
+    ],
+    "family": "Rosaceae",
+    "type": "Fruit",
+    "native": "Eastern United States",
+    "plant_dimension": "4-8 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "6 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 3-7",
+    "temperature_min": -20,
+    "temperature_max": 85,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "Late winter",
+    "common_pests": [
+      "Aphids",
+      "Japanese beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Mayhaw",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Mayhaw is a small tree known for its sweet, tart fruit often used in jellies.",
+    "image": [
+      "https://example.com/images/mayhaw.jpg"
+    ],
+    "variety_info": "Popular varieties include 'Burgundy', 'Hawthorn', and 'Red Star'.",
+    "attributes": [
+      "Deciduous",
+      "Pollinator-friendly"
+    ],
+    "family": "Rosaceae",
+    "type": "Fruit",
+    "native": "Southeastern United States",
+    "plant_dimension": "15-30 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 120,
+    "mature_speed": "Slow",
+    "mature_height": "20 feet",
+    "fruit_size": "0.5 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 5-9",
+    "temperature_min": -10,
+    "temperature_max": 90,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "After fruiting",
+    "common_pests": [
+      "Scale",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Powdery mildew"
+    ],
+    "treatment_methods": [
+      "Horticultural oil",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Quince",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Quince is a fruit-bearing tree valued for its aromatic fruit, often used in cooking.",
+    "image": [
+      "https://example.com/images/quince.jpg"
+    ],
+    "variety_info": "Notable varieties include 'Pineapple Quince' and ' Smyrna'.",
+    "attributes": [
+      "Deciduous",
+      "Fragrant flowers"
+    ],
+    "family": "Rosaceae",
+    "type": "Fruit",
+    "native": "Western Asia and Mediterranean",
+    "plant_dimension": "10-15 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "12 feet",
+    "fruit_size": "4-5 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 4-9",
+    "temperature_min": -15,
+    "temperature_max": 85,
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Early spring",
+    "trimming_interval": "Late winter",
+    "common_pests": [
+      "Caterpillars",
+      "Mealybugs"
+    ],
+    "disease_signs": [
+      "Blight",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Fig",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Fig trees produce sweet fruits that are enjoyed fresh or dried.",
+    "image": [
+      "https://example.com/images/fig.jpg"
+    ],
+    "variety_info": "Varieties include 'Brown Turkey', 'Celeste', and 'Kadota'.",
+    "attributes": [
+      "Deciduous",
+      "Drought-tolerant"
+    ],
+    "family": "Moraceae",
+    "type": "Fruit",
+    "native": "Western Asia",
+    "plant_dimension": "10-30 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 120,
+    "mature_speed": "Fast",
+    "mature_height": "15 feet",
+    "fruit_size": "2-3 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 7-10",
+    "temperature_min": 15,
+    "temperature_max": 100,
+    "humidity_preference": "Low",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Late winter",
+    "common_pests": [
+      "Fruit flies",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf drop",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Pesticides",
+      "Improved drainage"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Pomegranate",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Pomegranate trees produce large, round fruits filled with juicy seeds.",
+    "image": [
+      "https://example.com/images/pomegranate.jpg"
+    ],
+    "variety_info": "Common varieties include 'Wonderful' and 'Angel Red'.",
+    "attributes": [
+      "Deciduous",
+      "Drought-resistant"
+    ],
+    "family": "Lythraceae",
+    "type": "Fruit",
+    "native": "Middle East",
+    "plant_dimension": "10-20 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "12 feet",
+    "fruit_size": "3-5 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 7-10",
+    "temperature_min": 20,
+    "temperature_max": 100,
+    "humidity_preference": "Low",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "After fruiting",
+    "common_pests": [
+      "Aphids",
+      "Whiteflies"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Blight"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Kiwi (Hardy)",
+    "category": "Vine",
+    "llm": "Chatgpt",
+    "description": "Hardy kiwi vines produce small, edible fruits that are sweet and nutritious.",
+    "image": [
+      "https://example.com/images/hardy_kiwi.jpg"
+    ],
+    "variety_info": "Popular varieties include 'Hardy Arctic' and 'Baby Kiwi'.",
+    "attributes": [
+      "Deciduous",
+      "Climbing"
+    ],
+    "family": "Actinidiaceae",
+    "type": "Fruit",
+    "native": "Eastern Asia",
+    "plant_dimension": "10-20 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "15 feet",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 3-9",
+    "temperature_min": -25,
+    "temperature_max": 90,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "After harvest",
+    "common_pests": [
+      "Leafcutter bees",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Powdery mildew",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Proper drainage"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Honeyberry",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "Honeyberry is a shrub that produces sweet, blue berries similar to blueberries.",
+    "image": [
+      "https://example.com/images/honeyberry.jpg"
+    ],
+    "variety_info": "Varieties include 'Blue Moon' and 'Honeybee'.",
+    "attributes": [
+      "Deciduous",
+      "Pollinator-friendly"
+    ],
+    "family": "Lonicera",
+    "type": "Fruit",
+    "native": "Northern Asia",
+    "plant_dimension": "4-6 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "5 feet",
+    "fruit_size": "0.5 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 3-8",
+    "temperature_min": -30,
+    "temperature_max": 85,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "Post-harvest",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf drop",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Aronia (Chokeberry)",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "Aronia, or chokeberry, produces small, dark berries that are high in antioxidants.",
+    "image": [
+      "https://example.com/images/aronia.jpg"
+    ],
+    "variety_info": "Common varieties include 'Viking' and 'Nero'.",
+    "attributes": [
+      "Deciduous",
+      "Drought-resistant"
+    ],
+    "family": "Rosaceae",
+    "type": "Fruit",
+    "native": "North America",
+    "plant_dimension": "3-6 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 120,
+    "mature_speed": "Medium",
+    "mature_height": "5 feet",
+    "fruit_size": "0.5 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Wet to well-drained",
+    "soil_ph": 5.5,
+    "hardiness": "Zones 3-8",
+    "temperature_min": -30,
+    "temperature_max": 90,
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "After fruiting",
+    "common_pests": [
+      "Aphids",
+      "Caterpillars"
+    ],
+    "disease_signs": [
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Pecan",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "Pecan trees produce large, flavorful nuts and are a popular choice in southern gardens.",
+    "image": [
+      "https://example.com/images/pecan.jpg"
+    ],
+    "variety_info": "Common varieties include 'Pawnee' and 'Desirable'.",
+    "attributes": [
+      "Deciduous",
+      "Shade tree"
+    ],
+    "family": "Juglandaceae",
+    "type": "Nut",
+    "native": "United States",
+    "plant_dimension": "60-100 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 300,
+    "mature_speed": "Slow",
+    "mature_height": "75 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 6-9",
+    "temperature_min": 10,
+    "temperature_max": 100,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "Late winter",
+    "common_pests": [
+      "Caterpillars",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Leaf drop",
+      "Scab"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "American Hazelnut",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "American Hazelnut is a shrub that produces edible nuts and provides excellent wildlife habitat.",
+    "image": [
+      "https://example.com/images/hazelnut.jpg"
+    ],
+    "variety_info": "Common varieties include 'Tonda di Giffoni' and 'Barcelona'.",
+    "attributes": [
+      "Deciduous",
+      "Pollinator-friendly"
+    ],
+    "family": "Betulaceae",
+    "type": "Nut",
+    "native": "North America",
+    "plant_dimension": "6-10 feet",
+    "growth_stage": "Perennial",
+    "days_to_maturity": 4,
+    "mature_speed": "Medium",
+    "mature_height": "8 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 4-8",
+    "temperature_min": -30,
+    "temperature_max": 90,
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "After harvest",
+    "common_pests": [
+      "Aphids",
+      "Bark beetles"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Butternut",
+    "category": "Fruit",
+    "llm": "Chatgpt",
+    "description": "A sweet, nutty squash with a tan skin and orange flesh.",
+    "image": [
+      "https://example.com/images/butternut.jpg"
+    ],
+    "variety_info": "Commonly grown for its sweet flavor and nutritious flesh.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Cucurbitaceae",
+    "type": "Annual",
+    "native": "North America",
+    "plant_dimension": "10-15 ft",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "3 ft",
+    "fruit_size": "6-12 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "50\u00b0F",
+    "temperature_max": "95\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Squash bug",
+      "Cucumber beetle"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Chestnut",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A deciduous tree known for its delicious nuts.",
+    "image": [
+      "https://example.com/images/chestnut.jpg"
+    ],
+    "variety_info": "American and European varieties are common.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": true
+    },
+    "family": "Fagaceae",
+    "type": "Perennial",
+    "native": "North America, Europe",
+    "plant_dimension": "40-100 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Slow",
+    "mature_height": "60 ft",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 4-8",
+    "temperature_min": "10\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Yearly",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Chestnut weevil"
+    ],
+    "disease_signs": [
+      "Cankers",
+      "Leaf blight"
+    ],
+    "treatment_methods": [
+      "Pruning",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Fall"
+    ]
+  },
+  {
+    "name": "English Walnut",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A large tree known for its edible nuts.",
+    "image": [
+      "https://example.com/images/english_walnut.jpg"
+    ],
+    "variety_info": "Commonly cultivated for its high-quality nuts.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Juglandaceae",
+    "type": "Perennial",
+    "native": "Asia, Europe",
+    "plant_dimension": "30-100 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 4,
+    "mature_speed": "Slow",
+    "mature_height": "50 ft",
+    "fruit_size": "1.5-2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 5-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Low",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Yearly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Walnut husk fly"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Insect traps",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Fall"
+    ]
+  },
+  {
+    "name": "Chamomile",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "A flowering plant known for its calming herbal properties.",
+    "image": [
+      "https://example.com/images/chamomile.jpg"
+    ],
+    "variety_info": "German and Roman varieties are popular.",
+    "attributes": {
+      "high_yield": false,
+      "disease_resistant": true
+    },
+    "family": "Asteraceae",
+    "type": "Annual",
+    "native": "Europe, Asia",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Seedling",
+    "days_to_maturity": 60,
+    "mature_speed": "Fast",
+    "mature_height": "18 inches",
+    "fruit_size": "1/4 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Sandy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "32\u00b0F",
+    "temperature_max": "75\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Wilting",
+      "Yellowing leaves"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Lemongrass",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "A tropical plant known for its citrus flavor.",
+    "image": [
+      "https://example.com/images/lemongrass.jpg"
+    ],
+    "variety_info": "Commonly used in culinary dishes.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "Tropical Asia",
+    "plant_dimension": "3-5 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "4 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 8-10",
+    "temperature_min": "40\u00b0F",
+    "temperature_max": "95\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Mealybugs"
+    ],
+    "disease_signs": [
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Bay Laurel",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "An aromatic evergreen shrub used for culinary purposes.",
+    "image": [
+      "https://example.com/images/bay_laurel.jpg"
+    ],
+    "variety_info": "Commonly used in cooking and as a decorative plant.",
+    "attributes": {
+      "high_yield": false,
+      "disease_resistant": true
+    },
+    "family": "Lauraceae",
+    "type": "Perennial",
+    "native": "Mediterranean",
+    "plant_dimension": "10-20 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 3,
+    "mature_speed": "Slow",
+    "mature_height": "10 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 8-10",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "95\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Yearly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Scale",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf drop"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Lovage",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "A perennial herb with a flavor similar to celery.",
+    "image": [
+      "https://example.com/images/lovage.jpg"
+    ],
+    "variety_info": "Used in soups and salads for its flavor.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Apiaceae",
+    "type": "Perennial",
+    "native": "Europe",
+    "plant_dimension": "3-5 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "4 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Sorrel",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "A leafy herb with a tart flavor, often used in salads.",
+    "image": [
+      "https://example.com/images/sorrel.jpg"
+    ],
+    "variety_info": "Common varieties include French and garden sorrel.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": true
+    },
+    "family": "Polygonaceae",
+    "type": "Perennial",
+    "native": "Europe",
+    "plant_dimension": "1-3 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "2 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "15\u00b0F",
+    "temperature_max": "80\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Lemon Balm",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "A fragrant herb known for its lemony scent and flavor.",
+    "image": [
+      "https://example.com/images/lemon_balm.jpg"
+    ],
+    "variety_info": "Commonly used in teas and culinary dishes.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Lamiaceae",
+    "type": "Perennial",
+    "native": "Europe, Asia",
+    "plant_dimension": "2-3 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "2 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "30\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Fennel (Herb)",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "An aromatic herb with a sweet, anise-like flavor.",
+    "image": [
+      "https://example.com/images/fennel.jpg"
+    ],
+    "variety_info": "Commonly used in cooking and herbal remedies.",
+    "attributes": {
+      "high_yield": true,
+      "disease_resistant": false
+    },
+    "family": "Apiaceae",
+    "type": "Perennial",
+    "native": "Mediterranean",
+    "plant_dimension": "3-5 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "4 ft",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Anise Hyssop",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "Anise Hyssop is a perennial herb with fragrant leaves that have a sweet, anise-like flavor. It attracts pollinators and can be used in teas and culinary dishes.",
+    "image": [
+      "https://example.com/images/anise_hyssop.jpg"
+    ],
+    "variety_info": "Common variety includes 'Golden Jubilee' which has golden-green leaves.",
+    "attributes": [
+      "Fragrant",
+      "Pollinator-friendly",
+      "Drought-tolerant"
+    ],
+    "family": "Lamiaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 80,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Low to Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly",
+    "trimming_interval": "Every 6 weeks",
+    "common_pests": [
+      "Aphids",
+      "Spider Mites"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Bee Balm",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Bee Balm is a vibrant perennial flower known for attracting bees, butterflies, and hummingbirds. It has aromatic leaves and comes in various colors.",
+    "image": [
+      "https://example.com/images/bee_balm.jpg"
+    ],
+    "variety_info": "Popular varieties include 'Jacob Cline' and 'Marshall's Delight'.",
+    "attributes": [
+      "Attracts Pollinators",
+      "Aromatic",
+      "Medicinal"
+    ],
+    "family": "Lamiaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "36-48 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "48 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun to Partial Shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 4-9",
+    "temperature_min": "25\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "2 times a week",
+    "fertilizer_interval": "Every 4-6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Powdery Mildew",
+      "Japanese Beetles"
+    ],
+    "disease_signs": [
+      "Spots on leaves",
+      "Fungal growth"
+    ],
+    "treatment_methods": [
+      "Fungicides",
+      "Cultural control"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Stevia",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "Stevia is a sweet herb used as a natural sweetener. It is easy to grow and has a unique flavor.",
+    "image": [
+      "https://example.com/images/stevia.jpg"
+    ],
+    "variety_info": "Common variety is 'Stevia rebaudiana'.",
+    "attributes": [
+      "Sweet",
+      "Calorie-free",
+      "Medicinal"
+    ],
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "South America",
+    "plant_dimension": "24-30 inches",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Slow",
+    "mature_height": "30 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy loam",
+    "soil_ph": 6.7,
+    "hardiness": "Zones 9-11",
+    "temperature_min": "50\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Whiteflies",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf discoloration",
+      "Stunted growth"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Neem oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Horsemint",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Horsemint is a wildflower known for its unique fragrance and attractive flowers, often used in herbal teas.",
+    "image": [
+      "https://example.com/images/horsemint.jpg"
+    ],
+    "variety_info": "Common variety is 'Monarda punctata'.",
+    "attributes": [
+      "Aromatic",
+      "Pollinator-friendly"
+    ],
+    "family": "Lamiaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun to Partial Shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": 6.2,
+    "hardiness": "Zones 4-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 4-6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Spider Mites"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Joe-Pye Weed",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Joe-Pye Weed is a tall perennial that produces large clusters of pink flowers, attracting a variety of pollinators.",
+    "image": [
+      "https://example.com/images/joe_pye_weed.jpg"
+    ],
+    "variety_info": "Varieties include 'Eupatorium purpureum' and 'Eupatorium maculatum'.",
+    "attributes": [
+      "Tall",
+      "Pollinator-friendly"
+    ],
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "48-72 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 100,
+    "mature_speed": "Moderate",
+    "mature_height": "72 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun to Partial Shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Wet to Moist",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 4-9",
+    "temperature_min": "30\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "2 times a week",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Caterpillars"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Insecticidal soap"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Blazing Star (Liatris)",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Blazing Star is a striking perennial flower known for its tall spikes of purple flowers and ability to attract butterflies.",
+    "image": [
+      "https://example.com/images/blazing_star.jpg"
+    ],
+    "variety_info": "Common varieties include 'Liatris spicata'.",
+    "attributes": [
+      "Attracts Butterflies",
+      "Drought-tolerant"
+    ],
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Low to Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 4-6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Slugs"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Cultural practices"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Cardinal Flower",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Cardinal Flower is a perennial known for its striking red flowers that attract hummingbirds and butterflies.",
+    "image": [
+      "https://example.com/images/cardinal_flower.jpg"
+    ],
+    "variety_info": "Varieties include 'Lobelia cardinalis'.",
+    "attributes": [
+      "Attracts Hummingbirds",
+      "Moisture-loving"
+    ],
+    "family": "Campanulaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 80,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Partial Shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "2 times a week",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Leafhoppers"
+    ],
+    "disease_signs": [
+      "Wilting",
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Cultural practices"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Great Blue Lobelia",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Great Blue Lobelia is a perennial flower with blue spikes that are highly attractive to pollinators, especially bees.",
+    "image": [
+      "https://example.com/images/great_blue_lobelia.jpg"
+    ],
+    "variety_info": "Common variety is 'Lobelia siphilitica'.",
+    "attributes": [
+      "Attracts Pollinators",
+      "Moisture-loving"
+    ],
+    "family": "Campanulaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Partial Shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "2 times a week",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Spider Mites"
+    ],
+    "disease_signs": [
+      "Wilting",
+      "Yellowing leaves"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Cultural practices"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Butterfly Weed",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Butterfly Weed is a vibrant orange flower that attracts butterflies and is a critical nectar source for pollinators.",
+    "image": [
+      "https://example.com/images/butterfly_weed.jpg"
+    ],
+    "variety_info": "Common variety is 'Asclepias tuberosa'.",
+    "attributes": [
+      "Attracts Butterflies",
+      "Drought-tolerant"
+    ],
+    "family": "Apocynaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "24-36 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Moderate",
+    "mature_height": "36 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy",
+    "soil_ph": 6.0,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Low",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 4-6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Spider Mites"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Cultural practices"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Golden Alexander",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Golden Alexander is a perennial wildflower with yellow flowers that bloom in early spring, attracting various insects.",
+    "image": [
+      "https://example.com/images/golden_alexander.jpg"
+    ],
+    "variety_info": "Common variety is 'Zizia aurea'.",
+    "attributes": [
+      "Early Bloomer",
+      "Pollinator-friendly"
+    ],
+    "family": "Apiaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 70,
+    "mature_speed": "Moderate",
+    "mature_height": "24 inches",
+    "fruit_size": "Small",
+    "exposure": "Full Sun to Partial Shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Moist, Well-drained",
+    "soil_ph": 6.5,
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 6 weeks",
+    "trimming_interval": "After flowering",
+    "common_pests": [
+      "Aphids",
+      "Leafhoppers"
+    ],
+    "disease_signs": [
+      "Wilting",
+      "Yellowing leaves"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Cultural practices"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Coreopsis",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Coreopsis, commonly known as tickseed, is a hardy perennial flower that thrives in sunny gardens.",
+    "image": [
+      "https://example.com/coreopsis.jpg"
+    ],
+    "variety_info": "Includes varieties like 'Moonbeam' and 'Early Sunrise'.",
+    "attributes": "Drought-tolerant, attracts butterflies.",
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-36 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "12-36 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, sandy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "90\u00b0F",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Monthly during growing season",
+    "trimming_interval": "After blooming",
+    "common_pests": "Aphids, spider mites",
+    "disease_signs": "Fungal leaf spots",
+    "treatment_methods": "Insecticidal soap, proper spacing",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Blanketflower",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Blanketflower is a vibrant perennial known for its daisy-like flowers that bloom throughout the summer.",
+    "image": [
+      "https://example.com/blanketflower.jpg"
+    ],
+    "variety_info": "Popular varieties include 'Gaillardia aristata' and 'Goblin'.",
+    "attributes": "Drought-resistant, attracts pollinators.",
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "18-30 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 70,
+    "mature_speed": "Fast",
+    "mature_height": "18-30 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 3-10",
+    "temperature_min": "15\u00b0F",
+    "temperature_max": "95\u00b0F",
+    "humidity_preference": "Low",
+    "watering_interval": "Every 10-14 days",
+    "fertilizer_interval": "Once in early spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "Aphids, thrips",
+    "disease_signs": "Powdery mildew",
+    "treatment_methods": "Neem oil, good air circulation",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Penstemon",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Penstemon, or beardtongue, features tubular flowers and is a favorite among hummingbirds.",
+    "image": [
+      "https://example.com/penstemon.jpg"
+    ],
+    "variety_info": "Varieties include 'Husker Red' and 'Margarita BOP'.",
+    "attributes": "Drought-tolerant, attracts hummingbirds.",
+    "family": "Plantaginaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-36 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 75,
+    "mature_speed": "Medium",
+    "mature_height": "12-36 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Well-drained, loamy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "20\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Low",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After blooming",
+    "common_pests": "Spider mites, slugs",
+    "disease_signs": "Leaf drop, wilting",
+    "treatment_methods": "Insecticidal soap, hand-picking",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "New England Aster",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "New England Aster is a late-blooming perennial that adds vibrant color to gardens in the fall.",
+    "image": [
+      "https://example.com/new-england-aster.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Purple Dome' and 'Alma Potschke'.",
+    "attributes": "Attracts butterflies, deer-resistant.",
+    "family": "Asteraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "3-5 feet tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "3-5 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Rich, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "15\u00b0F",
+    "temperature_max": "80\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Every 4-6 weeks during growth",
+    "trimming_interval": "After flowering",
+    "common_pests": "Aphids, Japanese beetles",
+    "disease_signs": "Wilting, leaf spots",
+    "treatment_methods": "Insecticidal soap, fungicides",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Wild Geranium",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Wild Geranium is a native perennial that blooms in spring with lovely purple flowers.",
+    "image": [
+      "https://example.com/wild-geranium.jpg"
+    ],
+    "variety_info": "Common variety is 'Geranium maculatum'.",
+    "attributes": "Attracts bees, spreads easily.",
+    "family": "Geraniaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-24 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 70,
+    "mature_speed": "Medium",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Partial shade to full sun",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "0\u00b0F",
+    "temperature_max": "85\u00b0F",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 7-10 days",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf spots, wilting",
+    "treatment_methods": "Remove affected leaves, good spacing",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Solomon's Seal",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Solomon's Seal is a shade-loving perennial with arching stems and bell-shaped flowers.",
+    "image": [
+      "https://example.com/solomons-seal.jpg"
+    ],
+    "variety_info": "Common variety is 'Polygonatum biflorum'.",
+    "attributes": "Shade tolerant, deer-resistant.",
+    "family": "Asparagaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "1-3 feet tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 80,
+    "mature_speed": "Slow",
+    "mature_height": "1-3 feet",
+    "fruit_size": "N/A",
+    "exposure": "Partial to full shade",
+    "sunlight_requirement": "2-4 hours",
+    "soil_type": "Rich, moist",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-20\u00b0F",
+    "temperature_max": "75\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After blooming",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf drop, discoloration",
+    "treatment_methods": "Good air circulation, remove dead leaves",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Mayapple",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Mayapple is a unique perennial that produces umbrella-like leaves and white flowers in spring.",
+    "image": [
+      "https://example.com/mayapple.jpg"
+    ],
+    "variety_info": "Scientific name is 'Podophyllum peltatum'.",
+    "attributes": "Shade tolerant, spreads by rhizomes.",
+    "family": "Berberidaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-24 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 90,
+    "mature_speed": "Slow",
+    "mature_height": "12-24 inches",
+    "fruit_size": "1-2 inches",
+    "exposure": "Partial to full shade",
+    "sunlight_requirement": "2-6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-20\u00b0F",
+    "temperature_max": "80\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf discoloration",
+    "treatment_methods": "Remove affected leaves, maintain moisture",
+    "seasons": "Spring"
+  },
+  {
+    "name": "Bloodroot",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Bloodroot is a spring ephemeral that blooms with striking white flowers before the leaves fully unfurl.",
+    "image": [
+      "https://example.com/bloodroot.jpg"
+    ],
+    "variety_info": "Scientific name is 'Sanguinaria canadensis'.",
+    "attributes": "Shade tolerant, spreads by rhizomes.",
+    "family": "Papaveraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 60,
+    "mature_speed": "Slow",
+    "mature_height": "6-12 inches",
+    "fruit_size": "N/A",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "3-5 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-30\u00b0F",
+    "temperature_max": "75\u00b0F",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf wilting",
+    "treatment_methods": "Remove affected leaves, maintain moisture",
+    "seasons": "Spring"
+  },
+  {
+    "name": "Jack-in-the-Pulpit",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Jack-in-the-Pulpit is a unique woodland plant known for its distinctive hooded flowers.",
+    "image": [
+      "https://example.com/jack-in-the-pulpit.jpg"
+    ],
+    "variety_info": "Scientific name is 'Arisaema triphyllum'.",
+    "attributes": "Shade-loving, attracts pollinators.",
+    "family": "Araceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "12-24 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 80,
+    "mature_speed": "Slow",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Partial to full shade",
+    "sunlight_requirement": "2-4 hours",
+    "soil_type": "Moist, rich",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 4-7",
+    "temperature_min": "0\u00b0F",
+    "temperature_max": "80\u00b0F",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf wilting, discoloration",
+    "treatment_methods": "Good air circulation, remove affected leaves",
+    "seasons": "Spring"
+  },
+  {
+    "name": "Dutchman's Breeches",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "Dutchman's Breeches is a charming spring wildflower with unique, heart-shaped flowers.",
+    "image": [
+      "https://example.com/dutchmans-breeches.jpg"
+    ],
+    "variety_info": "Scientific name is 'Dicentra cucullaria'.",
+    "attributes": "Shade tolerant, attracts bees.",
+    "family": "Papaveraceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches tall",
+    "growth_stage": "Blooming",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "6-12 inches",
+    "fruit_size": "N/A",
+    "exposure": "Partial to full shade",
+    "sunlight_requirement": "3-6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-30\u00b0F",
+    "temperature_max": "75\u00b0F",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf wilting",
+    "treatment_methods": "Remove affected leaves, maintain moisture",
+    "seasons": "Spring"
+  },
+  {
+    "name": "Shooting Star",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A delicate wildflower with unique, star-shaped blooms that attract pollinators.",
+    "image": [
+      "https://example.com/images/shooting_star.jpg"
+    ],
+    "variety_info": "Various colors including white, pink, and purple.",
+    "attributes": "Attracts butterflies, drought-tolerant.",
+    "family": "Primulaceae",
+    "type": "Wildflower",
+    "native": "North America",
+    "plant_dimension": "12-18 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "12-18 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, sandy soil",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zone 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "Aphids, spider mites",
+    "disease_signs": "Leaf spots, wilt",
+    "treatment_methods": "Insecticidal soap, neem oil",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Prairie Smoke",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A unique wildflower known for its feathery seed heads resembling smoke.",
+    "image": [
+      "https://example.com/images/prairie_smoke.jpg"
+    ],
+    "variety_info": "Typically has pink to purple flowers.",
+    "attributes": "Drought-tolerant, attracts pollinators.",
+    "family": "Rosaceae",
+    "type": "Wildflower",
+    "native": "North America",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 70,
+    "mature_speed": "Slow",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy or rocky soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Low",
+    "watering_interval": "Every 3 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "N/A",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Evening Primrose",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "Known for its bright yellow flowers that bloom in the evening.",
+    "image": [
+      "https://example.com/images/evening_primrose.jpg"
+    ],
+    "variety_info": "Common varieties include Oenothera biennis.",
+    "attributes": "Attracts moths, drought-tolerant.",
+    "family": "Onagraceae",
+    "type": "Wildflower",
+    "native": "North America",
+    "plant_dimension": "2-4 feet",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 80,
+    "mature_speed": "Medium",
+    "mature_height": "2-4 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "35",
+    "humidity_preference": "Low",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "Aphids",
+    "disease_signs": "Leaf spots",
+    "treatment_methods": "Insecticidal soap, neem oil",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Wild Columbine (Red)",
+    "category": "Flower",
+    "llm": "Chatgpt",
+    "description": "A native wildflower with striking red and yellow flowers that attract hummingbirds.",
+    "image": [
+      "https://example.com/images/wild_columbine_red.jpg"
+    ],
+    "variety_info": "Aquilegia canadensis is the common variety.",
+    "attributes": "Attracts hummingbirds, deer-resistant.",
+    "family": "Ranunculaceae",
+    "type": "Wildflower",
+    "native": "North America",
+    "plant_dimension": "12-24 inches",
+    "growth_stage": "Flowering",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "12-24 inches",
+    "fruit_size": "N/A",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, well-drained soil",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zone 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Once a week",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "After flowering",
+    "common_pests": "None significant",
+    "disease_signs": "N/A",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "American Beech",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A large deciduous tree known for its smooth gray bark and dense canopy.",
+    "image": [
+      "https://example.com/images/american_beech.jpg"
+    ],
+    "variety_info": "Fagus grandifolia is the common variety.",
+    "attributes": "Provides excellent shade, wildlife habitat.",
+    "family": "Fagaceae",
+    "type": "Deciduous",
+    "native": "Eastern North America",
+    "plant_dimension": "50-80 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 150,
+    "mature_speed": "Slow",
+    "mature_height": "50-80 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Partial shade to full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Moist, well-drained soil",
+    "soil_ph": "5.0-6.5",
+    "hardiness": "Zone 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every few years",
+    "common_pests": "Beech scale",
+    "disease_signs": "Leaf spots, wilt",
+    "treatment_methods": "Insecticidal soap",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "American Elm",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A tall tree with a broad canopy, known for its resistance to urban pollution.",
+    "image": [
+      "https://example.com/images/american_elm.jpg"
+    ],
+    "variety_info": "Ulmus americana is the common variety.",
+    "attributes": "Shade tree, fast-growing.",
+    "family": "Ulmaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "60-100 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 120,
+    "mature_speed": "Fast",
+    "mature_height": "60-100 feet",
+    "fruit_size": "N/A",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "35",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every 2-3 years",
+    "common_pests": "Elm bark beetles",
+    "disease_signs": "Dutch elm disease",
+    "treatment_methods": "Fungicide, insecticides",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Tulip Poplar",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A tall tree known for its unique tulip-shaped flowers and yellow-green foliage.",
+    "image": [
+      "https://example.com/images/tulip_poplar.jpg"
+    ],
+    "variety_info": "Liriodendron tulipifera is the common variety.",
+    "attributes": "Fast-growing, provides excellent shade.",
+    "family": "Magnoliaceae",
+    "type": "Deciduous",
+    "native": "Eastern North America",
+    "plant_dimension": "70-100 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 150,
+    "mature_speed": "Fast",
+    "mature_height": "70-100 feet",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Moist, well-drained soil",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zone 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every few years",
+    "common_pests": "Scale, aphids",
+    "disease_signs": "Leaf spots",
+    "treatment_methods": "Insecticidal soap",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "American Basswood",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A medium to large tree known for its heart-shaped leaves and fragrant flowers.",
+    "image": [
+      "https://example.com/images/american_basswood.jpg"
+    ],
+    "variety_info": "Tilia americana is the common variety.",
+    "attributes": "Attracts bees, provides shade.",
+    "family": "Tiliaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "50-80 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "50-80 feet",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Rich, well-drained soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every few years",
+    "common_pests": "Aphids, borers",
+    "disease_signs": "Leaf spots",
+    "treatment_methods": "Insecticidal soap",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Bald Cypress",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A unique tree that thrives in wet conditions, known for its distinctive knees.",
+    "image": [
+      "https://example.com/images/bald_cypress.jpg"
+    ],
+    "variety_info": "Taxodium distichum is the common variety.",
+    "attributes": "Drought-tolerant, wildlife habitat.",
+    "family": "Cupressaceae",
+    "type": "Deciduous",
+    "native": "Southeastern United States",
+    "plant_dimension": "50-70 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "50-70 feet",
+    "fruit_size": "0.5-1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6 hours",
+    "soil_type": "Wet, swampy soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 4-9",
+    "temperature_min": "-25",
+    "temperature_max": "30",
+    "humidity_preference": "High",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every few years",
+    "common_pests": "None significant",
+    "disease_signs": "N/A",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Sweetgum",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A striking tree known for its star-shaped leaves and spiky fruit.",
+    "image": [
+      "https://example.com/images/sweetgum.jpg"
+    ],
+    "variety_info": "Liquidambar styraciflua is the common variety.",
+    "attributes": "Attracts wildlife, vibrant fall color.",
+    "family": "Altingiaceae",
+    "type": "Deciduous",
+    "native": "Eastern United States",
+    "plant_dimension": "60-100 feet",
+    "growth_stage": "Mature",
+    "days_to_maturity": 150,
+    "mature_speed": "Medium",
+    "mature_height": "60-100 feet",
+    "fruit_size": "1-2 inches",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained soil",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zone 5-9",
+    "temperature_min": "-20",
+    "temperature_max": "35",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Monthly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Every few years",
+    "common_pests": "Scale, aphids",
+    "disease_signs": "Leaf spots",
+    "treatment_methods": "Insecticidal soap",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Black Tupelo (Blackgum)",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A medium to large deciduous tree known for its vibrant fall foliage and adaptability to different soil types.",
+    "image": [
+      "https://example.com/images/black_tupelo.jpg"
+    ],
+    "variety_info": "Varieties include 'Wildfire' and 'Green Mountain'.",
+    "attributes": [
+      "Deciduous",
+      "Vibrant fall color",
+      "Wildlife habitat"
+    ],
+    "family": "Nyssaceae",
+    "type": "Tree",
+    "native": "Eastern United States",
+    "plant_dimension": "Height: 30-50 ft, Spread: 20-30 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Moderate",
+    "mature_height": "30-50 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, acidic",
+    "soil_ph": "5.5-6.5",
+    "hardiness": "USDA Zones 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Aphids",
+      "Scale insects"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Sassafras",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A deciduous tree known for its aromatic leaves and distinctive lobed foliage.",
+    "image": [
+      "https://example.com/images/sassafras.jpg"
+    ],
+    "variety_info": "Common varieties include 'Sassafras albidum'.",
+    "attributes": [
+      "Aromatic leaves",
+      "Unique leaf shape",
+      "Wildlife friendly"
+    ],
+    "family": "Lauraceae",
+    "type": "Tree",
+    "native": "Eastern United States",
+    "plant_dimension": "Height: 30-60 ft, Spread: 20-40 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Moderate",
+    "mature_height": "30-60 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, sandy",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "USDA Zones 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2-3 years",
+    "common_pests": [
+      "Leaf miners",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Powdery mildew",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper drainage"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Eastern Red Cedar",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A hardy evergreen tree with scale-like leaves and aromatic wood, commonly used for fencing and furniture.",
+    "image": [
+      "https://example.com/images/eastern_red_cedar.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Canaertii' and 'Emerald'.",
+    "attributes": [
+      "Evergreen",
+      "Aromatic wood",
+      "Drought tolerant"
+    ],
+    "family": "Cupressaceae",
+    "type": "Tree",
+    "native": "Eastern United States",
+    "plant_dimension": "Height: 30-50 ft, Spread: 10-20 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Slow to moderate",
+    "mature_height": "30-50 ft",
+    "fruit_size": "1/4 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, sandy",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "100",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Every 2-3 weeks",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Bagworms",
+      "Cedar apple rust"
+    ],
+    "disease_signs": [
+      "Cedar blight",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Insecticidal treatments",
+      "Fungicides"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Tamarack (Eastern Larch)",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A deciduous conifer that loses its needles in the fall, known for its beautiful golden-yellow autumn color.",
+    "image": [
+      "https://example.com/images/tamarack.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Larix laricina'.",
+    "attributes": [
+      "Deciduous conifer",
+      "Golden autumn color",
+      "Wetland tolerant"
+    ],
+    "family": "Pinaceae",
+    "type": "Tree",
+    "native": "Northeastern United States",
+    "plant_dimension": "Height: 40-70 ft, Spread: 20-30 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Moderate",
+    "mature_height": "40-70 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Moist, acidic",
+    "soil_ph": "4.5-6.5",
+    "hardiness": "USDA Zones 2-6",
+    "temperature_min": "-50",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate to high",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 3-4 years",
+    "common_pests": [
+      "Bark beetles",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Needle blight",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper watering"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "White Ash",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A large deciduous tree valued for its strong wood and attractive foliage, which turns bright yellow in autumn.",
+    "image": [
+      "https://example.com/images/white_ash.jpg"
+    ],
+    "variety_info": "Varieties include 'Fraxinus americana'.",
+    "attributes": [
+      "Deciduous",
+      "Strong wood",
+      "Attractive foliage"
+    ],
+    "family": "Oleaceae",
+    "type": "Tree",
+    "native": "Eastern North America",
+    "plant_dimension": "Height: 50-80 ft, Spread: 30-50 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Moderate",
+    "mature_height": "50-80 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-30",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2-3 years",
+    "common_pests": [
+      "Emerald ash borer",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Ash yellows",
+      "Leaf spot"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Green Ash",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A versatile and hardy tree often used for urban landscaping, known for its compound leaves and adaptability.",
+    "image": [
+      "https://example.com/images/green_ash.jpg"
+    ],
+    "variety_info": "Varieties include 'Fraxinus pennsylvanica'.",
+    "attributes": [
+      "Deciduous",
+      "Urban tolerant",
+      "Fast growth"
+    ],
+    "family": "Oleaceae",
+    "type": "Tree",
+    "native": "North America",
+    "plant_dimension": "Height: 40-60 ft, Spread: 25-40 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "40-60 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Wide variety, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-9",
+    "temperature_min": "-30",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Emerald ash borer",
+      "Scale insects"
+    ],
+    "disease_signs": [
+      "Leaf spot",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Proper care"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Paper Birch",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A striking deciduous tree with white bark and delicate leaves, often found in northern climates.",
+    "image": [
+      "https://example.com/images/paper_birch.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Betula papyrifera'.",
+    "attributes": [
+      "Deciduous",
+      "White bark",
+      "Fast growth"
+    ],
+    "family": "Betulaceae",
+    "type": "Tree",
+    "native": "North America",
+    "plant_dimension": "Height: 40-70 ft, Spread: 20-30 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "40-70 ft",
+    "fruit_size": "1/4 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, well-drained",
+    "soil_ph": "5.5-6.5",
+    "hardiness": "USDA Zones 2-6",
+    "temperature_min": "-40",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Birch borers",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spot",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "American Holly",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "An evergreen shrub or small tree with glossy leaves and red berries, often used in holiday decorations.",
+    "image": [
+      "https://example.com/images/american_holly.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Ilex opaca'.",
+    "attributes": [
+      "Evergreen",
+      "Berries",
+      "Shade tolerant"
+    ],
+    "family": "Aquifoliaceae",
+    "type": "Shrub",
+    "native": "Eastern United States",
+    "plant_dimension": "Height: 15-30 ft, Spread: 10-20 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Slow",
+    "mature_height": "15-30 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Well-drained, acidic",
+    "soil_ph": "5.0-6.0",
+    "hardiness": "USDA Zones 5-9",
+    "temperature_min": "-10",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Scale insects",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf spot",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper drainage"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Osage Orange",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A small to medium-sized tree with distinctive yellow-green fruit, often used for hedges and windbreaks.",
+    "image": [
+      "https://example.com/images/osage_orange.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Maclura pomifera'.",
+    "attributes": [
+      "Deciduous",
+      "Fruit",
+      "Drought tolerant"
+    ],
+    "family": "Moraceae",
+    "type": "Tree",
+    "native": "Central United States",
+    "plant_dimension": "Height: 30-50 ft, Spread: 20-30 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Moderate",
+    "mature_height": "30-50 ft",
+    "fruit_size": "4-6 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained, clay or sandy",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "100",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Caterpillars",
+      "Bark beetles"
+    ],
+    "disease_signs": [
+      "Leaf spot",
+      "Root rot"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Proper care"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Black Locust",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A fast-growing tree known for its fragrant flowers and ability to thrive in poor soils.",
+    "image": [
+      "https://example.com/images/black_locust.jpg"
+    ],
+    "variety_info": "Includes varieties such as 'Robinia pseudoacacia'.",
+    "attributes": [
+      "Deciduous",
+      "Fragrant flowers",
+      "Nitrogen fixer"
+    ],
+    "family": "Fabaceae",
+    "type": "Tree",
+    "native": "Eastern United States",
+    "plant_dimension": "Height: 30-50 ft, Spread: 20-30 ft",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "30-50 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Wide variety, tolerates poor soils",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "USDA Zones 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "100",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once a year in spring",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Locust borers",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spot",
+      "Canker"
+    ],
+    "treatment_methods": [
+      "Insecticides",
+      "Proper watering"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Honey Locust",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A fast-growing tree with a wide canopy, known for its small leaflets and fragrant flowers.",
+    "image": [
+      "https://example.com/honey_locust.jpg"
+    ],
+    "variety_info": "Varieties include Thornless Honey Locust and Sunburst.",
+    "attributes": [
+      "Deciduous",
+      "Drought-tolerant"
+    ],
+    "family": "Fabaceae",
+    "type": "Legume",
+    "native": "North America",
+    "plant_dimension": "30-50 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "30-50 ft",
+    "fruit_size": "2-4 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "100",
+    "humidity_preference": "Low",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Aphids",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Yellowing leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Horticultural oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Kentucky Coffeetree",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A large deciduous tree that produces unique seed pods and has a rugged appearance.",
+    "image": [
+      "https://example.com/kentucky_coffeetree.jpg"
+    ],
+    "variety_info": "Notable varieties include 'Soil Saver' and 'Moraine'.",
+    "attributes": [
+      "Drought-tolerant",
+      "Low maintenance"
+    ],
+    "family": "Fabaceae",
+    "type": "Legume",
+    "native": "Eastern United States",
+    "plant_dimension": "50-70 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "50-70 ft",
+    "fruit_size": "3-5 inches",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 4-8",
+    "temperature_min": "-30",
+    "temperature_max": "95",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Scale",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Premature leaf drop"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "American Hornbeam",
+    "category": "Tree",
+    "llm": "Chatgpt",
+    "description": "A small to medium-sized deciduous tree known for its smooth gray bark and dense foliage.",
+    "image": [
+      "https://example.com/american_hornbeam.jpg"
+    ],
+    "variety_info": "Common varieties include 'Fastigiata' and 'Riversii'.",
+    "attributes": [
+      "Shade tolerant",
+      "Drought-resistant"
+    ],
+    "family": "Betulaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "20-35 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Slow",
+    "mature_height": "20-35 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "90",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Caterpillars",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Browning leaves",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Witch Hazel",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "An ornamental shrub known for its fragrant yellow flowers that bloom in late winter.",
+    "image": [
+      "https://example.com/witch_hazel.jpg"
+    ],
+    "variety_info": "Popular varieties include 'Hamamelis virginiana' and 'Hamamelis x intermedia'.",
+    "attributes": [
+      "Deciduous",
+      "Fragrant flowers"
+    ],
+    "family": "Hamamelidaceae",
+    "type": "Shrub",
+    "native": "North America",
+    "plant_dimension": "10-15 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "10-15 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Spider mites",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Leaf discoloration",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Winter",
+      "Spring"
+    ]
+  },
+  {
+    "name": "Spicebush",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A fragrant shrub that produces small, bright yellow flowers in early spring.",
+    "image": [
+      "https://example.com/spicebush.jpg"
+    ],
+    "variety_info": "Varieties include 'Lindera benzoin'.",
+    "attributes": [
+      "Deciduous",
+      "Fragrant"
+    ],
+    "family": "Lauraceae",
+    "type": "Shrub",
+    "native": "Eastern United States",
+    "plant_dimension": "6-12 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "6-12 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "90",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Aphids",
+      "Leaf miners"
+    ],
+    "disease_signs": [
+      "Leaf drop",
+      "Discoloration"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Buttonbush",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A wetland shrub known for its spherical flower clusters and ability to attract pollinators.",
+    "image": [
+      "https://example.com/buttonbush.jpg"
+    ],
+    "variety_info": "Notable variety includes 'Cephalanthus occidentalis'.",
+    "attributes": [
+      "Deciduous",
+      "Wetland tolerant"
+    ],
+    "family": "Rubiaceae",
+    "type": "Shrub",
+    "native": "North America",
+    "plant_dimension": "5-12 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "5-12 ft",
+    "fruit_size": "1 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Wet, well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "90",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Spider mites",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Ninebark",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A hardy shrub with attractive peeling bark and clusters of white to pink flowers.",
+    "image": [
+      "https://example.com/ninebark.jpg"
+    ],
+    "variety_info": "Common varieties include 'Diabolo' and 'Summer Wine'.",
+    "attributes": [
+      "Deciduous",
+      "Drought-resistant"
+    ],
+    "family": "Rosaceae",
+    "type": "Shrub",
+    "native": "North America",
+    "plant_dimension": "5-10 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "5-10 ft",
+    "fruit_size": "1/2 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-40",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Spider mites",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf discoloration",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "New Jersey Tea",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A low-growing shrub known for its white flower clusters and ability to attract butterflies.",
+    "image": [
+      "https://example.com/new_jersey_tea.jpg"
+    ],
+    "variety_info": "Variety includes 'Ceanothus americanus'.",
+    "attributes": [
+      "Deciduous",
+      "Butterfly-attracting"
+    ],
+    "family": "Rhamnaceae",
+    "type": "Shrub",
+    "native": "North America",
+    "plant_dimension": "3-4 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "3-4 ft",
+    "fruit_size": "1/4 inch",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Aphids",
+      "Leaf miners"
+    ],
+    "disease_signs": [
+      "Leaf discoloration",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Inkberry",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "An evergreen shrub known for its glossy leaves and dark purple berries.",
+    "image": [
+      "https://example.com/inkberry.jpg"
+    ],
+    "variety_info": "Varieties include 'Ilex glabra'.",
+    "attributes": [
+      "Evergreen",
+      "Wildlife-friendly"
+    ],
+    "family": "Aquifoliaceae",
+    "type": "Shrub",
+    "native": "Eastern United States",
+    "plant_dimension": "3-6 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "3-6 ft",
+    "fruit_size": "1/4 inch",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Wet, well-drained",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-20",
+    "temperature_max": "90",
+    "humidity_preference": "High",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Spider mites",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Leaf drop",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "American Beautyberry",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A deciduous shrub known for its vibrant purple berries that attract wildlife.",
+    "image": [
+      "https://example.com/american_beautyberry.jpg"
+    ],
+    "variety_info": "Varieties include 'Callicarpa americana'.",
+    "attributes": [
+      "Deciduous",
+      "Wildlife-friendly"
+    ],
+    "family": "Lamiaceae",
+    "type": "Shrub",
+    "native": "Eastern United States",
+    "plant_dimension": "3-6 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "3-6 ft",
+    "fruit_size": "1/4 inch",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 5-10",
+    "temperature_min": "-10",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once a year",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf discoloration",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Pruning"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Arrowwood Viburnum",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A hardy shrub known for its beautiful white flowers and vibrant fall foliage.",
+    "image": [
+      "https://example.com/images/arrowwood_viburnum.jpg"
+    ],
+    "variety_info": "Includes various cultivars with different growth habits.",
+    "attributes": [
+      "Deciduous",
+      "Attractive foliage",
+      "Bird-friendly"
+    ],
+    "family": "Adoxaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "4-6 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "5 ft",
+    "fruit_size": "0.25 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-35",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Scale",
+      "Aphids"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Mildew"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Wax Myrtle",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "An evergreen shrub that is aromatic and attracts birds with its berries.",
+    "image": [
+      "https://example.com/images/wax_myrtle.jpg"
+    ],
+    "variety_info": "Various cultivars available with differing heights.",
+    "attributes": [
+      "Evergreen",
+      "Aromatic",
+      "Drought-tolerant"
+    ],
+    "family": "Myricaceae",
+    "type": "Evergreen",
+    "native": "Eastern United States",
+    "plant_dimension": "6-10 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "8 ft",
+    "fruit_size": "0.2 in",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 7-10",
+    "temperature_min": "0",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Scale",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf drop"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Horticultural oil"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Red Osier Dogwood",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A deciduous shrub known for its striking red stems and white flowers.",
+    "image": [
+      "https://example.com/images/red_osier_dogwood.jpg"
+    ],
+    "variety_info": "Multiple varieties with varied stem colors.",
+    "attributes": [
+      "Deciduous",
+      "Attractive stems",
+      "Wildlife-friendly"
+    ],
+    "family": "Cornaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "6-9 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "8 ft",
+    "fruit_size": "0.3 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Moist, well-drained",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-40",
+    "temperature_max": "30",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Early spring",
+    "trimming_interval": "Annually",
+    "common_pests": [
+      "Aphids",
+      "Leaf rollers"
+    ],
+    "disease_signs": [
+      "Cankers",
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Pruning",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Spring",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Winterberry Holly",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A deciduous holly that produces bright red berries in winter, attracting birds.",
+    "image": [
+      "https://example.com/images/winterberry_holly.jpg"
+    ],
+    "variety_info": "Male and female plants needed for berry production.",
+    "attributes": [
+      "Deciduous",
+      "Berries",
+      "Wildlife-friendly"
+    ],
+    "family": "Aquifoliaceae",
+    "type": "Deciduous",
+    "native": "Eastern North America",
+    "plant_dimension": "5-10 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "8 ft",
+    "fruit_size": "0.3 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Acidic, moist",
+    "soil_ph": "4.5-6.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-30",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "Every 2 years",
+    "common_pests": [
+      "Spider mites",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper drainage"
+    ],
+    "seasons": [
+      "Fall",
+      "Winter"
+    ]
+  },
+  {
+    "name": "Highbush Cranberry (Viburnum)",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "A shrub with clusters of white flowers followed by red berries, often used in jams.",
+    "image": [
+      "https://example.com/images/highbush_cranberry.jpg"
+    ],
+    "variety_info": "Various cultivars with differing berry flavors.",
+    "attributes": [
+      "Deciduous",
+      "Edible fruit",
+      "Attractive foliage"
+    ],
+    "family": "Adoxaceae",
+    "type": "Deciduous",
+    "native": "North America",
+    "plant_dimension": "8-12 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "10 ft",
+    "fruit_size": "0.5 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, moist",
+    "soil_ph": "5.5-7.0",
+    "hardiness": "Zones 3-8",
+    "temperature_min": "-40",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Spring",
+    "trimming_interval": "Every 3 years",
+    "common_pests": [
+      "Aphids",
+      "Leafcutter bees"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Virginia Creeper",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A vigorous vine known for its attractive foliage and bright red fall color.",
+    "image": [
+      "https://example.com/images/virginia_creeper.jpg"
+    ],
+    "variety_info": "Multiple varieties with varying growth habits.",
+    "attributes": [
+      "Deciduous",
+      "Fast-growing",
+      "Climbing"
+    ],
+    "family": "Vitaceae",
+    "type": "Deciduous",
+    "native": "Eastern United States",
+    "plant_dimension": "30-50 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "40 ft",
+    "fruit_size": "0.2 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "30",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Spider mites",
+      "Mealybugs"
+    ],
+    "disease_signs": [
+      "Powdery mildew",
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Neem oil",
+      "Pruning"
+    ],
+    "seasons": [
+      "Spring",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Trumpet Vine",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A vigorous vine with large trumpet-shaped flowers, attracting hummingbirds.",
+    "image": [
+      "https://example.com/images/trumpet_vine.jpg"
+    ],
+    "variety_info": "Different cultivars with varying flower colors.",
+    "attributes": [
+      "Deciduous",
+      "Attractive flowers",
+      "Fast-growing"
+    ],
+    "family": "Bignoniaceae",
+    "type": "Deciduous",
+    "native": "Eastern United States",
+    "plant_dimension": "10-20 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "15 ft",
+    "fruit_size": "2 in",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 4-9",
+    "temperature_min": "-30",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Spider mites"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Mildew"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Maypop (Passionflower)",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A climbing vine with unique flowers and edible fruit.",
+    "image": [
+      "https://example.com/images/maypop.jpg"
+    ],
+    "variety_info": "Different varieties with varying fruit flavors.",
+    "attributes": [
+      "Deciduous",
+      "Edible fruit",
+      "Attractive flowers"
+    ],
+    "family": "Passifloraceae",
+    "type": "Deciduous",
+    "native": "Eastern United States",
+    "plant_dimension": "10-15 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Medium",
+    "mature_height": "12 ft",
+    "fruit_size": "3 in",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 5-9",
+    "temperature_min": "-15",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Whiteflies"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Proper drainage"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "American Wisteria",
+    "category": "Perennial",
+    "llm": "Chatgpt",
+    "description": "A vigorous vine with cascading clusters of fragrant purple flowers.",
+    "image": [
+      "https://example.com/images/american_wisteria.jpg"
+    ],
+    "variety_info": "Different cultivars with varying flower colors.",
+    "attributes": [
+      "Deciduous",
+      "Fragrant flowers",
+      "Climbing"
+    ],
+    "family": "Fabaceae",
+    "type": "Deciduous",
+    "native": "Eastern United States",
+    "plant_dimension": "10-30 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Fast",
+    "mature_height": "25 ft",
+    "fruit_size": "1 in",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Well-drained",
+    "soil_ph": "6.0-7.5",
+    "hardiness": "Zones 5-9",
+    "temperature_min": "-15",
+    "temperature_max": "100",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Aphids",
+      "Scale"
+    ],
+    "disease_signs": [
+      "Leaf spots",
+      "Wilting"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Spring",
+      "Summer"
+    ]
+  },
+  {
+    "name": "Prairie Dropseed",
+    "category": "Grass",
+    "llm": "Chatgpt",
+    "description": "A native grass that forms dense clumps and produces fine, fragrant seeds.",
+    "image": [
+      "https://example.com/images/prairie_dropseed.jpg"
+    ],
+    "variety_info": "Various cultivars available for different landscapes.",
+    "attributes": [
+      "Perennial",
+      "Drought-tolerant",
+      "Native"
+    ],
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "2-3 ft tall",
+    "growth_stage": "Mature",
+    "days_to_maturity": 365,
+    "mature_speed": "Slow",
+    "mature_height": "3 ft",
+    "fruit_size": "0.1 in",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, well-drained",
+    "soil_ph": "6.0-7.0",
+    "hardiness": "Zones 3-9",
+    "temperature_min": "-40",
+    "temperature_max": "100",
+    "humidity_preference": "Low",
+    "watering_interval": "Bi-weekly",
+    "fertilizer_interval": "Annual",
+    "trimming_interval": "As needed",
+    "common_pests": [
+      "Grasshoppers",
+      "Weevils"
+    ],
+    "disease_signs": [
+      "Brown patch",
+      "Leaf spots"
+    ],
+    "treatment_methods": [
+      "Insecticidal soap",
+      "Fungicide"
+    ],
+    "seasons": [
+      "Summer",
+      "Fall"
+    ]
+  },
+  {
+    "name": "Indiangrass",
+    "category": "Grass",
+    "llm": "Chatgpt",
+    "description": "Indiangrass is a perennial grass known for its tall stature and golden seed heads. It provides excellent wildlife habitat.",
+    "image": [
+      "https://example.com/indiangrass.jpg"
+    ],
+    "variety_info": "There are several varieties of Indiangrass suited for different soil types and climates.",
+    "attributes": "Drought-tolerant, deep-rooted",
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "3-6 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Medium",
+    "mature_height": "4-5 feet",
+    "fruit_size": "Small",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Loamy, sandy",
+    "soil_ph": 6.0,
+    "hardiness": "Zone 3-7",
+    "temperature_min": "-20",
+    "temperature_max": "100",
+    "humidity_preference": "Low to moderate",
+    "watering_interval": "2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Annually in late winter",
+    "common_pests": "Grasshoppers, aphids",
+    "disease_signs": "Leaf blight",
+    "treatment_methods": "Insecticidal soap, fungicides",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Sideoats Grama",
+    "category": "Grass",
+    "llm": "Chatgpt",
+    "description": "Sideoats Grama is a warm-season grass that is characterized by its unique seed heads that grow on one side of the stem.",
+    "image": [
+      "https://example.com/sideoats_grama.jpg"
+    ],
+    "variety_info": "Common varieties include 'Cody' and 'Largo'.",
+    "attributes": "Drought-resistant, attractive to pollinators",
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "1-3 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 90,
+    "mature_speed": "Slow",
+    "mature_height": "2-3 feet",
+    "fruit_size": "Small",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, loamy",
+    "soil_ph": 6.5,
+    "hardiness": "Zone 4-8",
+    "temperature_min": "-10",
+    "temperature_max": "95",
+    "humidity_preference": "Low",
+    "watering_interval": "2-3 weeks",
+    "fertilizer_interval": "Once in early spring",
+    "trimming_interval": "Annually in fall",
+    "common_pests": "None significant",
+    "disease_signs": "Root rot",
+    "treatment_methods": "Improve drainage, avoid overwatering",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Eastern Gama Grass",
+    "category": "Grass",
+    "llm": "Chatgpt",
+    "description": "Eastern Gama Grass is a perennial grass that grows in clumps and is valued for its forage quality.",
+    "image": [
+      "https://example.com/eastern_gama_grass.jpg"
+    ],
+    "variety_info": "Varieties include 'Gama' and 'Florida'.",
+    "attributes": "Drought-tolerant, provides good ground cover",
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "2-4 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 100,
+    "mature_speed": "Medium",
+    "mature_height": "3-4 feet",
+    "fruit_size": "Small",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, loamy",
+    "soil_ph": 6.0,
+    "hardiness": "Zone 5-8",
+    "temperature_min": "-10",
+    "temperature_max": "90",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Annually in late fall",
+    "common_pests": "Grasshoppers",
+    "disease_signs": "Leaf spot",
+    "treatment_methods": "Fungicides, maintaining air circulation",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Canada Wildrye",
+    "category": "Grass",
+    "llm": "Chatgpt",
+    "description": "Canada Wildrye is a perennial grass that is often used for erosion control and wildlife habitat.",
+    "image": [
+      "https://example.com/canada_wildrye.jpg"
+    ],
+    "variety_info": "Varieties include 'Cree' and 'Pawnee'.",
+    "attributes": "Adaptable, good for wildlife",
+    "family": "Poaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "2-4 feet tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 110,
+    "mature_speed": "Medium",
+    "mature_height": "3 feet",
+    "fruit_size": "Small",
+    "exposure": "Full sun to partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Clay, sandy",
+    "soil_ph": 6.5,
+    "hardiness": "Zone 2-6",
+    "temperature_min": "-30",
+    "temperature_max": "85",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "Annually in winter",
+    "common_pests": "None significant",
+    "disease_signs": "None",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer"
+  },
+  {
+    "name": "Bearberry (Kinnikinnick)",
+    "category": "Shrub",
+    "llm": "Chatgpt",
+    "description": "Bearberry is a low-growing shrub that produces red berries and is commonly found in dry, sandy soils.",
+    "image": [
+      "https://example.com/bearberry.jpg"
+    ],
+    "variety_info": "Common varieties include 'Vancouver' and 'Kinnickinnick'.",
+    "attributes": "Drought-resistant, evergreen",
+    "family": "Ericaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 120,
+    "mature_speed": "Slow",
+    "mature_height": "1 foot",
+    "fruit_size": "Small",
+    "exposure": "Full sun",
+    "sunlight_requirement": "6-8 hours",
+    "soil_type": "Sandy, rocky",
+    "soil_ph": 5.5,
+    "hardiness": "Zone 2-6",
+    "temperature_min": "-30",
+    "temperature_max": "80",
+    "humidity_preference": "Low",
+    "watering_interval": "Once a month",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "As needed",
+    "common_pests": "None significant",
+    "disease_signs": "None",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Partridgeberry",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "Partridgeberry is a creeping herb known for its red berries and is often used in ornamental gardens.",
+    "image": [
+      "https://example.com/partridgeberry.jpg"
+    ],
+    "variety_info": "Typically grown from seed or cuttings.",
+    "attributes": "Ground cover, evergreen",
+    "family": "Ericaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 90,
+    "mature_speed": "Medium",
+    "mature_height": "1 foot",
+    "fruit_size": "Small",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Acidic, well-drained",
+    "soil_ph": 5.0,
+    "hardiness": "Zone 3-8",
+    "temperature_min": "-20",
+    "temperature_max": "75",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "As needed",
+    "common_pests": "None significant",
+    "disease_signs": "Leaf spot",
+    "treatment_methods": "Fungicides, improve air circulation",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Wintergreen",
+    "category": "Herb",
+    "llm": "Chatgpt",
+    "description": "Wintergreen is a low-growing herb known for its aromatic leaves and red berries.",
+    "image": [
+      "https://example.com/wintergreen.jpg"
+    ],
+    "variety_info": "Commonly grown from seeds or division.",
+    "attributes": "Evergreen, aromatic",
+    "family": "Ericaceae",
+    "type": "Perennial",
+    "native": "North America",
+    "plant_dimension": "6-12 inches tall",
+    "growth_stage": "Vegetative",
+    "days_to_maturity": 100,
+    "mature_speed": "Medium",
+    "mature_height": "8 inches",
+    "fruit_size": "Small",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "Acidic, well-drained",
+    "soil_ph": 5.5,
+    "hardiness": "Zone 3-7",
+    "temperature_min": "-40",
+    "temperature_max": "80",
+    "humidity_preference": "Moderate",
+    "watering_interval": "Every 2 weeks",
+    "fertilizer_interval": "Once in spring",
+    "trimming_interval": "As needed",
+    "common_pests": "None significant",
+    "disease_signs": "None",
+    "treatment_methods": "N/A",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Chicken of the Woods",
+    "category": "Fungi",
+    "llm": "Chatgpt",
+    "description": "Chicken of the Woods is a large edible mushroom known for its bright colors and meaty texture.",
+    "image": [
+      "https://example.com/chicken_of_the_woods.jpg"
+    ],
+    "variety_info": "Commonly found on oak and other hardwoods.",
+    "attributes": "Edible, foraged",
+    "family": "Polyporaceae",
+    "type": "Fungi",
+    "native": "North America",
+    "plant_dimension": "Up to 2 feet wide",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 30,
+    "mature_speed": "Fast",
+    "mature_height": "Varies",
+    "fruit_size": "Large",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "N/A",
+    "soil_ph": "N/A",
+    "hardiness": "N/A",
+    "temperature_min": "40",
+    "temperature_max": "80",
+    "humidity_preference": "High",
+    "watering_interval": "N/A",
+    "fertilizer_interval": "N/A",
+    "trimming_interval": "N/A",
+    "common_pests": "None significant",
+    "disease_signs": "Discoloration",
+    "treatment_methods": "Proper harvesting techniques",
+    "seasons": "Summer, Fall"
+  },
+  {
+    "name": "Maitake",
+    "category": "Fungi",
+    "llm": "Chatgpt",
+    "description": "Maitake is a popular edible mushroom known for its unique frilled appearance and rich flavor.",
+    "image": [
+      "https://example.com/maitake.jpg"
+    ],
+    "variety_info": "Grows at the base of oak trees.",
+    "attributes": "Edible, foraged",
+    "family": "Grifola",
+    "type": "Fungi",
+    "native": "North America",
+    "plant_dimension": "Up to 1 foot wide",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 30,
+    "mature_speed": "Fast",
+    "mature_height": "Varies",
+    "fruit_size": "Medium to large",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "N/A",
+    "soil_ph": "N/A",
+    "hardiness": "N/A",
+    "temperature_min": "50",
+    "temperature_max": "80",
+    "humidity_preference": "High",
+    "watering_interval": "N/A",
+    "fertilizer_interval": "N/A",
+    "trimming_interval": "N/A",
+    "common_pests": "None significant",
+    "disease_signs": "None",
+    "treatment_methods": "Proper harvesting techniques",
+    "seasons": "Fall"
+  },
+  {
+    "name": "Reishi",
+    "category": "Fungi",
+    "llm": "Chatgpt",
+    "description": "Reishi is a medicinal mushroom known for its potential health benefits and distinctive appearance.",
+    "image": [
+      "https://example.com/reishi.jpg"
+    ],
+    "variety_info": "Commonly found on decaying wood.",
+    "attributes": "Medicinal, foraged",
+    "family": "Ganoderma",
+    "type": "Fungi",
+    "native": "North America",
+    "plant_dimension": "Up to 1 foot wide",
+    "growth_stage": "Fruiting",
+    "days_to_maturity": 60,
+    "mature_speed": "Medium",
+    "mature_height": "Varies",
+    "fruit_size": "Medium",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "4-6 hours",
+    "soil_type": "N/A",
+    "soil_ph": "N/A",
+    "hardiness": "N/A",
+    "temperature_min": "60",
+    "temperature_max": "90",
+    "humidity_preference": "High",
+    "watering_interval": "N/A",
+    "fertilizer_interval": "N/A",
+    "trimming_interval": "N/A",
+    "common_pests": "None significant",
+    "disease_signs": "None",
+    "treatment_methods": "Proper harvesting techniques",
+    "seasons": "Fall"
+  },
+  {
+    "name": "Turkey Tail",
+    "category": "Fungus",
+    "llm": "Chatgpt",
+    "description": "Turkey Tail is a polypore mushroom known for its colorful, fan-shaped caps and medicinal properties.",
+    "image": [
+      "https://example.com/images/turkey_tail.jpg"
+    ],
+    "variety_info": "Commonly found in various colors including brown, orange, and blue.",
+    "attributes": {
+      "edible": true,
+      "medicinal": true,
+      "aesthetic": true
+    },
+    "family": "Polyporaceae",
+    "type": "Fungus",
+    "native": "North America",
+    "plant_dimension": "Up to 10 cm wide",
+    "growth_stage": "Mature",
+    "days_to_maturity": "Variable, generally 1-2 years",
+    "mature_speed": "Slow",
+    "mature_height": "N/A",
+    "fruit_size": "2-10 cm",
+    "exposure": "Partial shade to full shade",
+    "sunlight_requirement": "Low",
+    "soil_type": "Decaying wood or organic matter",
+    "soil_ph": "4.5 - 7.0",
+    "hardiness": "Zone 3-9",
+    "temperature_min": "-10",
+    "temperature_max": "30",
+    "humidity_preference": "High",
+    "watering_interval": "N/A",
+    "fertilizer_interval": "N/A",
+    "trimming_interval": "N/A",
+    "common_pests": "None",
+    "disease_signs": "Discoloration or decay",
+    "treatment_methods": "Remove affected areas",
+    "seasons": "Spring, Summer, Fall"
+  },
+  {
+    "name": "Shiitake",
+    "category": "Fungus",
+    "llm": "Chatgpt",
+    "description": "Shiitake mushrooms are renowned for their rich flavor and are widely cultivated for culinary use.",
+    "image": [
+      "https://example.com/images/shiitake.jpg"
+    ],
+    "variety_info": "Includes varieties such as Black Diamond and Golden.",
+    "attributes": {
+      "edible": true,
+      "medicinal": true,
+      "aesthetic": false
+    },
+    "family": "Lentinaceae",
+    "type": "Fungus",
+    "native": "East Asia",
+    "plant_dimension": "Up to 10 cm wide",
+    "growth_stage": "Mature",
+    "days_to_maturity": "6-12 months",
+    "mature_speed": "Moderate",
+    "mature_height": "N/A",
+    "fruit_size": "5-10 cm",
+    "exposure": "Partial shade",
+    "sunlight_requirement": "Medium",
+    "soil_type": "Decaying wood",
+    "soil_ph": "5.0 - 6.5",
+    "hardiness": "Zone 4-9",
+    "temperature_min": "0",
+    "temperature_max": "30",
+    "humidity_preference": "High",
+    "watering_interval": "Weekly",
+    "fertilizer_interval": "N/A",
+    "trimming_interval": "N/A",
+    "common_pests": "None",
+    "disease_signs": "Mycelium discoloration",
+    "treatment_methods": "Change substrate",
+    "seasons": "Spring, Fall, Winter"
+  }
+]

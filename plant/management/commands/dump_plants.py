@@ -11,21 +11,21 @@ import os
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        # cursor = connection.cursor()
+        cursor = connection.cursor()
 
-        run()
+        # run()
         # connection.commit()
-        self.stdout.write(self.style.SUCCESS("All categories saved successfully"))
+        # self.stdout.write(self.style.SUCCESS("All categories saved successfully"))
 
         # add_llm(cursor)
         # connection.commit()
         # self.stdout.write(self.style.SUCCESS("All llms saved successfully"))
 
-        # get_category_ids(cursor)
-        # get_llm_ids(cursor)
+        get_category_ids(cursor)
+        get_llm_ids(cursor)
 
-        # # add_plant(cursor)
-        # connection.commit()
-        # self.stdout.write(self.style.SUCCESS("All plants saved successfully"))
+        add_plant(cursor)
+        connection.commit()
+        self.stdout.write(self.style.SUCCESS("All plants saved successfully"))
     
     
