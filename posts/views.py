@@ -46,7 +46,24 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
             },
             status=status.HTTP_201_CREATED,
         )
+
     
+class PostRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return (
+            UserPost.objects.filter(user=self.request.user)
+            .select_related("post", "user", "user__userprofile")
+            .prefetch_related("user__userlawn_set__lawn")
+        )
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
+
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop("partial", False)
         instance = self.get_object()
@@ -67,7 +84,8 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
             },
             status=status.HTTP_200_OK,
         )
-    
+
+
     def delete(self):
         instance = self.get_object()
         post = instance.post
