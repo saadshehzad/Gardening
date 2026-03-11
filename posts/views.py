@@ -9,7 +9,7 @@ from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.shortcuts import redirect
 from users.models import User
 
 from .models import *
@@ -19,58 +19,84 @@ from .serializers import *
 class PostListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
-    queryset = UserPost.objects.all()
-    queryset = (
-        UserPost.objects.all()
-        .select_related("post", "user")
-        .prefetch_related("user__userlawn_set__lawn")
-    )
 
-    def post(self, request, *args, **kwargs):
+    def get_queryset(self):
+        return (
+            UserPost.objects.filter(user=self.request.user)
+            .select_related("post", "user", "user__userprofile")
+            .prefetch_related("user__userlawn_set__lawn")
+            .order_by("-post__time")
+        )
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
+
+    def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            description = request.data.get("description")
-            image = request.FILES.get("image")
-            if not image:
-                return Response(
-                    {"error": "Image is required"}, status=status.HTTP_400_BAD_REQUEST
-                )
+        serializer.is_valid(raise_exception=True)
+        user_post = serializer.save()
 
-            try:
-                post = Post.objects.create(description=description, image=image)
-                UserPost.objects.create(post=post, user=request.user)
-                return Response(
-                    {"message": "Post created successfully"},
-                    status=status.HTTP_201_CREATED,
-                )
-            except Exception as e:
-                return Response(
-                    {"message": f"Error while creating Post: {str(e)}"},
-                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                )
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, *args, **kwargs):
-        post_id = request.data.get("post_id")
-        if not post_id:
-            return Response(
-                {"error": "Post ID is required"}, status=status.HTTP_400_BAD_REQUEST
-            )
-
-        try:
-            user_post = UserPost.objects.get(id=post_id, user=request.user)
-            user_post.delete()
-            return Response(
-                {"detail": "Post deleted successfully"},
-                status=status.HTTP_204_NO_CONTENT,
-            )
-        except UserPost.DoesNotExist:
-            return Response(
-                {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
-            )
+        response_serializer = self.get_serializer(user_post)
+        return Response(
+            {
+                "message": "Post created successfully",
+                "data": response_serializer.data,
+            },
+            status=status.HTTP_201_CREATED,
+        )
 
 
+class PostRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return (
+            UserPost.objects.filter(user=self.request.user)
+            .select_related("post", "user", "user__userprofile")
+            .prefetch_related("user__userlawn_set__lawn")
+        )
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop("partial", False)
+        instance = self.get_object()
+
+        serializer = self.get_serializer(
+            instance,
+            data=request.data,
+            partial=partial
+        )
+        serializer.is_valid(raise_exception=True)
+        user_post = serializer.save()
+
+        response_serializer = self.get_serializer(user_post)
+        return Response(
+            {
+                "message": "Post updated successfully",
+                "data": response_serializer.data,
+            },
+            status=status.HTTP_200_OK,
+        )
+    
+    def delete(self):
+        instance = self.get_object()
+        post = instance.post
+
+        instance.delete()
+        post.delete()
+
+        return Response(
+            {"message": "Post deleted successfully"},
+            status=status.HTTP_200_OK,
+        )
+    
 class ArticlesListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ArticleSerializer

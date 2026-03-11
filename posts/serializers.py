@@ -2,25 +2,25 @@ import json
 
 from rest_framework import serializers
 
-from lawn.models import Lawn, UserLawn
-
+from lawn.models import UserLawn
 from .models import *
 
 
 class PostSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(source="post.image", read_only=True)
+    image = serializers.ImageField(source="post.image", required=False)
     description = serializers.CharField(source="post.description", required=False)
     time = serializers.DateTimeField(
-        source="post.time", format="%Y-%m-%d %H:%M:%S", read_only=True
+        source="post.time",
+        format="%Y-%m-%d %H:%M:%S",
+        read_only=True,
     )
     user = serializers.CharField(source="user.username", read_only=True)
-
-    # Additional fields for GET response
+    profile_picture = serializers.SerializerMethodField()
     location = serializers.SerializerMethodField()
     bio = serializers.SerializerMethodField()
-    posts = serializers.SerializerMethodField()
-    likes = serializers.SerializerMethodField()
-    comments = serializers.SerializerMethodField()
+    post_count = serializers.SerializerMethodField()
+    like_count = serializers.SerializerMethodField()
+    comment_count = serializers.SerializerMethodField()
     lawn_id = serializers.SerializerMethodField()
 
     class Meta:
@@ -28,51 +28,87 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "user",
+            "profile_picture",
             "image",
             "description",
             "time",
             "location",
             "bio",
-            "posts",
-            "likes",
-            "comments",
+            "post_count",
+            "like_count",
+            "comment_count",
             "lawn_id",
         ]
 
+    def get_profile_picture(self, obj):
+        profile = getattr(obj.user, "userprofile", None)
+        request = self.context.get("request")
+
+        if profile and getattr(profile, "profile_picture", None):
+            if request:
+                return request.build_absolute_uri(profile.profile_picture.url)
+            return profile.profile_picture.url
+        return None
+
     def get_location(self, obj):
-        return (
-            getattr(obj.user.userprofile, "region", "")
-            if hasattr(obj.user, "userprofile")
-            else ""
-        )
+        return getattr(getattr(obj.user, "userprofile", None), "region", "")
 
     def get_bio(self, obj):
-        return (
-            getattr(obj.user.userprofile, "bio", "")
-            if hasattr(obj.user, "userprofile")
-            else ""
-        )
+        return getattr(getattr(obj.user, "userprofile", None), "bio", "")
 
-    def get_posts(self, obj):
+    def get_post_count(self, obj):
         return UserPost.objects.filter(user=obj.user).count()
 
-    def get_likes(self, obj):
+    def get_like_count(self, obj):
         return UserPostLike.objects.filter(user_post=obj).count()
 
-    def get_comments(self, obj):
+    def get_comment_count(self, obj):
         return UserPostComment.objects.filter(user_post=obj).count()
 
     def get_lawn_id(self, obj):
-        try:
-            user_lawn = UserLawn.objects.get(user=obj.user)
-            return str(user_lawn.lawn.id)
-        except UserLawn.DoesNotExist:
-            return None
+        user_lawn = (
+            UserLawn.objects.filter(user=obj.user)
+            .select_related("lawn")
+            .first()
+        )
+        return str(user_lawn.lawn.id) if user_lawn and user_lawn.lawn else None
+
+    def create(self, validated_data):
+        post_data = validated_data.pop("post", {})
+        request = self.context.get("request")
+        user = request.user
+
+        post = Post.objects.create(
+            description=post_data.get("description", ""),
+            image=post_data.get("image"),
+        )
+
+        return UserPost.objects.create(
+            user=user,
+            post=post,
+            **validated_data,
+        )
+
+    def update(self, instance, validated_data):
+        post_data = validated_data.pop("post", {})
+        post = instance.post
+
+        if "description" in post_data:
+            post.description = post_data["description"]
+
+        if "image" in post_data:
+            post.image = post_data["image"]
+
+        post.save()
+        return instance
 
 
 class ArticleSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=True)
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+    created_at = serializers.DateTimeField(
+        format="%Y-%m-%d %H:%M:%S",
+        read_only=True,
+    )
 
     class Meta:
         model = Articles
@@ -93,5 +129,5 @@ class ReportProblemSerializer(serializers.ModelSerializer):
                 if not isinstance(image_urls, list):
                     raise serializers.ValidationError("Invalid image URL format.")
             except json.JSONDecodeError:
-                raise serializers.ValidationError("Invalid JSON format for image field")
+                raise serializers.ValidationError("Invalid JSON format for image field.")
         return value

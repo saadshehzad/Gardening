@@ -4,6 +4,7 @@ from posts.views import *
 
 urlpatterns = [
     path("userpost/", PostListCreateAPIView.as_view()),
+    path("userpost/<int:pk>/", PostRetrieveUpdateDeleteAPIView.as_view()),
     path("article/", ArticlesListCreateAPIView.as_view()),
     path("report/", ReportProblemListCreateAPIView.as_view(), name="report-problem"),
     path("share/<uuid:post_id>/", UserPostShareAPIView.as_view(), name="share_post"),

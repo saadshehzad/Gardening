@@ -59,14 +59,7 @@ class UserLawnPlantSerializer(serializers.Serializer):
                     {"message": f"Invalid Plant ID: {plant_id}"}
                 )
         return data
-
-
-class LawnPlantSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = LawnPlant
-        fields = "id", "lawn", "plant"
-
-
+    
 class RealGardenImagesSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
