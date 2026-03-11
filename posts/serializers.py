@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 from lawn.models import UserLawn
 from .models import *
+from users.models import UserProfile
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -41,15 +42,17 @@ class PostSerializer(serializers.ModelSerializer):
         ]
 
     def get_profile_picture(self, obj):
-        profile = getattr(obj.user, "userprofile", None)
         request = self.context.get("request")
 
-        if profile and getattr(profile, "profile_picture", None):
-            if request:
-                return request.build_absolute_uri(profile.profile_picture.url)
-            return profile.profile_picture.url
-        return None
+        user_profile = UserProfile.objects.filter(user=obj.user).first()
 
+        if user_profile and user_profile.image:
+            if request:
+                return request.build_absolute_uri(user_profile.image.url)
+            return user_profile.image.url
+
+        return None
+    
     def get_location(self, obj):
         return getattr(getattr(obj.user, "userprofile", None), "region", "")
 
