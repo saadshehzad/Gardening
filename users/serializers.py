@@ -125,15 +125,30 @@ class LoginSerializer(serializers.Serializer):
 
 
 class PasswordChangeSerializer(serializers.Serializer):
-    new_password1 = serializers.CharField(write_only=True)
-    new_password2 = serializers.CharField(write_only=True)
+    current_password = serializers.CharField(write_only=True, required=True)
+    new_password1 = serializers.CharField(write_only=True, required=True)
+    new_password2 = serializers.CharField(write_only=True, required=True)
 
     def validate(self, data):
-        if data["new_password1"] != data["new_password2"]:
-            raise serializers.ValidationError("Passwords do not match.")
-        validate_password(data["new_password1"], self.context["request"].user)
-        return data
+        user = self.context["request"].user
 
+        if not user.check_password(data["current_password"]):
+            raise serializers.ValidationError(
+                {"current_password": "Current password is incorrect."}
+            )
+
+        if data["new_password1"] != data["new_password2"]:
+            raise serializers.ValidationError(
+                {"new_password2": "Passwords do not match."}
+            )
+
+        if data["current_password"] == data["new_password1"]:
+            raise serializers.ValidationError(
+                {"new_password1": "New password must be different from current password."}
+            )
+
+        validate_password(data["new_password1"], user)
+        return data
 
 class PasswordResetSerializer(serializers.Serializer):
     email = serializers.EmailField()
