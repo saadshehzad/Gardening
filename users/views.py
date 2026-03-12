@@ -283,7 +283,7 @@ class GetPlantsByUserRegion(APIView):
 
 
 class UserProfileView(APIView):
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         try:

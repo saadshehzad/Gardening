@@ -7,9 +7,14 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from users.views import (CustomLoginView, CustomRegisterView, EmailVerifyView,
-                         PasswordChangeView, PasswordResetConfirmHTMLView,
-                         PasswordResetView)
+from users.views import (
+    CustomLoginView,
+    CustomRegisterView,
+    EmailVerifyView,
+    PasswordChangeView,
+    PasswordResetConfirmHTMLView,
+    PasswordResetView,
+)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -26,14 +31,16 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    # Auth routes
     path("auth/registration/", CustomRegisterView.as_view(), name="register"),
     path(
         "verify-email/<str:uidb64>/<str:token>/",
         EmailVerifyView.as_view(),
         name="verify-email",
     ),
-    path("auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("auth/token/", CustomLoginView.as_view(), name="login"),
+    path("auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("auth/password/change/", PasswordChangeView.as_view(), name="password_change"),
     path("auth/password/reset/", PasswordResetView.as_view(), name="password_reset"),
     path(
@@ -41,18 +48,27 @@ urlpatterns = [
         PasswordResetConfirmHTMLView.as_view(),
         name="password_reset_confirm",
     ),
+
+    # Docs
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path(
+        "redoc/",
+        schema_view.with_ui("redoc", cache_timeout=0),
+        name="schema-redoc",
+    ),
+
+    # App routes
     path("lawn/", include("lawn.urls")),
     path("plant/", include("plant.urls")),
     path("users/", include("users.urls")),
     path("posts/", include("posts.urls")),
     path("notifications/", include("notifications.urls")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
