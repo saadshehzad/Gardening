@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model, login
 from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -32,44 +32,54 @@ class CustomRegisterView(APIView):
 
     def post(self, request):
         serializer = CustomRegisterSerializer(
-            data=request.data, context={"request": request}
+            data=request.data,
+            context={"request": request}
         )
-        if serializer.is_valid():
-            try:
-                user = serializer.save(request)
 
-                token = default_token_generator.make_token(user)
-                uid = urlsafe_base64_encode(force_bytes(user.pk))
-                verification_url = f"{settings.FRONTEND_URL}/verify-email/{uid}/{token}/"
-
-                try:
-                    send_mail(
-                        subject="Verify Your Email",
-                        message=render_to_string(
-                            "account/email/email_verification.html",
-                            {
-                                "user": user,
-                                "verification_url": verification_url,
-                            },
-                        ),
-                        from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=[user.email],
-                    )
-                except:
-                    print("Unable to sent email for some reason")
-                
-                return Response(
-                   {"detail": "Registration successful. Please verify your email."},
-                   status=status.HTTP_201_CREATED,
-                  )
-            except Exception as e:
-                print(f"Error inserting {e}")
-        
-        else:
-            traceback.print_exc()
+        if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+        try:
+            user = serializer.save()
 
+            user.verified = False
+            user.save(update_fields=["verified"])
+
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+            verification_url = (
+                f"{settings.BACKEND_URL}/api/verify-email/{uid}/{token}/"
+            )
+
+            html_message = render_to_string(
+                "account/email/email_verification.html",
+                {
+                    "user": user,
+                    "verification_url": verification_url,
+                },
+            )
+
+            plain_message = f"Please verify your email by clicking this link: {verification_url}"
+
+            send_mail(
+                subject="Verify Your Email",
+                message=plain_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[user.email],
+                html_message=html_message,
+            )
+
+            return Response(
+                {"detail": "Registration successful. Please verify your email."},
+                status=status.HTTP_201_CREATED,
+            )
+
+        except Exception as e:
+            return Response(
+                {"detail": f"Registration failed: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
 class EmailVerifyView(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
@@ -78,23 +88,18 @@ class EmailVerifyView(APIView):
         try:
             uid = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=uid)
-            if default_token_generator.check_token(user, token):
-                user.verified = True
-                user.save()
-                return render(
-                    request,
-                    "account/email/email_verified.html",
-                    {"login_url": f"{settings.FRONTEND_URL}/login/"},
-                )
-            return Response(
-                {"detail": "Invalid verification token"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-        except User.DoesNotExist:
-            return Response(
-                {"detail": "Invalid user"}, status=status.HTTP_400_BAD_REQUEST
-            )
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            return redirect(f"{settings.FRONTEND_URL}/verify-email-failed")
 
+        if user.verified:
+            return redirect(f"{settings.FRONTEND_URL}/email-verified")
+
+        if default_token_generator.check_token(user, token):
+            user.verified = True
+            user.save(update_fields=["verified"])
+            return redirect(f"{settings.FRONTEND_URL}/email-verified")
+
+        return redirect(f"{settings.FRONTEND_URL}/verify-email-failed")
 
 class CustomLoginView(APIView):
     authentication_classes = []
