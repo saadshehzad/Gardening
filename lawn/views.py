@@ -61,7 +61,7 @@ class UserLawnPlantAPIView(APIView):
         try:
             user_lawn = UserLawn.objects.get(user=user)
             lawn_plants = LawnPlant.objects.filter(lawn=user_lawn.lawn)
-            serializer = LawnPlantSerializer(lawn_plants, many=True)
+            serializer = UserLawnPlantSerializer(lawn_plants, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except UserLawn.DoesNotExist:
             return Response([], status=status.HTTP_200_OK)
