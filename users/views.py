@@ -17,6 +17,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from django.db import transaction
+
 from plant.models import PlantRegion
 from plant.serializers import PlantSerializer
 
@@ -30,6 +32,7 @@ class CustomRegisterView(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
 
+    @transaction.atomic
     def post(self, request):
         serializer = CustomRegisterSerializer(
             data=request.data,
@@ -48,9 +51,7 @@ class CustomRegisterView(APIView):
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
-            verification_url = (
-                f"{settings.BACKEND_URL}/verify-email/{uid}/{token}/"
-            )
+            verification_url = f"{settings.BACKEND_URL}/verify-email/{uid}/{token}/"
 
             html_message = render_to_string(
                 "account/email/email_verification.html",
@@ -68,6 +69,7 @@ class CustomRegisterView(APIView):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[user.email],
                 html_message=html_message,
+                fail_silently=False,
             )
 
             return Response(
@@ -76,10 +78,12 @@ class CustomRegisterView(APIView):
             )
 
         except Exception as e:
+            transaction.set_rollback(True)
             return Response(
                 {"detail": f"Registration failed: {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+        
 class EmailVerifyView(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
