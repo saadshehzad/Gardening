@@ -40,7 +40,7 @@ class CustomRegisterView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            user = serializer.save()
+            user = serializer.save(request=self.request)
 
             user.verified = False
             user.save(update_fields=["verified"])
@@ -49,7 +49,7 @@ class CustomRegisterView(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
             verification_url = (
-                f"{settings.BACKEND_URL}/api/verify-email/{uid}/{token}/"
+                f"{settings.BACKEND_URL}/verify-email/{uid}/{token}/"
             )
 
             html_message = render_to_string(
