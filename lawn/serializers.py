@@ -3,8 +3,7 @@ from uuid import UUID
 from rest_framework import serializers
 
 from plant.serializers import PlantSerializer
-
-from .models import *
+from .models import Lawn, UserLawn, LawnPlant, RealGardenImages
 
 
 class LawnSerializer(serializers.ModelSerializer):
@@ -12,12 +11,7 @@ class LawnSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lawn
-        fields = "id", "name", "created_at"
-
-        def validate_location(self, value):
-            if not value:
-                raise serializers.ValidationError("Location cannot be empty.")
-            return value
+        fields = ("id", "name", "created_at")
 
 
 class UserLawnSerializer(serializers.ModelSerializer):
@@ -26,6 +20,7 @@ class UserLawnSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserLawn
         fields = ("id", "user", "lawn", "location")
+        read_only_fields = ("id", "user", "lawn")
 
     def validate_location(self, value):
         if not value:
@@ -34,12 +29,12 @@ class UserLawnSerializer(serializers.ModelSerializer):
 
 
 class LawnPlantSerializer(serializers.ModelSerializer):
-    plant = PlantSerializer()
-    lawn = LawnSerializer()
+    plant = PlantSerializer(read_only=True)
+    lawn = LawnSerializer(read_only=True)
 
     class Meta:
         model = LawnPlant
-        fields = "__all__"
+        fields = ("id", "user", "lawn", "plant")
 
 
 class UserLawnPlantSerializer(serializers.Serializer):
@@ -53,13 +48,14 @@ class UserLawnPlantSerializer(serializers.Serializer):
         plant_ids = data.get("plants", [])
         for plant_id in plant_ids:
             try:
-                uuid.UUID(plant_id)
+                UUID(str(plant_id))
             except ValueError:
                 raise serializers.ValidationError(
                     {"message": f"Invalid Plant ID: {plant_id}"}
                 )
         return data
-    
+
+
 class RealGardenImagesSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
