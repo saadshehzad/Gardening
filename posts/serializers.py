@@ -23,6 +23,8 @@ class PostSerializer(serializers.ModelSerializer):
     like_count = serializers.SerializerMethodField()
     comment_count = serializers.SerializerMethodField()
     lawn_id = serializers.SerializerMethodField()
+    share_profile = serializers.SerializerMethodField()
+    share_garden = serializers.SerializerMethodField()
 
     class Meta:
         model = UserPost
@@ -39,6 +41,8 @@ class PostSerializer(serializers.ModelSerializer):
             "like_count",
             "comment_count",
             "lawn_id",
+            "share_profile",
+            "share_garden"
         ]
 
     def get_profile_picture(self, obj):
@@ -75,6 +79,12 @@ class PostSerializer(serializers.ModelSerializer):
             .first()
         )
         return str(user_lawn.lawn.id) if user_lawn and user_lawn.lawn else None
+    
+    def get_share_profile(self, obj):
+        return getattr(getattr(obj.user, "userprofile", None), "share_profile", False)
+
+    def get_share_garden(self, obj):
+        return getattr(getattr(obj.user, "userprofile", None), "share_garden", False)
 
     def create(self, validated_data):
         post_data = validated_data.pop("post", {})
