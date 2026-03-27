@@ -16,6 +16,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.http import HttpResponse
 
 from django.db import transaction
 
@@ -93,17 +94,56 @@ class EmailVerifyView(APIView):
             uid = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=uid)
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-            return redirect(f"{settings.FRONTEND_URL}/verify-email-failed")
+            return HttpResponse(
+                """
+                <html>
+                  <body style="font-family: Arial; text-align:center; padding:40px;">
+                    <h2>Email verification failed</h2>
+                    <p>Invalid user or broken verification link.</p>
+                  </body>
+                </html>
+                """,
+                status=400,
+            )
 
         if user.verified:
-            return redirect(f"{settings.FRONTEND_URL}/email-verified")
+            return HttpResponse(
+                """
+                <html>
+                  <body style="font-family: Arial; text-align:center; padding:40px;">
+                    <h2>Email already verified</h2>
+                    <p>You can log in now.</p>
+                  </body>
+                </html>
+                """
+            )
+
 
         if default_token_generator.check_token(user, token):
             user.verified = True
             user.save(update_fields=["verified"])
-            return redirect(f"{settings.FRONTEND_URL}/email-verified")
+            return HttpResponse(
+                """
+                <html>
+                  <body style="font-family: Arial; text-align:center; padding:40px;">
+                    <h2>Email verified successfully</h2>
+                    <p>You can now log in to your account.</p>
+                  </body>
+                </html>
+                """
+            )
 
-        return redirect(f"{settings.FRONTEND_URL}/verify-email-failed")
+        return HttpResponse(
+            """
+            <html>
+              <body style="font-family: Arial; text-align:center; padding:40px;">
+                <h2>Email verification failed</h2>
+                <p>This link is invalid or expired.</p>
+              </body>
+            </html>
+            """,
+            status=400,
+        )
 
 class CustomLoginView(APIView):
     authentication_classes = []
