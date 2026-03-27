@@ -45,7 +45,7 @@ class Plant(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     llm = models.ForeignKey(LLM, on_delete=models.CASCADE)
     description = models.TextField()
-    image = models.TextField()
+    image = models.JSONField(default=list, blank=True , null=True)
 
     variety_info = models.CharField(max_length=255)
     attributes = models.CharField(max_length=255)
