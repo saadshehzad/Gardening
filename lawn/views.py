@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from plant.models import Plant
+from plant.views import parse_image_field
 from .models import Lawn, LawnPlant, RealGardenImages, UserLawn
 from .serializers import (
     LawnSerializer,
@@ -100,7 +101,11 @@ class MyLawnPlantAPIView(APIView):
         ).select_related("lawn", "plant", "user")
 
         serializer = LawnPlantSerializer(lawn_plants, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        data = serializer.data
+        for item in data:
+            if "plant" in item and item["plant"]:
+                item["plant"]["image"] = parse_image_field(item["plant"].get("image"))
+        return Response(data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
@@ -137,10 +142,14 @@ class MyLawnPlantAPIView(APIView):
             lawn_plants.append(lawn_plant)
 
         response_serializer = LawnPlantSerializer(lawn_plants, many=True)
+        response_data = response_serializer.data
+        for item in response_data:
+            if "plant" in item and item["plant"]:
+                item["plant"]["image"] = parse_image_field(item["plant"].get("image"))
         return Response(
             {
                 "message": "Plants successfully added to the lawn.",
-                "data": response_serializer.data,
+                "data": response_data,
             },
             status=status.HTTP_201_CREATED,
         )
@@ -183,13 +192,21 @@ class MyLawnPlantAPIView(APIView):
                 )
 
             deleted_plants.append(lawn_plant)
-            lawn_plant.delete()
 
+        # Serialize before deleting so FKs are still accessible
         response_serializer = LawnPlantSerializer(deleted_plants, many=True)
+        response_data = response_serializer.data
+        for item in response_data:
+            if "plant" in item and item["plant"]:
+                item["plant"]["image"] = parse_image_field(item["plant"].get("image"))
+
+        for lp in deleted_plants:
+            lp.delete()
+
         return Response(
             {
                 "message": "Plants successfully removed from the lawn.",
-                "data": response_serializer.data,
+                "data": response_data,
             },
             status=status.HTTP_200_OK,
         )
@@ -208,6 +225,15 @@ class UserLawnPlantDetailAPIView(generics.ListAPIView):
         return LawnPlant.objects.filter(
             lawn=user_lawn.lawn
         ).select_related("lawn", "plant", "user")
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        data = serializer.data
+        for item in data:
+            if "plant" in item and item["plant"]:
+                item["plant"]["image"] = parse_image_field(item["plant"].get("image"))
+        return Response(data, status=status.HTTP_200_OK)
 
 
 class RealGardenImagesAPIView(generics.ListCreateAPIView):
