@@ -25,6 +25,7 @@ class PostSerializer(serializers.ModelSerializer):
     lawn_id = serializers.SerializerMethodField()
     share_profile = serializers.SerializerMethodField()
     share_garden = serializers.SerializerMethodField()
+    is_editable = serializers.SerializerMethodField()
 
     class Meta:
         model = UserPost
@@ -42,7 +43,8 @@ class PostSerializer(serializers.ModelSerializer):
             "comment_count",
             "lawn_id",
             "share_profile",
-            "share_garden"
+            "share_garden",
+            "is_editable",
         ]
 
     def get_profile_picture(self, obj):
@@ -86,6 +88,12 @@ class PostSerializer(serializers.ModelSerializer):
     def get_share_garden(self, obj):
         return getattr(getattr(obj.user, "userprofile", None), "share_garden", False)
 
+    def get_is_editable(self, obj):
+        request = self.context.get("request")
+        if request and hasattr(request, "user") and request.user.is_authenticated:
+            return obj.user_id == request.user.id
+        return False
+
     def create(self, validated_data):
         post_data = validated_data.pop("post", {})
         request = self.context.get("request")
@@ -118,6 +126,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=True)
+    image_url = serializers.SerializerMethodField()
     created_at = serializers.DateTimeField(
         format="%Y-%m-%d %H:%M:%S",
         read_only=True,
@@ -125,7 +134,16 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Articles
-        fields = "__all__"
+        fields = ["id", "image", "image_url", "url", "title", "user_name", "created_at"]
+        read_only_fields = ["id", "user_name", "created_at"]
+
+    def get_image_url(self, obj):
+        request = self.context.get("request")
+        if obj.image:
+            if request:
+                return request.build_absolute_uri(obj.image.url)
+            return obj.image.url
+        return None
 
 
 class ReportProblemSerializer(serializers.ModelSerializer):

@@ -5,7 +5,7 @@ from django.core.files.storage import default_storage
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from rest_framework import generics, status
+from rest_framework import generics, pagination, status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -47,7 +47,27 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
             status=status.HTTP_201_CREATED,
         )
 
-    
+
+
+class PostFeedAPIView(generics.ListAPIView):
+    """Community feed: all posts from all users, with is_editable per post."""
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return (
+            UserPost.objects.all()
+            .select_related("post", "user", "user__userprofile")
+            .prefetch_related("user__userlawn_set__lawn")
+            .order_by("-post__time")
+        )
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
+
+
 class PostRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
@@ -86,7 +106,7 @@ class PostRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
         )
 
 
-    def delete(self):
+    def delete(self, request, *args, **kwargs):
         instance = self.get_object()
         post = instance.post
 
@@ -98,10 +118,22 @@ class PostRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
             status=status.HTTP_200_OK,
         )
     
+class ArticlePagination(pagination.PageNumberPagination):
+    page_size = 20
+    page_size_query_param = "page_size"
+    max_page_size = 100
+
+
 class ArticlesListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ArticleSerializer
-    queryset = Articles.objects.all()
+    queryset = Articles.objects.all().order_by("-created_at")
+    pagination_class = ArticlePagination
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -113,14 +145,15 @@ class ArticlesListCreateAPIView(generics.ListCreateAPIView):
                 )
 
             try:
-                Articles.objects.create(
+                article = Articles.objects.create(
                     image=image,
                     url=serializer.validated_data["url"],
                     title=serializer.validated_data["title"],
                     user_name=request.user.username,
                 )
+                response_serializer = self.get_serializer(article)
                 return Response(
-                    {"message": "Article created successfully"},
+                    {"message": "Article created successfully", "data": response_serializer.data},
                     status=status.HTTP_201_CREATED,
                 )
             except Exception as e:
@@ -259,7 +292,14 @@ class PostDetailAPIView(APIView):
 
     def get(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
-        serializer = PostSerializer(post, context={"request": request})
+        user_post = UserPost.objects.filter(post=post).select_related(
+            "post", "user", "user__userprofile"
+        ).prefetch_related("user__userlawn_set__lawn").first()
+        if not user_post:
+            return Response(
+                {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+        serializer = PostSerializer(user_post, context={"request": request})
         return Response(serializer.data)
 
 class UserPostCommentAPIView(APIView):
