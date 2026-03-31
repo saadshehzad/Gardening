@@ -16,6 +16,7 @@ class PostSerializer(serializers.ModelSerializer):
         read_only=True,
     )
     user = serializers.CharField(source="user.username", read_only=True)
+    user_id = serializers.IntegerField(source="user.id", read_only=True)
     profile_picture = serializers.SerializerMethodField()
     location = serializers.SerializerMethodField()
     bio = serializers.SerializerMethodField()
@@ -32,6 +33,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "user",
+            "user_id",
             "profile_picture",
             "image",
             "description",
